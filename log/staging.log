@@ -1,0 +1,350 @@
+D, [2018-04-21T17:55:00.021988 #63161] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "events"[0m
+D, [2018-04-21T17:55:00.022767 #63161] DEBUG -- :   [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+D, [2018-04-21T17:55:00.023893 #63161] DEBUG -- :   [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "events" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "owner_id" integer, "name" varchar NOT NULL, "place" varchar NOT NULL, "start_time" datetime NOT NULL, "end_time" datetime NOT NULL, "content" text NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "event_image" varchar)[0m
+D, [2018-04-21T17:55:00.026388 #63161] DEBUG -- :   [1m[35m (2.2ms)[0m  [1m[35mCREATE  INDEX "index_events_on_owner_id" ON "events" ("owner_id")[0m
+D, [2018-04-21T17:55:00.026844 #63161] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "tickets"[0m
+D, [2018-04-21T17:55:00.028427 #63161] DEBUG -- :   [1m[35m (1.5ms)[0m  [1m[35mCREATE TABLE "tickets" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "event_id" integer NOT NULL, "comment" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+D, [2018-04-21T17:55:00.030221 #63161] DEBUG -- :   [1m[35m (1.5ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_tickets_on_event_id_and_user_id" ON "tickets" ("event_id", "user_id")[0m
+D, [2018-04-21T17:55:00.030590 #63161] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_tickets_on_event_id_and_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_tickets_on_event_id_and_user_id' AND type='index'
+[0m
+D, [2018-04-21T17:55:00.032260 #63161] DEBUG -- :   [1m[35m (1.4ms)[0m  [1m[35mCREATE  INDEX "index_tickets_on_event_id" ON "tickets" ("event_id")[0m
+D, [2018-04-21T17:55:00.032615 #63161] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_tickets_on_event_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_tickets_on_event_id' AND type='index'
+[0m
+D, [2018-04-21T17:55:00.032837 #63161] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_tickets_on_event_id_and_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_tickets_on_event_id_and_user_id' AND type='index'
+[0m
+D, [2018-04-21T17:55:00.052314 #63161] DEBUG -- :   [1m[35m (19.3ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_tickets_on_user_id_and_event_id" ON "tickets" ("user_id", "event_id")[0m
+D, [2018-04-21T17:55:00.052770 #63161] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_tickets_on_user_id_and_event_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_tickets_on_user_id_and_event_id' AND type='index'
+[0m
+D, [2018-04-21T17:55:00.053041 #63161] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_tickets_on_event_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_tickets_on_event_id' AND type='index'
+[0m
+D, [2018-04-21T17:55:00.053259 #63161] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_tickets_on_event_id_and_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_tickets_on_event_id_and_user_id' AND type='index'
+[0m
+D, [2018-04-21T17:55:00.054897 #63161] DEBUG -- :   [1m[35m (1.5ms)[0m  [1m[35mCREATE  INDEX "index_tickets_on_user_id" ON "tickets" ("user_id")[0m
+D, [2018-04-21T17:55:00.055381 #63161] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "users"[0m
+D, [2018-04-21T17:55:00.057578 #63161] DEBUG -- :   [1m[35m (1.8ms)[0m  [1m[35mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "uid" varchar, "provider" varchar, "username" varchar, "image_url" varchar)[0m
+D, [2018-04-21T17:55:00.059724 #63161] DEBUG -- :   [1m[35m (1.6ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+D, [2018-04-21T17:55:00.060275 #63161] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+D, [2018-04-21T17:55:00.061965 #63161] DEBUG -- :   [1m[35m (1.5ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+D, [2018-04-21T17:55:00.063938 #63161] DEBUG -- :   [1m[35m (1.4ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+D, [2018-04-21T17:55:00.076420 #63161] DEBUG -- :   [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+D, [2018-04-21T17:55:00.078865 #63161] DEBUG -- :   [1m[35m (2.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20180306142337)[0m
+D, [2018-04-21T17:55:00.080085 #63161] DEBUG -- :   [1m[35m (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20180130144728),
+(20180130145459),
+(20180203034355),
+(20180205103707),
+(20180208104631);
+
+[0m
+D, [2018-04-21T17:55:00.083335 #63161] DEBUG -- :   [1m[35m (1.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+D, [2018-04-21T17:55:00.084466 #63161] DEBUG -- :   [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+D, [2018-04-21T17:55:00.087420 #63161] DEBUG -- :   [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+D, [2018-04-21T17:55:00.088682 #63161] DEBUG -- :   [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "staging"], ["created_at", "2018-04-21 08:55:00.087646"], ["updated_at", "2018-04-21 08:55:00.087646"]]
+D, [2018-04-21T17:55:00.090465 #63161] DEBUG -- :   [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+D, [2018-04-21T17:55:00.091125 #63161] DEBUG -- :   [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+D, [2018-04-21T17:55:00.092317 #63161] DEBUG -- :   [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+D, [2018-04-21T17:55:00.092745 #63161] DEBUG -- :   [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+D, [2018-04-21T17:55:00.094592 #63161] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+D, [2018-05-03T09:32:16.614014 #19545] DEBUG -- :   [1m[35m (45.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+D, [2018-05-03T09:32:16.620522 #19545] DEBUG -- :   [1m[35m (0.8ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+D, [2018-05-03T09:32:16.621218 #19545] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+D, [2018-05-03T09:32:16.622036 #19545] DEBUG -- :   [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+D, [2018-05-03T09:32:16.622542 #19545] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+D, [2018-05-03T09:32:16.622934 #19545] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+D, [2018-05-03T09:32:16.631536 #19545] DEBUG -- :   [1m[35m (5.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "events"[0m
+D, [2018-05-03T09:32:16.632137 #19545] DEBUG -- :   [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+D, [2018-05-03T09:32:16.633204 #19545] DEBUG -- :   [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "events" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "owner_id" integer, "name" varchar NOT NULL, "place" varchar NOT NULL, "start_time" datetime NOT NULL, "end_time" datetime NOT NULL, "content" text NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "event_image" varchar)[0m
+D, [2018-05-03T09:32:16.634920 #19545] DEBUG -- :   [1m[35m (1.4ms)[0m  [1m[35mCREATE  INDEX "index_events_on_owner_id" ON "events" ("owner_id")[0m
+D, [2018-05-03T09:32:16.639843 #19545] DEBUG -- :   [1m[35m (4.6ms)[0m  [1m[35mDROP TABLE IF EXISTS "tickets"[0m
+D, [2018-05-03T09:32:16.641640 #19545] DEBUG -- :   [1m[35m (1.6ms)[0m  [1m[35mCREATE TABLE "tickets" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "event_id" integer NOT NULL, "comment" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+D, [2018-05-03T09:32:16.643286 #19545] DEBUG -- :   [1m[35m (1.3ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_tickets_on_event_id_and_user_id" ON "tickets" ("event_id", "user_id")[0m
+D, [2018-05-03T09:32:16.645177 #19545] DEBUG -- :   [1m[35m (1.4ms)[0m  [1m[35mCREATE  INDEX "index_tickets_on_event_id" ON "tickets" ("event_id")[0m
+D, [2018-05-03T09:32:16.646991 #19545] DEBUG -- :   [1m[35m (1.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_tickets_on_user_id_and_event_id" ON "tickets" ("user_id", "event_id")[0m
+D, [2018-05-03T09:32:16.648931 #19545] DEBUG -- :   [1m[35m (1.0ms)[0m  [1m[35mCREATE  INDEX "index_tickets_on_user_id" ON "tickets" ("user_id")[0m
+D, [2018-05-03T09:32:16.651567 #19545] DEBUG -- :   [1m[35m (2.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "users"[0m
+D, [2018-05-03T09:32:16.653580 #19545] DEBUG -- :   [1m[35m (1.6ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "uid" varchar, "provider" varchar, "username" varchar, "image_url" varchar)[0m
+D, [2018-05-03T09:32:16.655373 #19545] DEBUG -- :   [1m[35m (1.5ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+D, [2018-05-03T09:32:16.657172 #19545] DEBUG -- :   [1m[35m (1.3ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+D, [2018-05-03T09:32:16.657843 #19545] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+D, [2018-05-03T09:32:16.658889 #19545] DEBUG -- :   [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+D, [2018-05-03T09:32:16.663568 #19545] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+D, [2018-05-03T09:32:16.664382 #19545] DEBUG -- :   [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+D, [2018-05-03T09:32:16.665178 #19545] DEBUG -- :   [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+D, [2018-05-03T09:32:16.665424 #19545] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+D, [2018-05-03T09:32:16.665825 #19545] DEBUG -- :   [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+D, [2018-05-03T09:32:16.668210 #19545] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+D, [2018-05-18T21:15:39.216126 #2061] DEBUG -- :   [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+D, [2018-05-18T21:15:39.221897 #2061] DEBUG -- :   [1m[35m (0.7ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+D, [2018-05-18T21:15:39.222436 #2061] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+D, [2018-05-18T21:15:39.222920 #2061] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+D, [2018-05-18T21:15:39.223291 #2061] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+D, [2018-05-18T21:15:39.223683 #2061] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+D, [2018-05-18T21:15:39.231508 #2061] DEBUG -- :   [1m[35m (2.9ms)[0m  [1m[35mDROP TABLE IF EXISTS "events"[0m
+D, [2018-05-18T21:15:39.232424 #2061] DEBUG -- :   [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+D, [2018-05-18T21:15:39.234045 #2061] DEBUG -- :   [1m[35m (1.4ms)[0m  [1m[35mCREATE TABLE "events" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "owner_id" integer, "name" varchar NOT NULL, "place" varchar NOT NULL, "start_time" datetime NOT NULL, "end_time" datetime NOT NULL, "content" text NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "event_image" varchar)[0m
+D, [2018-05-18T21:15:39.235696 #2061] DEBUG -- :   [1m[35m (1.2ms)[0m  [1m[35mCREATE  INDEX "index_events_on_owner_id" ON "events" ("owner_id")[0m
+D, [2018-05-18T21:15:39.238322 #2061] DEBUG -- :   [1m[35m (2.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "tickets"[0m
+D, [2018-05-18T21:15:39.241936 #2061] DEBUG -- :   [1m[35m (3.4ms)[0m  [1m[35mCREATE TABLE "tickets" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "event_id" integer NOT NULL, "comment" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+D, [2018-05-18T21:15:39.243988 #2061] DEBUG -- :   [1m[35m (1.6ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_tickets_on_event_id_and_user_id" ON "tickets" ("event_id", "user_id")[0m
+D, [2018-05-18T21:15:39.246208 #2061] DEBUG -- :   [1m[35m (1.6ms)[0m  [1m[35mCREATE  INDEX "index_tickets_on_event_id" ON "tickets" ("event_id")[0m
+D, [2018-05-18T21:15:39.248335 #2061] DEBUG -- :   [1m[35m (1.3ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_tickets_on_user_id_and_event_id" ON "tickets" ("user_id", "event_id")[0m
+D, [2018-05-18T21:15:39.250392 #2061] DEBUG -- :   [1m[35m (1.1ms)[0m  [1m[35mCREATE  INDEX "index_tickets_on_user_id" ON "tickets" ("user_id")[0m
+D, [2018-05-18T21:15:39.252855 #2061] DEBUG -- :   [1m[35m (2.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "users"[0m
+D, [2018-05-18T21:15:39.255775 #2061] DEBUG -- :   [1m[35m (2.4ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "uid" varchar, "provider" varchar, "username" varchar, "image_url" varchar)[0m
+D, [2018-05-18T21:15:39.257324 #2061] DEBUG -- :   [1m[35m (1.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+D, [2018-05-18T21:15:39.258900 #2061] DEBUG -- :   [1m[35m (1.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+D, [2018-05-18T21:15:39.259791 #2061] DEBUG -- :   [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+D, [2018-05-18T21:15:39.261208 #2061] DEBUG -- :   [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+D, [2018-05-18T21:15:39.270605 #2061] DEBUG -- :   [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+D, [2018-05-18T21:15:39.271220 #2061] DEBUG -- :   [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+D, [2018-05-18T21:15:39.271798 #2061] DEBUG -- :   [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+D, [2018-05-18T21:15:39.271948 #2061] DEBUG -- :   [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+D, [2018-05-18T21:15:39.272225 #2061] DEBUG -- :   [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+D, [2018-05-18T21:15:39.273959 #2061] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+D, [2018-05-18T21:24:58.568271 #2109] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+D, [2018-05-18T21:24:58.571922 #2109] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+D, [2018-05-18T21:24:58.572335 #2109] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+D, [2018-05-18T21:24:58.572744 #2109] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+D, [2018-05-18T21:24:58.573092 #2109] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+D, [2018-05-18T21:24:58.573462 #2109] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+D, [2018-05-18T21:24:58.578794 #2109] DEBUG -- :   [1m[35m (2.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "events"[0m
+D, [2018-05-18T21:24:58.579096 #2109] DEBUG -- :   [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+D, [2018-05-18T21:24:58.580931 #2109] DEBUG -- :   [1m[35m (1.7ms)[0m  [1m[35mCREATE TABLE "events" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "owner_id" integer, "name" varchar NOT NULL, "place" varchar NOT NULL, "start_time" datetime NOT NULL, "end_time" datetime NOT NULL, "content" text NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "event_image" varchar)[0m
+D, [2018-05-18T21:24:58.582587 #2109] DEBUG -- :   [1m[35m (1.3ms)[0m  [1m[35mCREATE  INDEX "index_events_on_owner_id" ON "events" ("owner_id")[0m
+D, [2018-05-18T21:24:58.584773 #2109] DEBUG -- :   [1m[35m (1.8ms)[0m  [1m[35mDROP TABLE IF EXISTS "tickets"[0m
+D, [2018-05-18T21:24:58.586861 #2109] DEBUG -- :   [1m[35m (1.8ms)[0m  [1m[35mCREATE TABLE "tickets" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "event_id" integer NOT NULL, "comment" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+D, [2018-05-18T21:24:58.603281 #2109] DEBUG -- :   [1m[35m (15.8ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_tickets_on_event_id_and_user_id" ON "tickets" ("event_id", "user_id")[0m
+D, [2018-05-18T21:24:58.605291 #2109] DEBUG -- :   [1m[35m (1.3ms)[0m  [1m[35mCREATE  INDEX "index_tickets_on_event_id" ON "tickets" ("event_id")[0m
+D, [2018-05-18T21:24:58.607116 #2109] DEBUG -- :   [1m[35m (1.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_tickets_on_user_id_and_event_id" ON "tickets" ("user_id", "event_id")[0m
+D, [2018-05-18T21:24:58.609266 #2109] DEBUG -- :   [1m[35m (1.2ms)[0m  [1m[35mCREATE  INDEX "index_tickets_on_user_id" ON "tickets" ("user_id")[0m
+D, [2018-05-18T21:24:58.611304 #2109] DEBUG -- :   [1m[35m (1.6ms)[0m  [1m[35mDROP TABLE IF EXISTS "users"[0m
+D, [2018-05-18T21:24:58.613499 #2109] DEBUG -- :   [1m[35m (1.7ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "uid" varchar, "provider" varchar, "username" varchar, "image_url" varchar)[0m
+D, [2018-05-18T21:24:58.615411 #2109] DEBUG -- :   [1m[35m (1.4ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+D, [2018-05-18T21:24:58.617410 #2109] DEBUG -- :   [1m[35m (1.4ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+D, [2018-05-18T21:24:58.618392 #2109] DEBUG -- :   [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+D, [2018-05-18T21:24:58.619864 #2109] DEBUG -- :   [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+D, [2018-05-18T21:24:58.628490 #2109] DEBUG -- :   [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+D, [2018-05-18T21:24:58.629095 #2109] DEBUG -- :   [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+D, [2018-05-18T21:24:58.629674 #2109] DEBUG -- :   [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+D, [2018-05-18T21:24:58.629828 #2109] DEBUG -- :   [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+D, [2018-05-18T21:24:58.630258 #2109] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+D, [2018-05-18T21:24:58.633181 #2109] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+D, [2018-05-18T21:26:51.770570 #2175] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+D, [2018-05-18T21:26:51.774385 #2175] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+D, [2018-05-18T21:26:51.774813 #2175] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+D, [2018-05-18T21:26:51.775237 #2175] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+D, [2018-05-18T21:26:51.775592 #2175] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+D, [2018-05-18T21:26:51.775980 #2175] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+D, [2018-05-18T21:26:51.780336 #2175] DEBUG -- :   [1m[35m (1.8ms)[0m  [1m[35mDROP TABLE IF EXISTS "events"[0m
+D, [2018-05-18T21:26:51.780591 #2175] DEBUG -- :   [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+D, [2018-05-18T21:26:51.782114 #2175] DEBUG -- :   [1m[35m (1.4ms)[0m  [1m[35mCREATE TABLE "events" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "owner_id" integer, "name" varchar NOT NULL, "place" varchar NOT NULL, "start_time" datetime NOT NULL, "end_time" datetime NOT NULL, "content" text NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "event_image" varchar)[0m
+D, [2018-05-18T21:26:51.783684 #2175] DEBUG -- :   [1m[35m (1.2ms)[0m  [1m[35mCREATE  INDEX "index_events_on_owner_id" ON "events" ("owner_id")[0m
+D, [2018-05-18T21:26:51.785282 #2175] DEBUG -- :   [1m[35m (1.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "tickets"[0m
+D, [2018-05-18T21:26:51.787076 #2175] DEBUG -- :   [1m[35m (1.6ms)[0m  [1m[35mCREATE TABLE "tickets" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "event_id" integer NOT NULL, "comment" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+D, [2018-05-18T21:26:51.790286 #2175] DEBUG -- :   [1m[35m (2.5ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_tickets_on_event_id_and_user_id" ON "tickets" ("event_id", "user_id")[0m
+D, [2018-05-18T21:26:51.793014 #2175] DEBUG -- :   [1m[35m (1.7ms)[0m  [1m[35mCREATE  INDEX "index_tickets_on_event_id" ON "tickets" ("event_id")[0m
+D, [2018-05-18T21:26:51.796060 #2175] DEBUG -- :   [1m[35m (1.9ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_tickets_on_user_id_and_event_id" ON "tickets" ("user_id", "event_id")[0m
+D, [2018-05-18T21:26:51.799019 #2175] DEBUG -- :   [1m[35m (1.7ms)[0m  [1m[35mCREATE  INDEX "index_tickets_on_user_id" ON "tickets" ("user_id")[0m
+D, [2018-05-18T21:26:51.801083 #2175] DEBUG -- :   [1m[35m (1.6ms)[0m  [1m[35mDROP TABLE IF EXISTS "users"[0m
+D, [2018-05-18T21:26:51.803311 #2175] DEBUG -- :   [1m[35m (1.7ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "uid" varchar, "provider" varchar, "username" varchar, "image_url" varchar)[0m
+D, [2018-05-18T21:26:51.804976 #2175] DEBUG -- :   [1m[35m (1.3ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+D, [2018-05-18T21:26:51.806694 #2175] DEBUG -- :   [1m[35m (1.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+D, [2018-05-18T21:26:51.807364 #2175] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+D, [2018-05-18T21:26:51.808164 #2175] DEBUG -- :   [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+D, [2018-05-18T21:26:51.815772 #2175] DEBUG -- :   [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+D, [2018-05-18T21:26:51.816395 #2175] DEBUG -- :   [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+D, [2018-05-18T21:26:51.816975 #2175] DEBUG -- :   [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+D, [2018-05-18T21:26:51.817125 #2175] DEBUG -- :   [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+D, [2018-05-18T21:26:51.817467 #2175] DEBUG -- :   [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+D, [2018-05-18T21:26:51.819824 #2175] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+I, [2018-05-18T21:28:14.873984 #2203]  INFO -- : [97ac88be-f6bd-41da-a894-6bb096bf3dd7] Started GET "/" for 127.0.0.1 at 2018-05-18 21:28:14 +0900
+I, [2018-05-18T21:28:14.882123 #2203]  INFO -- : [97ac88be-f6bd-41da-a894-6bb096bf3dd7] Processing by WelcomeController#index as HTML
+I, [2018-05-18T21:28:14.901717 #2203]  INFO -- : [97ac88be-f6bd-41da-a894-6bb096bf3dd7]   Rendering welcome/index.html.erb within layouts/application
+D, [2018-05-18T21:28:15.121794 #2203] DEBUG -- : [97ac88be-f6bd-41da-a894-6bb096bf3dd7]   [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT  DISTINCT "events".* FROM "events" WHERE "events"."start_time" >= '2018-05-18 12:28:14.883066' ORDER BY "events"."start_time" ASC LIMIT ? OFFSET ?[0m  [["LIMIT", 5], ["OFFSET", 0]]
+I, [2018-05-18T21:28:15.126518 #2203]  INFO -- : [97ac88be-f6bd-41da-a894-6bb096bf3dd7]   Rendered welcome/index.html.erb within layouts/application (224.7ms)
+I, [2018-05-18T21:28:15.128659 #2203]  INFO -- : [97ac88be-f6bd-41da-a894-6bb096bf3dd7] Completed 500 Internal Server Error in 246ms (ActiveRecord: 0.9ms)
+F, [2018-05-18T21:28:15.129193 #2203] FATAL -- : [97ac88be-f6bd-41da-a894-6bb096bf3dd7]   
+F, [2018-05-18T21:28:15.129220 #2203] FATAL -- : [97ac88be-f6bd-41da-a894-6bb096bf3dd7] ActionView::Template::Error (The asset "application.css" is not present in the asset pipeline.):
+F, [2018-05-18T21:28:15.129298 #2203] FATAL -- : [97ac88be-f6bd-41da-a894-6bb096bf3dd7]     4:     <title>AwesomeEvents</title>
+[97ac88be-f6bd-41da-a894-6bb096bf3dd7]     5:     <meta charset="utf-8">
+[97ac88be-f6bd-41da-a894-6bb096bf3dd7]     6:     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+[97ac88be-f6bd-41da-a894-6bb096bf3dd7]     7:     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+[97ac88be-f6bd-41da-a894-6bb096bf3dd7]     8:     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+[97ac88be-f6bd-41da-a894-6bb096bf3dd7]     9:     <%= csrf_meta_tags %>
+[97ac88be-f6bd-41da-a894-6bb096bf3dd7]    10:   </head>
+F, [2018-05-18T21:28:15.129317 #2203] FATAL -- : [97ac88be-f6bd-41da-a894-6bb096bf3dd7]   
+F, [2018-05-18T21:28:15.129336 #2203] FATAL -- : [97ac88be-f6bd-41da-a894-6bb096bf3dd7] app/views/layouts/application.html.erb:7:in `_app_views_layouts_application_html_erb___624536669775864884_70237283293420'
+I, [2018-05-18T21:28:22.574393 #2203]  INFO -- : [c22686f2-85e9-4643-898e-34e994f0ca89] Started GET "/" for 127.0.0.1 at 2018-05-18 21:28:22 +0900
+I, [2018-05-18T21:28:22.575037 #2203]  INFO -- : [c22686f2-85e9-4643-898e-34e994f0ca89] Processing by WelcomeController#index as HTML
+I, [2018-05-18T21:28:22.576084 #2203]  INFO -- : [c22686f2-85e9-4643-898e-34e994f0ca89]   Rendering welcome/index.html.erb within layouts/application
+D, [2018-05-18T21:28:22.577683 #2203] DEBUG -- : [c22686f2-85e9-4643-898e-34e994f0ca89]   [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT  DISTINCT "events".* FROM "events" WHERE "events"."start_time" >= '2018-05-18 12:28:22.575365' ORDER BY "events"."start_time" ASC LIMIT ? OFFSET ?[0m  [["LIMIT", 5], ["OFFSET", 0]]
+I, [2018-05-18T21:28:22.577947 #2203]  INFO -- : [c22686f2-85e9-4643-898e-34e994f0ca89]   Rendered welcome/index.html.erb within layouts/application (1.8ms)
+I, [2018-05-18T21:28:22.579468 #2203]  INFO -- : [c22686f2-85e9-4643-898e-34e994f0ca89] Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.2ms)
+F, [2018-05-18T21:28:22.580017 #2203] FATAL -- : [c22686f2-85e9-4643-898e-34e994f0ca89]   
+F, [2018-05-18T21:28:22.580043 #2203] FATAL -- : [c22686f2-85e9-4643-898e-34e994f0ca89] ActionView::Template::Error (The asset "application.css" is not present in the asset pipeline.):
+F, [2018-05-18T21:28:22.580127 #2203] FATAL -- : [c22686f2-85e9-4643-898e-34e994f0ca89]     4:     <title>AwesomeEvents</title>
+[c22686f2-85e9-4643-898e-34e994f0ca89]     5:     <meta charset="utf-8">
+[c22686f2-85e9-4643-898e-34e994f0ca89]     6:     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+[c22686f2-85e9-4643-898e-34e994f0ca89]     7:     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+[c22686f2-85e9-4643-898e-34e994f0ca89]     8:     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+[c22686f2-85e9-4643-898e-34e994f0ca89]     9:     <%= csrf_meta_tags %>
+[c22686f2-85e9-4643-898e-34e994f0ca89]    10:   </head>
+F, [2018-05-18T21:28:22.580160 #2203] FATAL -- : [c22686f2-85e9-4643-898e-34e994f0ca89]   
+F, [2018-05-18T21:28:22.580179 #2203] FATAL -- : [c22686f2-85e9-4643-898e-34e994f0ca89] app/views/layouts/application.html.erb:7:in `_app_views_layouts_application_html_erb___624536669775864884_70237283293420'
+D, [2018-05-19T07:48:00.414017 #1424] DEBUG -- :   [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+D, [2018-05-19T07:48:00.422357 #1424] DEBUG -- :   [1m[35m (1.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+D, [2018-05-19T07:48:00.422971 #1424] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+D, [2018-05-19T07:48:00.423440 #1424] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+D, [2018-05-19T07:48:00.423810 #1424] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+D, [2018-05-19T07:48:00.424206 #1424] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+D, [2018-05-19T07:48:00.430412 #1424] DEBUG -- :   [1m[35m (2.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "events"[0m
+D, [2018-05-19T07:48:00.431016 #1424] DEBUG -- :   [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+D, [2018-05-19T07:48:00.432661 #1424] DEBUG -- :   [1m[35m (1.5ms)[0m  [1m[35mCREATE TABLE "events" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "owner_id" integer, "name" varchar NOT NULL, "place" varchar NOT NULL, "start_time" datetime NOT NULL, "end_time" datetime NOT NULL, "content" text NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "event_image" varchar)[0m
+D, [2018-05-19T07:48:00.434411 #1424] DEBUG -- :   [1m[35m (1.4ms)[0m  [1m[35mCREATE  INDEX "index_events_on_owner_id" ON "events" ("owner_id")[0m
+D, [2018-05-19T07:48:00.437138 #1424] DEBUG -- :   [1m[35m (2.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "tickets"[0m
+D, [2018-05-19T07:48:00.438851 #1424] DEBUG -- :   [1m[35m (1.5ms)[0m  [1m[35mCREATE TABLE "tickets" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "event_id" integer NOT NULL, "comment" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+D, [2018-05-19T07:48:00.441095 #1424] DEBUG -- :   [1m[35m (1.8ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_tickets_on_event_id_and_user_id" ON "tickets" ("event_id", "user_id")[0m
+D, [2018-05-19T07:48:00.443739 #1424] DEBUG -- :   [1m[35m (1.8ms)[0m  [1m[35mCREATE  INDEX "index_tickets_on_event_id" ON "tickets" ("event_id")[0m
+D, [2018-05-19T07:48:00.446658 #1424] DEBUG -- :   [1m[35m (2.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_tickets_on_user_id_and_event_id" ON "tickets" ("user_id", "event_id")[0m
+D, [2018-05-19T07:48:00.448890 #1424] DEBUG -- :   [1m[35m (1.3ms)[0m  [1m[35mCREATE  INDEX "index_tickets_on_user_id" ON "tickets" ("user_id")[0m
+D, [2018-05-19T07:48:00.451453 #1424] DEBUG -- :   [1m[35m (2.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "users"[0m
+D, [2018-05-19T07:48:00.453940 #1424] DEBUG -- :   [1m[35m (1.9ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "uid" varchar, "provider" varchar, "username" varchar, "image_url" varchar)[0m
+D, [2018-05-19T07:48:00.455553 #1424] DEBUG -- :   [1m[35m (1.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+D, [2018-05-19T07:48:00.457346 #1424] DEBUG -- :   [1m[35m (1.3ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+D, [2018-05-19T07:48:00.458077 #1424] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+D, [2018-05-19T07:48:00.459008 #1424] DEBUG -- :   [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+D, [2018-05-19T07:48:00.464138 #1424] DEBUG -- :   [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+D, [2018-05-19T07:48:00.464727 #1424] DEBUG -- :   [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+D, [2018-05-19T07:48:00.465280 #1424] DEBUG -- :   [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+D, [2018-05-19T07:48:00.465426 #1424] DEBUG -- :   [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+D, [2018-05-19T07:48:00.465717 #1424] DEBUG -- :   [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+D, [2018-05-19T07:48:00.467555 #1424] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+D, [2018-05-19T07:49:20.256310 #1456] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+I, [2018-05-19T07:50:06.488491 #1488]  INFO -- : [ecc3feda-2780-441f-a02a-6f19b1f864b3] Started GET "/" for 127.0.0.1 at 2018-05-19 07:50:06 +0900
+I, [2018-05-19T07:50:06.496477 #1488]  INFO -- : [ecc3feda-2780-441f-a02a-6f19b1f864b3] Processing by WelcomeController#index as HTML
+I, [2018-05-19T07:50:06.516286 #1488]  INFO -- : [ecc3feda-2780-441f-a02a-6f19b1f864b3]   Rendering welcome/index.html.erb within layouts/application
+D, [2018-05-19T07:50:06.749267 #1488] DEBUG -- : [ecc3feda-2780-441f-a02a-6f19b1f864b3]   [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT  DISTINCT "events".* FROM "events" WHERE "events"."start_time" >= '2018-05-18 22:50:06.497420' ORDER BY "events"."start_time" ASC LIMIT ? OFFSET ?[0m  [["LIMIT", 5], ["OFFSET", 0]]
+I, [2018-05-19T07:50:06.753905 #1488]  INFO -- : [ecc3feda-2780-441f-a02a-6f19b1f864b3]   Rendered welcome/index.html.erb within layouts/application (237.5ms)
+I, [2018-05-19T07:50:06.755927 #1488]  INFO -- : [ecc3feda-2780-441f-a02a-6f19b1f864b3] Completed 500 Internal Server Error in 259ms (ActiveRecord: 0.7ms)
+F, [2018-05-19T07:50:06.756464 #1488] FATAL -- : [ecc3feda-2780-441f-a02a-6f19b1f864b3]   
+F, [2018-05-19T07:50:06.756491 #1488] FATAL -- : [ecc3feda-2780-441f-a02a-6f19b1f864b3] ActionView::Template::Error (The asset "application.css" is not present in the asset pipeline.):
+F, [2018-05-19T07:50:06.756587 #1488] FATAL -- : [ecc3feda-2780-441f-a02a-6f19b1f864b3]     4:     <title>AwesomeEvents</title>
+[ecc3feda-2780-441f-a02a-6f19b1f864b3]     5:     <meta charset="utf-8">
+[ecc3feda-2780-441f-a02a-6f19b1f864b3]     6:     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+[ecc3feda-2780-441f-a02a-6f19b1f864b3]     7:     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+[ecc3feda-2780-441f-a02a-6f19b1f864b3]     8:     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+[ecc3feda-2780-441f-a02a-6f19b1f864b3]     9:     <%= csrf_meta_tags %>
+[ecc3feda-2780-441f-a02a-6f19b1f864b3]    10:   </head>
+F, [2018-05-19T07:50:06.756607 #1488] FATAL -- : [ecc3feda-2780-441f-a02a-6f19b1f864b3]   
+F, [2018-05-19T07:50:06.756626 #1488] FATAL -- : [ecc3feda-2780-441f-a02a-6f19b1f864b3] app/views/layouts/application.html.erb:7:in `_app_views_layouts_application_html_erb___234437481388970728_70196114384900'
+I, [2018-05-19T07:50:12.816525 #1488]  INFO -- : [581c1a54-8d2d-4e83-9b7b-7c7494b6c905] Started GET "/" for 127.0.0.1 at 2018-05-19 07:50:12 +0900
+I, [2018-05-19T07:50:12.817196 #1488]  INFO -- : [581c1a54-8d2d-4e83-9b7b-7c7494b6c905] Processing by WelcomeController#index as HTML
+I, [2018-05-19T07:50:12.818216 #1488]  INFO -- : [581c1a54-8d2d-4e83-9b7b-7c7494b6c905]   Rendering welcome/index.html.erb within layouts/application
+D, [2018-05-19T07:50:12.819823 #1488] DEBUG -- : [581c1a54-8d2d-4e83-9b7b-7c7494b6c905]   [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT  DISTINCT "events".* FROM "events" WHERE "events"."start_time" >= '2018-05-18 22:50:12.817505' ORDER BY "events"."start_time" ASC LIMIT ? OFFSET ?[0m  [["LIMIT", 5], ["OFFSET", 0]]
+I, [2018-05-19T07:50:12.820083 #1488]  INFO -- : [581c1a54-8d2d-4e83-9b7b-7c7494b6c905]   Rendered welcome/index.html.erb within layouts/application (1.8ms)
+I, [2018-05-19T07:50:12.821568 #1488]  INFO -- : [581c1a54-8d2d-4e83-9b7b-7c7494b6c905] Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.2ms)
+F, [2018-05-19T07:50:12.822105 #1488] FATAL -- : [581c1a54-8d2d-4e83-9b7b-7c7494b6c905]   
+F, [2018-05-19T07:50:12.822131 #1488] FATAL -- : [581c1a54-8d2d-4e83-9b7b-7c7494b6c905] ActionView::Template::Error (The asset "application.css" is not present in the asset pipeline.):
+F, [2018-05-19T07:50:12.822222 #1488] FATAL -- : [581c1a54-8d2d-4e83-9b7b-7c7494b6c905]     4:     <title>AwesomeEvents</title>
+[581c1a54-8d2d-4e83-9b7b-7c7494b6c905]     5:     <meta charset="utf-8">
+[581c1a54-8d2d-4e83-9b7b-7c7494b6c905]     6:     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+[581c1a54-8d2d-4e83-9b7b-7c7494b6c905]     7:     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+[581c1a54-8d2d-4e83-9b7b-7c7494b6c905]     8:     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+[581c1a54-8d2d-4e83-9b7b-7c7494b6c905]     9:     <%= csrf_meta_tags %>
+[581c1a54-8d2d-4e83-9b7b-7c7494b6c905]    10:   </head>
+F, [2018-05-19T07:50:12.822252 #1488] FATAL -- : [581c1a54-8d2d-4e83-9b7b-7c7494b6c905]   
+F, [2018-05-19T07:50:12.822279 #1488] FATAL -- : [581c1a54-8d2d-4e83-9b7b-7c7494b6c905] app/views/layouts/application.html.erb:7:in `_app_views_layouts_application_html_erb___234437481388970728_70196114384900'
+I, [2018-05-19T07:50:21.238770 #1488]  INFO -- : [3ce11678-8bd9-4fcf-8c13-d402252a1e0a] Started GET "/" for 127.0.0.1 at 2018-05-19 07:50:21 +0900
+I, [2018-05-19T07:50:21.239368 #1488]  INFO -- : [3ce11678-8bd9-4fcf-8c13-d402252a1e0a] Processing by WelcomeController#index as HTML
+I, [2018-05-19T07:50:21.240324 #1488]  INFO -- : [3ce11678-8bd9-4fcf-8c13-d402252a1e0a]   Rendering welcome/index.html.erb within layouts/application
+D, [2018-05-19T07:50:21.241912 #1488] DEBUG -- : [3ce11678-8bd9-4fcf-8c13-d402252a1e0a]   [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT  DISTINCT "events".* FROM "events" WHERE "events"."start_time" >= '2018-05-18 22:50:21.239653' ORDER BY "events"."start_time" ASC LIMIT ? OFFSET ?[0m  [["LIMIT", 5], ["OFFSET", 0]]
+I, [2018-05-19T07:50:21.242183 #1488]  INFO -- : [3ce11678-8bd9-4fcf-8c13-d402252a1e0a]   Rendered welcome/index.html.erb within layouts/application (1.8ms)
+I, [2018-05-19T07:50:21.243736 #1488]  INFO -- : [3ce11678-8bd9-4fcf-8c13-d402252a1e0a] Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.2ms)
+F, [2018-05-19T07:50:21.244275 #1488] FATAL -- : [3ce11678-8bd9-4fcf-8c13-d402252a1e0a]   
+F, [2018-05-19T07:50:21.244303 #1488] FATAL -- : [3ce11678-8bd9-4fcf-8c13-d402252a1e0a] ActionView::Template::Error (The asset "application.css" is not present in the asset pipeline.):
+F, [2018-05-19T07:50:21.244396 #1488] FATAL -- : [3ce11678-8bd9-4fcf-8c13-d402252a1e0a]     4:     <title>AwesomeEvents</title>
+[3ce11678-8bd9-4fcf-8c13-d402252a1e0a]     5:     <meta charset="utf-8">
+[3ce11678-8bd9-4fcf-8c13-d402252a1e0a]     6:     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+[3ce11678-8bd9-4fcf-8c13-d402252a1e0a]     7:     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+[3ce11678-8bd9-4fcf-8c13-d402252a1e0a]     8:     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+[3ce11678-8bd9-4fcf-8c13-d402252a1e0a]     9:     <%= csrf_meta_tags %>
+[3ce11678-8bd9-4fcf-8c13-d402252a1e0a]    10:   </head>
+F, [2018-05-19T07:50:21.244424 #1488] FATAL -- : [3ce11678-8bd9-4fcf-8c13-d402252a1e0a]   
+F, [2018-05-19T07:50:21.244444 #1488] FATAL -- : [3ce11678-8bd9-4fcf-8c13-d402252a1e0a] app/views/layouts/application.html.erb:7:in `_app_views_layouts_application_html_erb___234437481388970728_70196114384900'
+I, [2018-05-19T07:50:23.300055 #1488]  INFO -- : [09b7e43b-4a07-46f1-a347-2ec5e1b85f5b] Started GET "/" for 127.0.0.1 at 2018-05-19 07:50:23 +0900
+I, [2018-05-19T07:50:23.300655 #1488]  INFO -- : [09b7e43b-4a07-46f1-a347-2ec5e1b85f5b] Processing by WelcomeController#index as HTML
+I, [2018-05-19T07:50:23.301772 #1488]  INFO -- : [09b7e43b-4a07-46f1-a347-2ec5e1b85f5b]   Rendering welcome/index.html.erb within layouts/application
+D, [2018-05-19T07:50:23.303550 #1488] DEBUG -- : [09b7e43b-4a07-46f1-a347-2ec5e1b85f5b]   [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT  DISTINCT "events".* FROM "events" WHERE "events"."start_time" >= '2018-05-18 22:50:23.300980' ORDER BY "events"."start_time" ASC LIMIT ? OFFSET ?[0m  [["LIMIT", 5], ["OFFSET", 0]]
+I, [2018-05-19T07:50:23.303823 #1488]  INFO -- : [09b7e43b-4a07-46f1-a347-2ec5e1b85f5b]   Rendered welcome/index.html.erb within layouts/application (2.0ms)
+I, [2018-05-19T07:50:23.305302 #1488]  INFO -- : [09b7e43b-4a07-46f1-a347-2ec5e1b85f5b] Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.2ms)
+F, [2018-05-19T07:50:23.305843 #1488] FATAL -- : [09b7e43b-4a07-46f1-a347-2ec5e1b85f5b]   
+F, [2018-05-19T07:50:23.305877 #1488] FATAL -- : [09b7e43b-4a07-46f1-a347-2ec5e1b85f5b] ActionView::Template::Error (The asset "application.css" is not present in the asset pipeline.):
+F, [2018-05-19T07:50:23.305963 #1488] FATAL -- : [09b7e43b-4a07-46f1-a347-2ec5e1b85f5b]     4:     <title>AwesomeEvents</title>
+[09b7e43b-4a07-46f1-a347-2ec5e1b85f5b]     5:     <meta charset="utf-8">
+[09b7e43b-4a07-46f1-a347-2ec5e1b85f5b]     6:     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+[09b7e43b-4a07-46f1-a347-2ec5e1b85f5b]     7:     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+[09b7e43b-4a07-46f1-a347-2ec5e1b85f5b]     8:     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+[09b7e43b-4a07-46f1-a347-2ec5e1b85f5b]     9:     <%= csrf_meta_tags %>
+[09b7e43b-4a07-46f1-a347-2ec5e1b85f5b]    10:   </head>
+F, [2018-05-19T07:50:23.305991 #1488] FATAL -- : [09b7e43b-4a07-46f1-a347-2ec5e1b85f5b]   
+F, [2018-05-19T07:50:23.306021 #1488] FATAL -- : [09b7e43b-4a07-46f1-a347-2ec5e1b85f5b] app/views/layouts/application.html.erb:7:in `_app_views_layouts_application_html_erb___234437481388970728_70196114384900'
+I, [2018-05-19T07:50:39.821148 #1488]  INFO -- : [e2a0c98e-d41a-461c-b3c4-4180d09353c0] Started GET "/" for 127.0.0.1 at 2018-05-19 07:50:39 +0900
+I, [2018-05-19T07:50:39.821745 #1488]  INFO -- : [e2a0c98e-d41a-461c-b3c4-4180d09353c0] Processing by WelcomeController#index as HTML
+I, [2018-05-19T07:50:39.822706 #1488]  INFO -- : [e2a0c98e-d41a-461c-b3c4-4180d09353c0]   Rendering welcome/index.html.erb within layouts/application
+D, [2018-05-19T07:50:39.824355 #1488] DEBUG -- : [e2a0c98e-d41a-461c-b3c4-4180d09353c0]   [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT  DISTINCT "events".* FROM "events" WHERE "events"."start_time" >= '2018-05-18 22:50:39.822003' ORDER BY "events"."start_time" ASC LIMIT ? OFFSET ?[0m  [["LIMIT", 5], ["OFFSET", 0]]
+I, [2018-05-19T07:50:39.824627 #1488]  INFO -- : [e2a0c98e-d41a-461c-b3c4-4180d09353c0]   Rendered welcome/index.html.erb within layouts/application (1.9ms)
+I, [2018-05-19T07:50:39.826131 #1488]  INFO -- : [e2a0c98e-d41a-461c-b3c4-4180d09353c0] Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.2ms)
+F, [2018-05-19T07:50:39.826708 #1488] FATAL -- : [e2a0c98e-d41a-461c-b3c4-4180d09353c0]   
+F, [2018-05-19T07:50:39.826734 #1488] FATAL -- : [e2a0c98e-d41a-461c-b3c4-4180d09353c0] ActionView::Template::Error (The asset "application.css" is not present in the asset pipeline.):
+F, [2018-05-19T07:50:39.826817 #1488] FATAL -- : [e2a0c98e-d41a-461c-b3c4-4180d09353c0]     4:     <title>AwesomeEvents</title>
+[e2a0c98e-d41a-461c-b3c4-4180d09353c0]     5:     <meta charset="utf-8">
+[e2a0c98e-d41a-461c-b3c4-4180d09353c0]     6:     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+[e2a0c98e-d41a-461c-b3c4-4180d09353c0]     7:     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+[e2a0c98e-d41a-461c-b3c4-4180d09353c0]     8:     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+[e2a0c98e-d41a-461c-b3c4-4180d09353c0]     9:     <%= csrf_meta_tags %>
+[e2a0c98e-d41a-461c-b3c4-4180d09353c0]    10:   </head>
+F, [2018-05-19T07:50:39.826838 #1488] FATAL -- : [e2a0c98e-d41a-461c-b3c4-4180d09353c0]   
+F, [2018-05-19T07:50:39.826868 #1488] FATAL -- : [e2a0c98e-d41a-461c-b3c4-4180d09353c0] app/views/layouts/application.html.erb:7:in `_app_views_layouts_application_html_erb___234437481388970728_70196114384900'
