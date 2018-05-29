@@ -5,7 +5,7 @@ gem 'rails'
 gem 'sqlite3'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
-# Use SCSS for stylesheets
+
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
@@ -56,7 +56,6 @@ group :development do
   gem 'capistrano-rails'
   gem 'capistrano-bundler'
   gem 'capistrano3-unicorn'
-  gem 'test-unit'
 end
 
 group :staging, :production do
@@ -86,4 +85,3 @@ gem 'carrierwave'
 gem 'mini_magick'
 
 gem 'warden'
-

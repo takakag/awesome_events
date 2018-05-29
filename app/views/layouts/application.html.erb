@@ -23,13 +23,12 @@
 	    </div>
 	    <div class="cllapse navbar-collapse" id="bs-example-navbar-collapse-1" %>
 	     <ul class="nav navbar-nav navbar-right">	
-	     <li><%= link_to 'イベントを作る', new_event_path %></li>
-	     <% if user_signed_in? %>
-	        <li><%= link_to 'プロフィール変更', edit_user_registration_path %></li>
+                <li><%= link_to 'イベントを作る', new_event_path %></li>
+	     <% if logged_in? %>
 		<li><%= link_to '退会', retire_user_path %></li>
-		<li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+		<li><%= link_to 'ログアウト', logout_path %></li>
 	     <% else %>
-		<li><%= link_to 'twitterからログイン', new_user_session_path %></li>
+		<li><%= link_to 'twitterからログイン', '/auth/twitter' %></li>
 	     <% end %>
 	     </ul>
 	     </div>
@@ -37,8 +36,16 @@
 	</nav>
 	
 	<div class="container">
-	<p class=“notice”><%= notice %></p>
-	<p class=“alert”><%= alert %></p>
+          <% if flash[:notice] %>
+            <div class="alert alert-success">
+              <%= flash[:notice] %>
+            </div>
+          <% end %>
+          <% if flash[:alert] %>
+            <div class="alert alert-danger">
+              <%= flash[:alert] %>
+            </div>
+          <% end %>
 	
     <%= yield %>
 	</div>

@@ -1,6 +1,6 @@
 module ApplicationHelper
   def url_for_twitter(user)
-    "https://twitter.com/#{user.username}"
+    "https://twitter.com/#{user.nickname}"
   end
 
 

@@ -7,7 +7,7 @@ class EventImageUploader < CarrierWave::Uploader::Base
   storage :file
   # storage :fog
 
-  process :resize_to_limit => [1130, 1130]
+  process :resize_to_limit => [1130,1130]
 
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
@@ -37,7 +37,8 @@ class EventImageUploader < CarrierWave::Uploader::Base
 
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
-  def extension_whitelist
+
+  def extension_white_list
     %w(jpg jpeg gif png)
   end
 

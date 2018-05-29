@@ -17,9 +17,9 @@
        </div>
        <div class="panel-body">
          <% if @event.owner %>
-           <%= link_to("https://twitter.com/#{@event.owner.username}") do %>
+           <%= link_to("https://twitter.com/#{@event.owner.nickname}") do %>
              <%= image_tag @event.owner.image_url %>
-             <%= "@#{@event.owner.username}" %>
+             <%= "@#{@event.owner.nickname}" %>
            <% end %>
          <% else %>
            退会したユーザーです。
@@ -58,7 +58,7 @@
     <% end %>
     <% if @ticket %>
       <%= link_to '参加をキャンセルする', event_ticket_path(@event, @ticket), method: :delete, class: 'btn btn-warning btn-lg btn-block' %>
-    <% elsif user_signed_in? %>
+    <% elsif logged_in? %>
       <button class="btn btn-primary btn-lg btn-block" data-toggle="modal" data-target="#createTicket">
 	参加する
 　　　</button>
@@ -96,7 +96,7 @@
 	    　　　　<li>
 　　　　　　　　　　　　　<%= link_to(url_for_twitter(ticket.user)) do %>
 		　　　　　<%= image_tag ticket.user.image_url, width: 20, height: 20 %>
-		　　　　　<%= "@#{ticket.user.username}" %>
+		　　　　　<%= "@#{ticket.user.nickname}" %>
 	     　　　　　<% end %>
              　　　　　<%= ticket.comment %>
 	   　　　　　</li>
