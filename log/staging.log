@@ -348,3 +348,89 @@ F, [2018-05-19T07:50:39.826817 #1488] FATAL -- : [e2a0c98e-d41a-461c-b3c4-4180d0
 [e2a0c98e-d41a-461c-b3c4-4180d09353c0]    10:   </head>
 F, [2018-05-19T07:50:39.826838 #1488] FATAL -- : [e2a0c98e-d41a-461c-b3c4-4180d09353c0]   
 F, [2018-05-19T07:50:39.826868 #1488] FATAL -- : [e2a0c98e-d41a-461c-b3c4-4180d09353c0] app/views/layouts/application.html.erb:7:in `_app_views_layouts_application_html_erb___234437481388970728_70196114384900'
+D, [2018-05-29T20:44:34.154187 #2723] DEBUG -- :   [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+D, [2018-05-29T20:44:34.158182 #2723] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+D, [2018-05-29T20:44:34.158654 #2723] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+D, [2018-05-29T20:44:34.159075 #2723] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+D, [2018-05-29T20:44:34.159446 #2723] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+D, [2018-05-29T20:44:34.159841 #2723] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+D, [2018-05-29T20:44:34.163800 #2723] DEBUG -- :   [1m[35m (1.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "events"[0m
+D, [2018-05-29T20:44:34.164085 #2723] DEBUG -- :   [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+D, [2018-05-29T20:44:34.166009 #2723] DEBUG -- :   [1m[35m (1.8ms)[0m  [1m[35mCREATE TABLE "events" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "owner_id" integer, "name" varchar NOT NULL, "place" varchar NOT NULL, "start_time" datetime NOT NULL, "end_time" datetime NOT NULL, "content" text NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "event_image" varchar)[0m
+D, [2018-05-29T20:44:34.167523 #2723] DEBUG -- :   [1m[35m (0.9ms)[0m  [1m[35mCREATE  INDEX "index_events_on_owner_id" ON "events" ("owner_id")[0m
+D, [2018-05-29T20:44:34.169054 #2723] DEBUG -- :   [1m[35m (1.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "tickets"[0m
+D, [2018-05-29T20:44:34.170476 #2723] DEBUG -- :   [1m[35m (1.2ms)[0m  [1m[35mCREATE TABLE "tickets" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "event_id" integer NOT NULL, "comment" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+D, [2018-05-29T20:44:34.171778 #2723] DEBUG -- :   [1m[35m (0.9ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_tickets_on_event_id_and_user_id" ON "tickets" ("event_id", "user_id")[0m
+D, [2018-05-29T20:44:34.173522 #2723] DEBUG -- :   [1m[35m (1.1ms)[0m  [1m[35mCREATE  INDEX "index_tickets_on_event_id" ON "tickets" ("event_id")[0m
+D, [2018-05-29T20:44:34.175099 #2723] DEBUG -- :   [1m[35m (0.9ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_tickets_on_user_id_and_event_id" ON "tickets" ("user_id", "event_id")[0m
+D, [2018-05-29T20:44:34.176758 #2723] DEBUG -- :   [1m[35m (0.8ms)[0m  [1m[35mCREATE  INDEX "index_tickets_on_user_id" ON "tickets" ("user_id")[0m
+D, [2018-05-29T20:44:34.178065 #2723] DEBUG -- :   [1m[35m (1.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "users"[0m
+D, [2018-05-29T20:44:34.179122 #2723] DEBUG -- :   [1m[35m (0.9ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "provider" varchar NOT NULL, "uid" varchar NOT NULL, "nickname" varchar NOT NULL, "image_url" varchar NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+D, [2018-05-29T20:44:34.180326 #2723] DEBUG -- :   [1m[35m (0.9ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_provider_and_uid" ON "users" ("provider", "uid")[0m
+D, [2018-05-29T20:44:34.181003 #2723] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+D, [2018-05-29T20:44:34.183184 #2723] DEBUG -- :   [1m[35m (1.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20180529100404)[0m
+D, [2018-05-29T20:44:34.184192 #2723] DEBUG -- :   [1m[35m (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20180527015947);
+
+[0m
+D, [2018-05-29T20:44:34.185074 #2723] DEBUG -- :   [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+D, [2018-05-29T20:44:34.189384 #2723] DEBUG -- :   [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+D, [2018-05-29T20:44:34.189963 #2723] DEBUG -- :   [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+D, [2018-05-29T20:44:34.190506 #2723] DEBUG -- :   [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+D, [2018-05-29T20:44:34.190696 #2723] DEBUG -- :   [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+D, [2018-05-29T20:44:34.190958 #2723] DEBUG -- :   [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+D, [2018-05-29T20:44:34.193638 #2723] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+D, [2018-05-29T20:54:04.044237 #2823] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+D, [2018-05-29T20:54:04.048557 #2823] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+D, [2018-05-29T20:54:04.049006 #2823] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+D, [2018-05-29T20:54:04.049435 #2823] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+D, [2018-05-29T20:54:04.049779 #2823] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+D, [2018-05-29T20:54:04.050157 #2823] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+D, [2018-05-29T20:54:04.053901 #2823] DEBUG -- :   [1m[35m (1.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "events"[0m
+D, [2018-05-29T20:54:04.054179 #2823] DEBUG -- :   [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+D, [2018-05-29T20:54:04.055902 #2823] DEBUG -- :   [1m[35m (1.6ms)[0m  [1m[35mCREATE TABLE "events" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "owner_id" integer, "name" varchar NOT NULL, "place" varchar NOT NULL, "start_time" datetime NOT NULL, "end_time" datetime NOT NULL, "content" text NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "event_image" varchar)[0m
+D, [2018-05-29T20:54:04.057190 #2823] DEBUG -- :   [1m[35m (0.9ms)[0m  [1m[35mCREATE  INDEX "index_events_on_owner_id" ON "events" ("owner_id")[0m
+D, [2018-05-29T20:54:04.058844 #2823] DEBUG -- :   [1m[35m (1.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "tickets"[0m
+D, [2018-05-29T20:54:04.060283 #2823] DEBUG -- :   [1m[35m (1.2ms)[0m  [1m[35mCREATE TABLE "tickets" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "event_id" integer NOT NULL, "comment" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+D, [2018-05-29T20:54:04.061882 #2823] DEBUG -- :   [1m[35m (1.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_tickets_on_event_id_and_user_id" ON "tickets" ("event_id", "user_id")[0m
+D, [2018-05-29T20:54:04.063639 #2823] DEBUG -- :   [1m[35m (0.9ms)[0m  [1m[35mCREATE  INDEX "index_tickets_on_event_id" ON "tickets" ("event_id")[0m
+D, [2018-05-29T20:54:04.065628 #2823] DEBUG -- :   [1m[35m (1.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_tickets_on_user_id_and_event_id" ON "tickets" ("user_id", "event_id")[0m
+D, [2018-05-29T20:54:04.067469 #2823] DEBUG -- :   [1m[35m (0.9ms)[0m  [1m[35mCREATE  INDEX "index_tickets_on_user_id" ON "tickets" ("user_id")[0m
+D, [2018-05-29T20:54:04.068678 #2823] DEBUG -- :   [1m[35m (0.9ms)[0m  [1m[35mDROP TABLE IF EXISTS "users"[0m
+D, [2018-05-29T20:54:04.069715 #2823] DEBUG -- :   [1m[35m (0.9ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "provider" varchar NOT NULL, "uid" varchar NOT NULL, "nickname" varchar NOT NULL, "image_url" varchar NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+D, [2018-05-29T20:54:04.070891 #2823] DEBUG -- :   [1m[35m (0.9ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_provider_and_uid" ON "users" ("provider", "uid")[0m
+D, [2018-05-29T20:54:04.071743 #2823] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+D, [2018-05-29T20:54:04.072461 #2823] DEBUG -- :   [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+D, [2018-05-29T20:54:04.076623 #2823] DEBUG -- :   [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+D, [2018-05-29T20:54:04.077257 #2823] DEBUG -- :   [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+D, [2018-05-29T20:54:04.077823 #2823] DEBUG -- :   [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+D, [2018-05-29T20:54:04.077967 #2823] DEBUG -- :   [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+D, [2018-05-29T20:54:04.078229 #2823] DEBUG -- :   [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+D, [2018-05-29T20:54:04.080040 #2823] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+D, [2018-05-29T20:55:37.944511 #2857] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+D, [2018-05-29T20:55:37.948322 #2857] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+D, [2018-05-29T20:55:37.948771 #2857] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+D, [2018-05-29T20:55:37.949204 #2857] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+D, [2018-05-29T20:55:37.949549 #2857] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+D, [2018-05-29T20:55:37.949934 #2857] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+D, [2018-05-29T20:55:37.953924 #2857] DEBUG -- :   [1m[35m (1.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "events"[0m
+D, [2018-05-29T20:55:37.954167 #2857] DEBUG -- :   [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+D, [2018-05-29T20:55:37.955184 #2857] DEBUG -- :   [1m[35m (0.9ms)[0m  [1m[35mCREATE TABLE "events" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "owner_id" integer, "name" varchar NOT NULL, "place" varchar NOT NULL, "start_time" datetime NOT NULL, "end_time" datetime NOT NULL, "content" text NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "event_image" varchar)[0m
+D, [2018-05-29T20:55:37.956431 #2857] DEBUG -- :   [1m[35m (0.9ms)[0m  [1m[35mCREATE  INDEX "index_events_on_owner_id" ON "events" ("owner_id")[0m
+D, [2018-05-29T20:55:37.957635 #2857] DEBUG -- :   [1m[35m (0.9ms)[0m  [1m[35mDROP TABLE IF EXISTS "tickets"[0m
+D, [2018-05-29T20:55:37.959302 #2857] DEBUG -- :   [1m[35m (1.4ms)[0m  [1m[35mCREATE TABLE "tickets" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "event_id" integer NOT NULL, "comment" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+D, [2018-05-29T20:55:37.961208 #2857] DEBUG -- :   [1m[35m (1.3ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_tickets_on_event_id_and_user_id" ON "tickets" ("event_id", "user_id")[0m
+D, [2018-05-29T20:55:37.962943 #2857] DEBUG -- :   [1m[35m (0.8ms)[0m  [1m[35mCREATE  INDEX "index_tickets_on_event_id" ON "tickets" ("event_id")[0m
+D, [2018-05-29T20:55:37.964876 #2857] DEBUG -- :   [1m[35m (0.8ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_tickets_on_user_id_and_event_id" ON "tickets" ("user_id", "event_id")[0m
+D, [2018-05-29T20:55:37.966642 #2857] DEBUG -- :   [1m[35m (0.7ms)[0m  [1m[35mCREATE  INDEX "index_tickets_on_user_id" ON "tickets" ("user_id")[0m
+D, [2018-05-29T20:55:37.967968 #2857] DEBUG -- :   [1m[35m (0.9ms)[0m  [1m[35mDROP TABLE IF EXISTS "users"[0m
+D, [2018-05-29T20:55:37.968902 #2857] DEBUG -- :   [1m[35m (0.8ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "provider" varchar NOT NULL, "uid" varchar NOT NULL, "nickname" varchar NOT NULL, "image_url" varchar NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+D, [2018-05-29T20:55:37.970108 #2857] DEBUG -- :   [1m[35m (0.8ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_provider_and_uid" ON "users" ("provider", "uid")[0m
+D, [2018-05-29T20:55:37.970733 #2857] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+D, [2018-05-29T20:55:37.971442 #2857] DEBUG -- :   [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+D, [2018-05-29T20:55:37.975395 #2857] DEBUG -- :   [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+D, [2018-05-29T20:55:37.975979 #2857] DEBUG -- :   [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+D, [2018-05-29T20:55:37.976466 #2857] DEBUG -- :   [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+D, [2018-05-29T20:55:37.976636 #2857] DEBUG -- :   [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+D, [2018-05-29T20:55:37.976896 #2857] DEBUG -- :   [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+D, [2018-05-29T20:55:37.978652 #2857] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m

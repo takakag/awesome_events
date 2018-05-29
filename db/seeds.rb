@@ -11,7 +11,7 @@ FactoryBot.define do
         password '031526'
         provider 'twitter'
         sequence(:uid) { |i| "uid#{i}" }
-        sequence(:username) { |i| "username#{i}" }
+        sequence(:nickname) { |i| "nickname#{i}" }
         sequence(:image_url) { |i| "http://example.com/image#{i}.jpg"}
         
         
