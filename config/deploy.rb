@@ -38,23 +38,37 @@ set :scm, :git
 set :keep_releases, 5
 
 # 共有ディレクトリにSymlinkする対象を追加13yy
-#set :linked_dirs, (fetch(:linked_dirs) + ['tmp/pids'])
+set :linked_dirs, fetch(:linked_dirs, ['tmp/pids'])
 
 # Unicorn周りの設定をする
-#set :unicorn_rack_env, "none"
-#set :unicorn_config_path, 'config/unicorn.rb'
+set :unicorn_rack_env, "none"
+set :unicorn_config_path, 'config/unicorn.rb'
 
 #after 'deploy:publishing', 'deploy:restart'
-#namespace :deploy do
-#  task :restart do
-#    invoke 'unicorn:restart'
-#  end
-#end
+namespace :deploy do
+  task :restart do
+    invoke 'unicorn:restart'
+  end
+end
 
 # Uncomment the following to require manually verifying the host key before first deploy.
 # set :ssh_options, verify_host_key: :secure
-set :default_env, {
-  rbenv_root: "/usr/local/rbenv",
-  path: "~/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH"
-}
 
+#require 'capistrano-rbenv'
+#set :rbenv_ruby_version, '2.5.0'
+
+set :rbenv_root_path, '/opt/rbenv'
+#set :default_env, {
+#  rbenv_root: "/opt/rbenv",
+#  path: "opt/rbenv/shims:/opt/rbenv/plugins:$PATH"
+#}
+
+#namespace :rbenv do
+#  task :setup_shellenv do
+#    set :default_env, {
+#      'RBENV_ROOT' => "#{rbenv_path}",
+#      'PATH' => "#{rbenv_path}/shims:#{rbenv_path}/bin:$PATH"
+#    }
+#  end
+#  after 'multistage:ensure', 'rbenv:setup_shellenv'
+#end

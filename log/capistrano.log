@@ -922,3 +922,1045 @@ and the repository exists.
  DEBUG [e8e3e014] Command: cd /var/www/awesome-events/releases/20180518221323 && ( export RBENV_ROOT="/usr/local/rbenv" PATH="~/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH" ; /usr/bin/env bundle install --path /var/www/awesome-events/shared/bundle --without development test --deployment --quiet )
  DEBUG [e8e3e014] 	/usr/bin/env: bundle
  DEBUG [e8e3e014] 	: No such file or directory
+  INFO ---------------------------------------------------------------------------
+  INFO START 2018-05-31 06:05:51 +0900 cap staging deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [8aa5aff3] Running /usr/bin/env mkdir -p /tmp as ops@vagrant.local
+ DEBUG [8aa5aff3] Command: /usr/bin/env mkdir -p /tmp
+  INFO [8aa5aff3] Finished in 0.346 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-awesome_events-staging-takashi_kageyama.sh 0.0%
+  INFO Uploading /tmp/git-ssh-awesome_events-staging-takashi_kageyama.sh 100.0%
+  INFO [d273bf72] Running /usr/bin/env chmod 700 /tmp/git-ssh-awesome_events-staging-takashi_kageyama.sh as ops@vagrant.local
+ DEBUG [d273bf72] Command: /usr/bin/env chmod 700 /tmp/git-ssh-awesome_events-staging-takashi_kageyama.sh
+  INFO [d273bf72] Finished in 0.008 seconds with exit status 0 (successful).
+  INFO [c81636ff] Running /usr/bin/env git ls-remote https://github.com/takakag/awesome_events.git HEAD as ops@vagrant.local
+ DEBUG [c81636ff] Command: ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-awesome_events-staging-takashi_kageyama.sh" ; /usr/bin/env git ls-remote https://github.com/takakag/awesome_events.git HEAD )
+ DEBUG [c81636ff] 	e643a97068a9ef46f275cfd6429cce8bdfb85380	HEAD
+  INFO [c81636ff] Finished in 1.245 seconds with exit status 0 (successful).
+  INFO [f55829f6] Running /usr/bin/env mkdir -p /var/www/awesome-events/shared /var/www/awesome-events/releases as ops@vagrant.local
+ DEBUG [f55829f6] Command: /usr/bin/env mkdir -p /var/www/awesome-events/shared /var/www/awesome-events/releases
+  INFO [f55829f6] Finished in 0.008 seconds with exit status 0 (successful).
+  INFO [507192f9] Running /usr/bin/env mkdir -p /var/www/awesome-events/shared/public/assets as ops@vagrant.local
+ DEBUG [507192f9] Command: /usr/bin/env mkdir -p /var/www/awesome-events/shared/public/assets
+  INFO [507192f9] Finished in 0.022 seconds with exit status 0 (successful).
+ DEBUG [07af30a4] Running [ -f /var/www/awesome-events/current/REVISION ] as ops@vagrant.local
+ DEBUG [07af30a4] Command: [ -f /var/www/awesome-events/current/REVISION ]
+ DEBUG [07af30a4] Finished in 0.007 seconds with exit status 1 (failed).
+ DEBUG [5363e44b] Running [ -f /var/www/awesome-events/repo/HEAD ] as ops@vagrant.local
+ DEBUG [5363e44b] Command: [ -f /var/www/awesome-events/repo/HEAD ]
+ DEBUG [5363e44b] Finished in 0.006 seconds with exit status 0 (successful).
+  INFO The repository mirror is at /var/www/awesome-events/repo
+ DEBUG [a88c1393] Running if test ! -d /var/www/awesome-events/repo; then echo "Directory does not exist '/var/www/awesome-events/repo'" 1>&2; false; fi as ops@vagrant.local
+ DEBUG [a88c1393] Command: if test ! -d /var/www/awesome-events/repo; then echo "Directory does not exist '/var/www/awesome-events/repo'" 1>&2; false; fi
+ DEBUG [a88c1393] Finished in 0.006 seconds with exit status 0 (successful).
+  INFO [aee729e9] Running /usr/bin/env git remote set-url origin https://github.com/takakag/awesome_events.git as ops@vagrant.local
+ DEBUG [aee729e9] Command: cd /var/www/awesome-events/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-awesome_events-staging-takashi_kageyama.sh" ; /usr/bin/env git remote set-url origin https://github.com/takakag/awesome_events.git )
+  INFO [aee729e9] Finished in 0.032 seconds with exit status 0 (successful).
+  INFO [4d51c6e2] Running /usr/bin/env git remote update --prune as ops@vagrant.local
+ DEBUG [4d51c6e2] Command: cd /var/www/awesome-events/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-awesome_events-staging-takashi_kageyama.sh" ; /usr/bin/env git remote update --prune )
+ DEBUG [4d51c6e2] 	Fetching origin
+ DEBUG [4d51c6e2] 	From https://github.com/takakag/awesome_events
+ DEBUG [4d51c6e2] 	 x [deleted]         (none)     -> HEAD
+ DEBUG [4d51c6e2] 	warning: no common commits
+ DEBUG [4d51c6e2] 	 + 2523c99...e643a97 master     -> master  (forced update)
+  INFO [4d51c6e2] Finished in 1.746 seconds with exit status 0 (successful).
+ DEBUG [c3d3d117] Running if test ! -d /var/www/awesome-events/repo; then echo "Directory does not exist '/var/www/awesome-events/repo'" 1>&2; false; fi as ops@vagrant.local
+ DEBUG [c3d3d117] Command: if test ! -d /var/www/awesome-events/repo; then echo "Directory does not exist '/var/www/awesome-events/repo'" 1>&2; false; fi
+ DEBUG [c3d3d117] Finished in 0.006 seconds with exit status 0 (successful).
+  INFO [e4b2a971] Running /usr/bin/env mkdir -p /var/www/awesome-events/releases/20180530210553 as ops@vagrant.local
+ DEBUG [e4b2a971] Command: cd /var/www/awesome-events/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-awesome_events-staging-takashi_kageyama.sh" ; /usr/bin/env mkdir -p /var/www/awesome-events/releases/20180530210553 )
+  INFO [e4b2a971] Finished in 0.009 seconds with exit status 0 (successful).
+  INFO [2dacd1ff] Running /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /var/www/awesome-events/releases/20180530210553 as ops@vagrant.local
+ DEBUG [2dacd1ff] Command: cd /var/www/awesome-events/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-awesome_events-staging-takashi_kageyama.sh" ; /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /var/www/awesome-events/releases/20180530210553 )
+  INFO [2dacd1ff] Finished in 0.012 seconds with exit status 0 (successful).
+ DEBUG [aebc01e1] Running if test ! -d /var/www/awesome-events/repo; then echo "Directory does not exist '/var/www/awesome-events/repo'" 1>&2; false; fi as ops@vagrant.local
+ DEBUG [aebc01e1] Command: if test ! -d /var/www/awesome-events/repo; then echo "Directory does not exist '/var/www/awesome-events/repo'" 1>&2; false; fi
+ DEBUG [aebc01e1] Finished in 0.006 seconds with exit status 0 (successful).
+ DEBUG [1c37259b] Running /usr/bin/env git rev-list --max-count=1 master as ops@vagrant.local
+ DEBUG [1c37259b] Command: cd /var/www/awesome-events/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-awesome_events-staging-takashi_kageyama.sh" ; /usr/bin/env git rev-list --max-count=1 master )
+ DEBUG [1c37259b] 	e643a97068a9ef46f275cfd6429cce8bdfb85380
+ DEBUG [1c37259b] Finished in 0.010 seconds with exit status 0 (successful).
+ DEBUG [87521f7f] Running if test ! -d /var/www/awesome-events/releases/20180530210553; then echo "Directory does not exist '/var/www/awesome-events/releases/20180530210553'" 1>&2; false; fi as ops@vagrant.local
+ DEBUG [87521f7f] Command: if test ! -d /var/www/awesome-events/releases/20180530210553; then echo "Directory does not exist '/var/www/awesome-events/releases/20180530210553'" 1>&2; false; fi
+ DEBUG [87521f7f] Finished in 0.007 seconds with exit status 0 (successful).
+  INFO [ae047f1c] Running /usr/bin/env echo "e643a97068a9ef46f275cfd6429cce8bdfb85380" > REVISION as ops@vagrant.local
+ DEBUG [ae047f1c] Command: cd /var/www/awesome-events/releases/20180530210553 && /usr/bin/env echo "e643a97068a9ef46f275cfd6429cce8bdfb85380" > REVISION
+  INFO [ae047f1c] Finished in 0.008 seconds with exit status 0 (successful).
+  INFO [971a6cee] Running /usr/bin/env mkdir -p /var/www/awesome-events/releases/20180530210553/public as ops@vagrant.local
+ DEBUG [971a6cee] Command: /usr/bin/env mkdir -p /var/www/awesome-events/releases/20180530210553/public
+  INFO [971a6cee] Finished in 0.009 seconds with exit status 0 (successful).
+ DEBUG [b7f2ae16] Running [ -L /var/www/awesome-events/releases/20180530210553/public/assets ] as ops@vagrant.local
+ DEBUG [b7f2ae16] Command: [ -L /var/www/awesome-events/releases/20180530210553/public/assets ]
+ DEBUG [b7f2ae16] Finished in 0.005 seconds with exit status 1 (failed).
+ DEBUG [cbb6a54e] Running [ -d /var/www/awesome-events/releases/20180530210553/public/assets ] as ops@vagrant.local
+ DEBUG [cbb6a54e] Command: [ -d /var/www/awesome-events/releases/20180530210553/public/assets ]
+ DEBUG [cbb6a54e] Finished in 0.007 seconds with exit status 1 (failed).
+  INFO [881b242d] Running /usr/bin/env ln -s /var/www/awesome-events/shared/public/assets /var/www/awesome-events/releases/20180530210553/public/assets as ops@vagrant.local
+ DEBUG [881b242d] Command: /usr/bin/env ln -s /var/www/awesome-events/shared/public/assets /var/www/awesome-events/releases/20180530210553/public/assets
+  INFO [881b242d] Finished in 0.007 seconds with exit status 0 (successful).
+ DEBUG [ed5853cf] Running if test ! -d /var/www/awesome-events/releases/20180530210553; then echo "Directory does not exist '/var/www/awesome-events/releases/20180530210553'" 1>&2; false; fi as ops@vagrant.local
+ DEBUG [ed5853cf] Command: if test ! -d /var/www/awesome-events/releases/20180530210553; then echo "Directory does not exist '/var/www/awesome-events/releases/20180530210553'" 1>&2; false; fi
+ DEBUG [ed5853cf] Finished in 0.006 seconds with exit status 0 (successful).
+ DEBUG [32ed1c37] Running /usr/bin/env bundle check --path /var/www/awesome-events/shared/bundle as ops@vagrant.local
+ DEBUG [32ed1c37] Command: cd /var/www/awesome-events/releases/20180530210553 && /usr/bin/env bundle check --path /var/www/awesome-events/shared/bundle
+ DEBUG [32ed1c37] 	Bundler::GemfileNotFound
+ DEBUG [32ed1c37] Finished in 0.262 seconds with exit status 10 (failed).
+  INFO [9a0c4f47] Running /usr/bin/env bundle install --path /var/www/awesome-events/shared/bundle --without development test --deployment --quiet as ops@vagrant.local
+ DEBUG [9a0c4f47] Command: cd /var/www/awesome-events/releases/20180530210553 && /usr/bin/env bundle install --path /var/www/awesome-events/shared/bundle --without development test --deployment --quiet
+ DEBUG [9a0c4f47] 	Could not locate Gemfile
+  INFO ---------------------------------------------------------------------------
+  INFO START 2018-05-31 06:49:30 +0900 cap staging deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [6b85ed0b] Running /usr/bin/env mkdir -p /tmp as ops@vagrant.local
+ DEBUG [6b85ed0b] Command: /usr/bin/env mkdir -p /tmp
+  INFO [6b85ed0b] Finished in 0.373 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-awesome_events-staging-takashi_kageyama.sh 0.0%
+  INFO Uploading /tmp/git-ssh-awesome_events-staging-takashi_kageyama.sh 100.0%
+  INFO [7dd5afc7] Running /usr/bin/env chmod 700 /tmp/git-ssh-awesome_events-staging-takashi_kageyama.sh as ops@vagrant.local
+ DEBUG [7dd5afc7] Command: /usr/bin/env chmod 700 /tmp/git-ssh-awesome_events-staging-takashi_kageyama.sh
+  INFO [7dd5afc7] Finished in 0.007 seconds with exit status 0 (successful).
+  INFO [e0b3dfc0] Running /usr/bin/env git ls-remote https://github.com/takakag/awesome_events.git HEAD as ops@vagrant.local
+ DEBUG [e0b3dfc0] Command: ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-awesome_events-staging-takashi_kageyama.sh" ; /usr/bin/env git ls-remote https://github.com/takakag/awesome_events.git HEAD )
+ DEBUG [e0b3dfc0] 	db55d18f1be551049c1669dce65530b4d3d72dc1	HEAD
+  INFO [e0b3dfc0] Finished in 0.932 seconds with exit status 0 (successful).
+  INFO [25255c84] Running /usr/bin/env mkdir -p /var/www/awesome-events/shared /var/www/awesome-events/releases as ops@vagrant.local
+ DEBUG [25255c84] Command: /usr/bin/env mkdir -p /var/www/awesome-events/shared /var/www/awesome-events/releases
+  INFO [25255c84] Finished in 0.008 seconds with exit status 0 (successful).
+  INFO [cdbb232b] Running /usr/bin/env mkdir -p /var/www/awesome-events/shared/public/assets as ops@vagrant.local
+ DEBUG [cdbb232b] Command: /usr/bin/env mkdir -p /var/www/awesome-events/shared/public/assets
+  INFO [cdbb232b] Finished in 0.007 seconds with exit status 0 (successful).
+ DEBUG [1564ae9e] Running [ -f /var/www/awesome-events/current/REVISION ] as ops@vagrant.local
+ DEBUG [1564ae9e] Command: [ -f /var/www/awesome-events/current/REVISION ]
+ DEBUG [1564ae9e] Finished in 0.005 seconds with exit status 1 (failed).
+ DEBUG [8c4d6e1c] Running [ -f /var/www/awesome-events/repo/HEAD ] as ops@vagrant.local
+ DEBUG [8c4d6e1c] Command: [ -f /var/www/awesome-events/repo/HEAD ]
+ DEBUG [8c4d6e1c] Finished in 0.006 seconds with exit status 0 (successful).
+  INFO The repository mirror is at /var/www/awesome-events/repo
+ DEBUG [5092a382] Running if test ! -d /var/www/awesome-events/repo; then echo "Directory does not exist '/var/www/awesome-events/repo'" 1>&2; false; fi as ops@vagrant.local
+ DEBUG [5092a382] Command: if test ! -d /var/www/awesome-events/repo; then echo "Directory does not exist '/var/www/awesome-events/repo'" 1>&2; false; fi
+ DEBUG [5092a382] Finished in 0.006 seconds with exit status 0 (successful).
+  INFO [4ed8dcff] Running /usr/bin/env git remote set-url origin https://github.com/takakag/awesome_events.git as ops@vagrant.local
+ DEBUG [4ed8dcff] Command: cd /var/www/awesome-events/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-awesome_events-staging-takashi_kageyama.sh" ; /usr/bin/env git remote set-url origin https://github.com/takakag/awesome_events.git )
+  INFO [4ed8dcff] Finished in 0.011 seconds with exit status 0 (successful).
+  INFO [8974b5d3] Running /usr/bin/env git remote update --prune as ops@vagrant.local
+ DEBUG [8974b5d3] Command: cd /var/www/awesome-events/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-awesome_events-staging-takashi_kageyama.sh" ; /usr/bin/env git remote update --prune )
+ DEBUG [8974b5d3] 	Fetching origin
+ DEBUG [8974b5d3] 	From https://github.com/takakag/awesome_events
+ DEBUG [8974b5d3] 	 + e643a97...db55d18 master     -> master  (forced update)
+  INFO [8974b5d3] Finished in 4.218 seconds with exit status 0 (successful).
+ DEBUG [5ea462bf] Running if test ! -d /var/www/awesome-events/repo; then echo "Directory does not exist '/var/www/awesome-events/repo'" 1>&2; false; fi as ops@vagrant.local
+ DEBUG [5ea462bf] Command: if test ! -d /var/www/awesome-events/repo; then echo "Directory does not exist '/var/www/awesome-events/repo'" 1>&2; false; fi
+ DEBUG [5ea462bf] Finished in 0.005 seconds with exit status 0 (successful).
+  INFO [2463e489] Running /usr/bin/env mkdir -p /var/www/awesome-events/releases/20180530214932 as ops@vagrant.local
+ DEBUG [2463e489] Command: cd /var/www/awesome-events/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-awesome_events-staging-takashi_kageyama.sh" ; /usr/bin/env mkdir -p /var/www/awesome-events/releases/20180530214932 )
+  INFO [2463e489] Finished in 0.010 seconds with exit status 0 (successful).
+  INFO [8714b135] Running /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /var/www/awesome-events/releases/20180530214932 as ops@vagrant.local
+ DEBUG [8714b135] Command: cd /var/www/awesome-events/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-awesome_events-staging-takashi_kageyama.sh" ; /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /var/www/awesome-events/releases/20180530214932 )
+  INFO [8714b135] Finished in 0.112 seconds with exit status 0 (successful).
+ DEBUG [980f38c0] Running if test ! -d /var/www/awesome-events/repo; then echo "Directory does not exist '/var/www/awesome-events/repo'" 1>&2; false; fi as ops@vagrant.local
+ DEBUG [980f38c0] Command: if test ! -d /var/www/awesome-events/repo; then echo "Directory does not exist '/var/www/awesome-events/repo'" 1>&2; false; fi
+ DEBUG [980f38c0] Finished in 0.006 seconds with exit status 0 (successful).
+ DEBUG [b19691b7] Running /usr/bin/env git rev-list --max-count=1 master as ops@vagrant.local
+ DEBUG [b19691b7] Command: cd /var/www/awesome-events/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-awesome_events-staging-takashi_kageyama.sh" ; /usr/bin/env git rev-list --max-count=1 master )
+ DEBUG [b19691b7] 	db55d18f1be551049c1669dce65530b4d3d72dc1
+ DEBUG [b19691b7] Finished in 0.011 seconds with exit status 0 (successful).
+ DEBUG [5c6cd78a] Running if test ! -d /var/www/awesome-events/releases/20180530214932; then echo "Directory does not exist '/var/www/awesome-events/releases/20180530214932'" 1>&2; false; fi as ops@vagrant.local
+ DEBUG [5c6cd78a] Command: if test ! -d /var/www/awesome-events/releases/20180530214932; then echo "Directory does not exist '/var/www/awesome-events/releases/20180530214932'" 1>&2; false; fi
+ DEBUG [5c6cd78a] Finished in 0.005 seconds with exit status 0 (successful).
+  INFO [19022ce7] Running /usr/bin/env echo "db55d18f1be551049c1669dce65530b4d3d72dc1" > REVISION as ops@vagrant.local
+ DEBUG [19022ce7] Command: cd /var/www/awesome-events/releases/20180530214932 && /usr/bin/env echo "db55d18f1be551049c1669dce65530b4d3d72dc1" > REVISION
+  INFO [19022ce7] Finished in 0.008 seconds with exit status 0 (successful).
+  INFO [547c4039] Running /usr/bin/env mkdir -p /var/www/awesome-events/releases/20180530214932/public as ops@vagrant.local
+ DEBUG [547c4039] Command: /usr/bin/env mkdir -p /var/www/awesome-events/releases/20180530214932/public
+  INFO [547c4039] Finished in 0.010 seconds with exit status 0 (successful).
+ DEBUG [b6865b21] Running [ -L /var/www/awesome-events/releases/20180530214932/public/assets ] as ops@vagrant.local
+ DEBUG [b6865b21] Command: [ -L /var/www/awesome-events/releases/20180530214932/public/assets ]
+ DEBUG [b6865b21] Finished in 0.005 seconds with exit status 1 (failed).
+ DEBUG [a3504329] Running [ -d /var/www/awesome-events/releases/20180530214932/public/assets ] as ops@vagrant.local
+ DEBUG [a3504329] Command: [ -d /var/www/awesome-events/releases/20180530214932/public/assets ]
+ DEBUG [a3504329] Finished in 0.005 seconds with exit status 1 (failed).
+  INFO [6e0788cd] Running /usr/bin/env ln -s /var/www/awesome-events/shared/public/assets /var/www/awesome-events/releases/20180530214932/public/assets as ops@vagrant.local
+ DEBUG [6e0788cd] Command: /usr/bin/env ln -s /var/www/awesome-events/shared/public/assets /var/www/awesome-events/releases/20180530214932/public/assets
+  INFO [6e0788cd] Finished in 0.007 seconds with exit status 0 (successful).
+ DEBUG [83d0571a] Running if test ! -d /var/www/awesome-events/releases/20180530214932; then echo "Directory does not exist '/var/www/awesome-events/releases/20180530214932'" 1>&2; false; fi as ops@vagrant.local
+ DEBUG [83d0571a] Command: if test ! -d /var/www/awesome-events/releases/20180530214932; then echo "Directory does not exist '/var/www/awesome-events/releases/20180530214932'" 1>&2; false; fi
+ DEBUG [83d0571a] Finished in 0.006 seconds with exit status 0 (successful).
+ DEBUG [56a2cf34] Running /usr/bin/env bundle check --path /var/www/awesome-events/shared/bundle as ops@vagrant.local
+ DEBUG [56a2cf34] Command: cd /var/www/awesome-events/releases/20180530214932 && /usr/bin/env bundle check --path /var/www/awesome-events/shared/bundle
+ DEBUG [56a2cf34] 	`x64_mingw` is not a valid platform. The available options are: [:ruby,
+:ruby_18, :ruby_19, :ruby_20, :mri, :mri_18, :mri_19, :mri_20, :rbx, :jruby,
+:mswin, :mingw, :mingw_18, :mingw_19, :mingw_20]
+ DEBUG [56a2cf34] Finished in 0.231 seconds with exit status 4 (failed).
+  INFO [5bd08794] Running /usr/bin/env bundle install --path /var/www/awesome-events/shared/bundle --without development test --deployment --quiet as ops@vagrant.local
+ DEBUG [5bd08794] Command: cd /var/www/awesome-events/releases/20180530214932 && /usr/bin/env bundle install --path /var/www/awesome-events/shared/bundle --without development test --deployment --quiet
+ DEBUG [5bd08794] 	`x64_mingw` is not a valid platform. The available options are: [:ruby,
+:ruby_18, :ruby_19, :ruby_20, :mri, :mri_18, :mri_19, :mri_20, :rbx, :jruby,
+:mswin, :mingw, :mingw_18, :mingw_19, :mingw_20]
+  INFO ---------------------------------------------------------------------------
+  INFO START 2018-05-31 06:57:14 +0900 cap staging deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [d53b7e4e] Running /usr/bin/env mkdir -p /tmp as ops@vagrant.local
+ DEBUG [d53b7e4e] Command: /usr/bin/env mkdir -p /tmp
+  INFO [d53b7e4e] Finished in 0.121 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-awesome_events-staging-takashi_kageyama.sh 0.0%
+  INFO Uploading /tmp/git-ssh-awesome_events-staging-takashi_kageyama.sh 100.0%
+  INFO [d3afb827] Running /usr/bin/env chmod 700 /tmp/git-ssh-awesome_events-staging-takashi_kageyama.sh as ops@vagrant.local
+ DEBUG [d3afb827] Command: /usr/bin/env chmod 700 /tmp/git-ssh-awesome_events-staging-takashi_kageyama.sh
+  INFO [d3afb827] Finished in 0.007 seconds with exit status 0 (successful).
+  INFO [44cb02c5] Running /usr/bin/env git ls-remote https://github.com/takakag/awesome_events.git HEAD as ops@vagrant.local
+ DEBUG [44cb02c5] Command: ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-awesome_events-staging-takashi_kageyama.sh" ; /usr/bin/env git ls-remote https://github.com/takakag/awesome_events.git HEAD )
+ DEBUG [44cb02c5] 	db55d18f1be551049c1669dce65530b4d3d72dc1	HEAD
+  INFO [44cb02c5] Finished in 0.925 seconds with exit status 0 (successful).
+  INFO [94886c8f] Running /usr/bin/env mkdir -p /var/www/awesome-events/shared /var/www/awesome-events/releases as ops@vagrant.local
+ DEBUG [94886c8f] Command: /usr/bin/env mkdir -p /var/www/awesome-events/shared /var/www/awesome-events/releases
+  INFO [94886c8f] Finished in 0.009 seconds with exit status 0 (successful).
+ DEBUG [996d70e5] Running [ -f /var/www/awesome-events/current/REVISION ] as ops@vagrant.local
+ DEBUG [996d70e5] Command: [ -f /var/www/awesome-events/current/REVISION ]
+ DEBUG [996d70e5] Finished in 0.006 seconds with exit status 1 (failed).
+ DEBUG [b5a2f1fc] Running [ -f /var/www/awesome-events/repo/HEAD ] as ops@vagrant.local
+ DEBUG [b5a2f1fc] Command: [ -f /var/www/awesome-events/repo/HEAD ]
+ DEBUG [b5a2f1fc] Finished in 0.006 seconds with exit status 0 (successful).
+  INFO The repository mirror is at /var/www/awesome-events/repo
+ DEBUG [0ba8510c] Running if test ! -d /var/www/awesome-events/repo; then echo "Directory does not exist '/var/www/awesome-events/repo'" 1>&2; false; fi as ops@vagrant.local
+ DEBUG [0ba8510c] Command: if test ! -d /var/www/awesome-events/repo; then echo "Directory does not exist '/var/www/awesome-events/repo'" 1>&2; false; fi
+ DEBUG [0ba8510c] Finished in 0.005 seconds with exit status 0 (successful).
+  INFO [80d1e75b] Running /usr/bin/env git remote set-url origin https://github.com/takakag/awesome_events.git as ops@vagrant.local
+ DEBUG [80d1e75b] Command: cd /var/www/awesome-events/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-awesome_events-staging-takashi_kageyama.sh" ; /usr/bin/env git remote set-url origin https://github.com/takakag/awesome_events.git )
+  INFO [80d1e75b] Finished in 0.012 seconds with exit status 0 (successful).
+  INFO [8b24f326] Running /usr/bin/env git remote update --prune as ops@vagrant.local
+ DEBUG [8b24f326] Command: cd /var/www/awesome-events/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-awesome_events-staging-takashi_kageyama.sh" ; /usr/bin/env git remote update --prune )
+ DEBUG [8b24f326] 	Fetching origin
+  INFO [8b24f326] Finished in 0.932 seconds with exit status 0 (successful).
+ DEBUG [fcfdf295] Running if test ! -d /var/www/awesome-events/repo; then echo "Directory does not exist '/var/www/awesome-events/repo'" 1>&2; false; fi as ops@vagrant.local
+ DEBUG [fcfdf295] Command: if test ! -d /var/www/awesome-events/repo; then echo "Directory does not exist '/var/www/awesome-events/repo'" 1>&2; false; fi
+ DEBUG [fcfdf295] Finished in 0.006 seconds with exit status 0 (successful).
+  INFO [5df4e03f] Running /usr/bin/env mkdir -p /var/www/awesome-events/releases/20180530215715 as ops@vagrant.local
+ DEBUG [5df4e03f] Command: cd /var/www/awesome-events/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-awesome_events-staging-takashi_kageyama.sh" ; /usr/bin/env mkdir -p /var/www/awesome-events/releases/20180530215715 )
+  INFO [5df4e03f] Finished in 0.008 seconds with exit status 0 (successful).
+  INFO [a38bcbd7] Running /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /var/www/awesome-events/releases/20180530215715 as ops@vagrant.local
+ DEBUG [a38bcbd7] Command: cd /var/www/awesome-events/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-awesome_events-staging-takashi_kageyama.sh" ; /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /var/www/awesome-events/releases/20180530215715 )
+  INFO [a38bcbd7] Finished in 0.125 seconds with exit status 0 (successful).
+ DEBUG [b80f1196] Running if test ! -d /var/www/awesome-events/repo; then echo "Directory does not exist '/var/www/awesome-events/repo'" 1>&2; false; fi as ops@vagrant.local
+ DEBUG [b80f1196] Command: if test ! -d /var/www/awesome-events/repo; then echo "Directory does not exist '/var/www/awesome-events/repo'" 1>&2; false; fi
+ DEBUG [b80f1196] Finished in 0.006 seconds with exit status 0 (successful).
+ DEBUG [6bf06f2b] Running /usr/bin/env git rev-list --max-count=1 master as ops@vagrant.local
+ DEBUG [6bf06f2b] Command: cd /var/www/awesome-events/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-awesome_events-staging-takashi_kageyama.sh" ; /usr/bin/env git rev-list --max-count=1 master )
+ DEBUG [6bf06f2b] 	db55d18f1be551049c1669dce65530b4d3d72dc1
+ DEBUG [6bf06f2b] Finished in 0.010 seconds with exit status 0 (successful).
+ DEBUG [28191319] Running if test ! -d /var/www/awesome-events/releases/20180530215715; then echo "Directory does not exist '/var/www/awesome-events/releases/20180530215715'" 1>&2; false; fi as ops@vagrant.local
+ DEBUG [28191319] Command: if test ! -d /var/www/awesome-events/releases/20180530215715; then echo "Directory does not exist '/var/www/awesome-events/releases/20180530215715'" 1>&2; false; fi
+ DEBUG [28191319] Finished in 0.005 seconds with exit status 0 (successful).
+  INFO [19552cd7] Running /usr/bin/env echo "db55d18f1be551049c1669dce65530b4d3d72dc1" > REVISION as ops@vagrant.local
+ DEBUG [19552cd7] Command: cd /var/www/awesome-events/releases/20180530215715 && /usr/bin/env echo "db55d18f1be551049c1669dce65530b4d3d72dc1" > REVISION
+  INFO [19552cd7] Finished in 0.008 seconds with exit status 0 (successful).
+  INFO [ef986a49] Running /usr/bin/env ln -s /var/www/awesome-events/releases/20180530215715 /var/www/awesome-events/releases/current as ops@vagrant.local
+ DEBUG [ef986a49] Command: /usr/bin/env ln -s /var/www/awesome-events/releases/20180530215715 /var/www/awesome-events/releases/current
+  INFO [ef986a49] Finished in 0.009 seconds with exit status 0 (successful).
+  INFO [fd0ec111] Running /usr/bin/env mv /var/www/awesome-events/releases/current /var/www/awesome-events as ops@vagrant.local
+ DEBUG [fd0ec111] Command: /usr/bin/env mv /var/www/awesome-events/releases/current /var/www/awesome-events
+  INFO [fd0ec111] Finished in 0.008 seconds with exit status 0 (successful).
+ DEBUG [10cc56d1] Running /usr/bin/env ls -x /var/www/awesome-events/releases as ops@vagrant.local
+ DEBUG [10cc56d1] Command: /usr/bin/env ls -x /var/www/awesome-events/releases
+ DEBUG [10cc56d1] 	20180519060512	20180530210553	20180530214932	20180530215715
+ DEBUG [10cc56d1] Finished in 0.008 seconds with exit status 0 (successful).
+ DEBUG [6437a85c] Running if test ! -d /var/www/awesome-events/releases; then echo "Directory does not exist '/var/www/awesome-events/releases'" 1>&2; false; fi as ops@vagrant.local
+ DEBUG [6437a85c] Command: if test ! -d /var/www/awesome-events/releases; then echo "Directory does not exist '/var/www/awesome-events/releases'" 1>&2; false; fi
+ DEBUG [6437a85c] Finished in 0.005 seconds with exit status 0 (successful).
+  INFO [9fa2e084] Running /usr/bin/env echo "Branch master (at db55d18f1be551049c1669dce65530b4d3d72dc1) deployed as release 20180530215715 by takashi_kageyama" >> /var/www/awesome-events/revisions.log as ops@vagrant.local
+ DEBUG [9fa2e084] Command: cd /var/www/awesome-events/releases && /usr/bin/env echo "Branch master (at db55d18f1be551049c1669dce65530b4d3d72dc1) deployed as release 20180530215715 by takashi_kageyama" >> /var/www/awesome-events/revisions.log
+  INFO [9fa2e084] Finished in 0.009 seconds with exit status 0 (successful).
+  INFO ---------------------------------------------------------------------------
+  INFO START 2018-05-31 07:21:57 +0900 cap staging deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [bd28ebaa] Running /usr/bin/env mkdir -p /tmp as ops@vagrant.local
+ DEBUG [bd28ebaa] Command: ( export RBENV_ROOT="/usr/local/rbenv" PATH="/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH" ; /usr/bin/env mkdir -p /tmp )
+  INFO [bd28ebaa] Finished in 0.383 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-awesome_events-staging-takashi_kageyama.sh 0.0%
+  INFO Uploading /tmp/git-ssh-awesome_events-staging-takashi_kageyama.sh 100.0%
+  INFO [a25b8a3d] Running /usr/bin/env chmod 700 /tmp/git-ssh-awesome_events-staging-takashi_kageyama.sh as ops@vagrant.local
+ DEBUG [a25b8a3d] Command: ( export RBENV_ROOT="/usr/local/rbenv" PATH="/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH" ; /usr/bin/env chmod 700 /tmp/git-ssh-awesome_events-staging-takashi_kageyama.sh )
+  INFO [a25b8a3d] Finished in 0.009 seconds with exit status 0 (successful).
+  INFO [2db3496b] Running /usr/bin/env git ls-remote https://github.com/takakag/awesome_events.git HEAD as ops@vagrant.local
+ DEBUG [2db3496b] Command: ( export RBENV_ROOT="/usr/local/rbenv" PATH="/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-awesome_events-staging-takashi_kageyama.sh" ; /usr/bin/env git ls-remote https://github.com/takakag/awesome_events.git HEAD )
+ DEBUG [2db3496b] 	db55d18f1be551049c1669dce65530b4d3d72dc1	HEAD
+  INFO [2db3496b] Finished in 0.980 seconds with exit status 0 (successful).
+  INFO [4480c209] Running /usr/bin/env mkdir -p /var/www/awesome-events/shared /var/www/awesome-events/releases as ops@vagrant.local
+ DEBUG [4480c209] Command: ( export RBENV_ROOT="/usr/local/rbenv" PATH="/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH" ; /usr/bin/env mkdir -p /var/www/awesome-events/shared /var/www/awesome-events/releases )
+  INFO [4480c209] Finished in 0.010 seconds with exit status 0 (successful).
+  INFO [fdc9647c] Running /usr/bin/env mkdir -p /var/www/awesome-events/shared/tmp/pids /var/www/awesome-events/shared/public/assets as ops@vagrant.local
+ DEBUG [fdc9647c] Command: ( export RBENV_ROOT="/usr/local/rbenv" PATH="/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH" ; /usr/bin/env mkdir -p /var/www/awesome-events/shared/tmp/pids /var/www/awesome-events/shared/public/assets )
+  INFO [fdc9647c] Finished in 0.009 seconds with exit status 0 (successful).
+ DEBUG [6c5eabee] Running [ -f /var/www/awesome-events/current/REVISION ] as ops@vagrant.local
+ DEBUG [6c5eabee] Command: [ -f /var/www/awesome-events/current/REVISION ]
+ DEBUG [6c5eabee] Finished in 0.006 seconds with exit status 0 (successful).
+ DEBUG [6b95823e] Running /usr/bin/env cat /var/www/awesome-events/current/REVISION 2>/dev/null as ops@vagrant.local
+ DEBUG [6b95823e] Command: ( export RBENV_ROOT="/usr/local/rbenv" PATH="/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH" ; /usr/bin/env cat /var/www/awesome-events/current/REVISION 2>/dev/null )
+ DEBUG [6b95823e] 	db55d18f1be551049c1669dce65530b4d3d72dc1
+ DEBUG [6b95823e] Finished in 0.011 seconds with exit status 0 (successful).
+ DEBUG [d0e4af0c] Running [ -f /var/www/awesome-events/repo/HEAD ] as ops@vagrant.local
+ DEBUG [d0e4af0c] Command: [ -f /var/www/awesome-events/repo/HEAD ]
+ DEBUG [d0e4af0c] Finished in 0.006 seconds with exit status 0 (successful).
+  INFO The repository mirror is at /var/www/awesome-events/repo
+ DEBUG [791c7f43] Running if test ! -d /var/www/awesome-events/repo; then echo "Directory does not exist '/var/www/awesome-events/repo'" 1>&2; false; fi as ops@vagrant.local
+ DEBUG [791c7f43] Command: if test ! -d /var/www/awesome-events/repo; then echo "Directory does not exist '/var/www/awesome-events/repo'" 1>&2; false; fi
+ DEBUG [791c7f43] Finished in 0.005 seconds with exit status 0 (successful).
+  INFO [20cc4e52] Running /usr/bin/env git remote set-url origin https://github.com/takakag/awesome_events.git as ops@vagrant.local
+ DEBUG [20cc4e52] Command: cd /var/www/awesome-events/repo && ( export RBENV_ROOT="/usr/local/rbenv" PATH="/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-awesome_events-staging-takashi_kageyama.sh" ; /usr/bin/env git remote set-url origin https://github.com/takakag/awesome_events.git )
+  INFO [20cc4e52] Finished in 0.009 seconds with exit status 0 (successful).
+  INFO [a8ce5f96] Running /usr/bin/env git remote update --prune as ops@vagrant.local
+ DEBUG [a8ce5f96] Command: cd /var/www/awesome-events/repo && ( export RBENV_ROOT="/usr/local/rbenv" PATH="/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-awesome_events-staging-takashi_kageyama.sh" ; /usr/bin/env git remote update --prune )
+ DEBUG [a8ce5f96] 	Fetching origin
+  INFO [a8ce5f96] Finished in 0.947 seconds with exit status 0 (successful).
+ DEBUG [2ae6aa09] Running if test ! -d /var/www/awesome-events/repo; then echo "Directory does not exist '/var/www/awesome-events/repo'" 1>&2; false; fi as ops@vagrant.local
+ DEBUG [2ae6aa09] Command: if test ! -d /var/www/awesome-events/repo; then echo "Directory does not exist '/var/www/awesome-events/repo'" 1>&2; false; fi
+ DEBUG [2ae6aa09] Finished in 0.006 seconds with exit status 0 (successful).
+  INFO [c53ebaef] Running /usr/bin/env mkdir -p /var/www/awesome-events/releases/20180530222159 as ops@vagrant.local
+ DEBUG [c53ebaef] Command: cd /var/www/awesome-events/repo && ( export RBENV_ROOT="/usr/local/rbenv" PATH="/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-awesome_events-staging-takashi_kageyama.sh" ; /usr/bin/env mkdir -p /var/www/awesome-events/releases/20180530222159 )
+  INFO [c53ebaef] Finished in 0.009 seconds with exit status 0 (successful).
+  INFO [5cc41523] Running /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /var/www/awesome-events/releases/20180530222159 as ops@vagrant.local
+ DEBUG [5cc41523] Command: cd /var/www/awesome-events/repo && ( export RBENV_ROOT="/usr/local/rbenv" PATH="/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-awesome_events-staging-takashi_kageyama.sh" ; /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /var/www/awesome-events/releases/20180530222159 )
+  INFO [5cc41523] Finished in 0.143 seconds with exit status 0 (successful).
+ DEBUG [2ef1257c] Running if test ! -d /var/www/awesome-events/repo; then echo "Directory does not exist '/var/www/awesome-events/repo'" 1>&2; false; fi as ops@vagrant.local
+ DEBUG [2ef1257c] Command: if test ! -d /var/www/awesome-events/repo; then echo "Directory does not exist '/var/www/awesome-events/repo'" 1>&2; false; fi
+ DEBUG [2ef1257c] Finished in 0.006 seconds with exit status 0 (successful).
+ DEBUG [f03d7ff4] Running /usr/bin/env git rev-list --max-count=1 master as ops@vagrant.local
+ DEBUG [f03d7ff4] Command: cd /var/www/awesome-events/repo && ( export RBENV_ROOT="/usr/local/rbenv" PATH="/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-awesome_events-staging-takashi_kageyama.sh" ; /usr/bin/env git rev-list --max-count=1 master )
+ DEBUG [f03d7ff4] 	db55d18f1be551049c1669dce65530b4d3d72dc1
+ DEBUG [f03d7ff4] Finished in 0.011 seconds with exit status 0 (successful).
+ DEBUG [678079fb] Running if test ! -d /var/www/awesome-events/releases/20180530222159; then echo "Directory does not exist '/var/www/awesome-events/releases/20180530222159'" 1>&2; false; fi as ops@vagrant.local
+ DEBUG [678079fb] Command: if test ! -d /var/www/awesome-events/releases/20180530222159; then echo "Directory does not exist '/var/www/awesome-events/releases/20180530222159'" 1>&2; false; fi
+ DEBUG [678079fb] Finished in 0.005 seconds with exit status 0 (successful).
+  INFO [20d73ebe] Running /usr/bin/env echo "db55d18f1be551049c1669dce65530b4d3d72dc1" > REVISION as ops@vagrant.local
+ DEBUG [20d73ebe] Command: cd /var/www/awesome-events/releases/20180530222159 && ( export RBENV_ROOT="/usr/local/rbenv" PATH="/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH" ; /usr/bin/env echo "db55d18f1be551049c1669dce65530b4d3d72dc1" > REVISION )
+  INFO [20d73ebe] Finished in 0.009 seconds with exit status 0 (successful).
+  INFO [22df41a2] Running /usr/bin/env mkdir -p /var/www/awesome-events/releases/20180530222159/tmp /var/www/awesome-events/releases/20180530222159/public as ops@vagrant.local
+ DEBUG [22df41a2] Command: ( export RBENV_ROOT="/usr/local/rbenv" PATH="/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH" ; /usr/bin/env mkdir -p /var/www/awesome-events/releases/20180530222159/tmp /var/www/awesome-events/releases/20180530222159/public )
+  INFO [22df41a2] Finished in 0.010 seconds with exit status 0 (successful).
+ DEBUG [c5751e21] Running [ -L /var/www/awesome-events/releases/20180530222159/tmp/pids ] as ops@vagrant.local
+ DEBUG [c5751e21] Command: [ -L /var/www/awesome-events/releases/20180530222159/tmp/pids ]
+ DEBUG [c5751e21] Finished in 0.005 seconds with exit status 1 (failed).
+ DEBUG [5e7284c1] Running [ -d /var/www/awesome-events/releases/20180530222159/tmp/pids ] as ops@vagrant.local
+ DEBUG [5e7284c1] Command: [ -d /var/www/awesome-events/releases/20180530222159/tmp/pids ]
+ DEBUG [5e7284c1] Finished in 0.005 seconds with exit status 1 (failed).
+  INFO [83f88bd6] Running /usr/bin/env ln -s /var/www/awesome-events/shared/tmp/pids /var/www/awesome-events/releases/20180530222159/tmp/pids as ops@vagrant.local
+ DEBUG [83f88bd6] Command: ( export RBENV_ROOT="/usr/local/rbenv" PATH="/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH" ; /usr/bin/env ln -s /var/www/awesome-events/shared/tmp/pids /var/www/awesome-events/releases/20180530222159/tmp/pids )
+  INFO [83f88bd6] Finished in 0.008 seconds with exit status 0 (successful).
+ DEBUG [15a12fdb] Running [ -L /var/www/awesome-events/releases/20180530222159/public/assets ] as ops@vagrant.local
+ DEBUG [15a12fdb] Command: [ -L /var/www/awesome-events/releases/20180530222159/public/assets ]
+ DEBUG [15a12fdb] Finished in 0.006 seconds with exit status 1 (failed).
+ DEBUG [9f5dbd65] Running [ -d /var/www/awesome-events/releases/20180530222159/public/assets ] as ops@vagrant.local
+ DEBUG [9f5dbd65] Command: [ -d /var/www/awesome-events/releases/20180530222159/public/assets ]
+ DEBUG [9f5dbd65] Finished in 0.006 seconds with exit status 1 (failed).
+  INFO [1c0f0224] Running /usr/bin/env ln -s /var/www/awesome-events/shared/public/assets /var/www/awesome-events/releases/20180530222159/public/assets as ops@vagrant.local
+ DEBUG [1c0f0224] Command: ( export RBENV_ROOT="/usr/local/rbenv" PATH="/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH" ; /usr/bin/env ln -s /var/www/awesome-events/shared/public/assets /var/www/awesome-events/releases/20180530222159/public/assets )
+  INFO [1c0f0224] Finished in 0.010 seconds with exit status 0 (successful).
+ DEBUG [eed6c05b] Running if test ! -d /var/www/awesome-events/releases/20180530222159; then echo "Directory does not exist '/var/www/awesome-events/releases/20180530222159'" 1>&2; false; fi as ops@vagrant.local
+ DEBUG [eed6c05b] Command: if test ! -d /var/www/awesome-events/releases/20180530222159; then echo "Directory does not exist '/var/www/awesome-events/releases/20180530222159'" 1>&2; false; fi
+ DEBUG [eed6c05b] Finished in 0.006 seconds with exit status 0 (successful).
+ DEBUG [af49177a] Running /usr/bin/env bundle check --path /var/www/awesome-events/shared/bundle as ops@vagrant.local
+ DEBUG [af49177a] Command: cd /var/www/awesome-events/releases/20180530222159 && ( export RBENV_ROOT="/usr/local/rbenv" PATH="/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH" ; /usr/bin/env bundle check --path /var/www/awesome-events/shared/bundle )
+ DEBUG [af49177a] 	`x64_mingw` is not a valid platform. The available options are: [:ruby,
+:ruby_18, :ruby_19, :ruby_20, :mri, :mri_18, :mri_19, :mri_20, :rbx, :jruby,
+:mswin, :mingw, :mingw_18, :mingw_19, :mingw_20]
+ DEBUG [af49177a] Finished in 0.158 seconds with exit status 4 (failed).
+  INFO [126d39d0] Running /usr/bin/env bundle install --path /var/www/awesome-events/shared/bundle --without development test --deployment --quiet as ops@vagrant.local
+ DEBUG [126d39d0] Command: cd /var/www/awesome-events/releases/20180530222159 && ( export RBENV_ROOT="/usr/local/rbenv" PATH="/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH" ; /usr/bin/env bundle install --path /var/www/awesome-events/shared/bundle --without development test --deployment --quiet )
+ DEBUG [126d39d0] 	`x64_mingw` is not a valid platform. The available options are: [:ruby,
+:ruby_18, :ruby_19, :ruby_20, :mri, :mri_18, :mri_19, :mri_20, :rbx, :jruby,
+:mswin, :mingw, :mingw_18, :mingw_19, :mingw_20]
+  INFO ---------------------------------------------------------------------------
+  INFO START 2018-05-31 07:30:49 +0900 cap staging deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [d6f9a946] Running /usr/bin/env mkdir -p /tmp as ops@vagrant.local
+ DEBUG [d6f9a946] Command: ( export RBENV_ROOT="/usr/local/rbenv" PATH="/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH" ; /usr/bin/env mkdir -p /tmp )
+  INFO [d6f9a946] Finished in 0.156 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-awesome_events-staging-takashi_kageyama.sh 0.0%
+  INFO Uploading /tmp/git-ssh-awesome_events-staging-takashi_kageyama.sh 100.0%
+  INFO [a0dff3be] Running /usr/bin/env chmod 700 /tmp/git-ssh-awesome_events-staging-takashi_kageyama.sh as ops@vagrant.local
+ DEBUG [a0dff3be] Command: ( export RBENV_ROOT="/usr/local/rbenv" PATH="/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH" ; /usr/bin/env chmod 700 /tmp/git-ssh-awesome_events-staging-takashi_kageyama.sh )
+  INFO [a0dff3be] Finished in 0.009 seconds with exit status 0 (successful).
+  INFO [240350fe] Running /usr/bin/env git ls-remote https://github.com/takakag/awesome_events.git HEAD as ops@vagrant.local
+ DEBUG [240350fe] Command: ( export RBENV_ROOT="/usr/local/rbenv" PATH="/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-awesome_events-staging-takashi_kageyama.sh" ; /usr/bin/env git ls-remote https://github.com/takakag/awesome_events.git HEAD )
+ DEBUG [240350fe] 	db55d18f1be551049c1669dce65530b4d3d72dc1	HEAD
+  INFO [240350fe] Finished in 0.792 seconds with exit status 0 (successful).
+  INFO [8fb48aad] Running /usr/bin/env mkdir -p /var/www/awesome-events/shared /var/www/awesome-events/releases as ops@vagrant.local
+ DEBUG [8fb48aad] Command: ( export RBENV_ROOT="/usr/local/rbenv" PATH="/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH" ; /usr/bin/env mkdir -p /var/www/awesome-events/shared /var/www/awesome-events/releases )
+  INFO [8fb48aad] Finished in 0.009 seconds with exit status 0 (successful).
+  INFO [56685983] Running /usr/bin/env mkdir -p /var/www/awesome-events/shared/tmp/pids /var/www/awesome-events/shared/public/assets as ops@vagrant.local
+ DEBUG [56685983] Command: ( export RBENV_ROOT="/usr/local/rbenv" PATH="/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH" ; /usr/bin/env mkdir -p /var/www/awesome-events/shared/tmp/pids /var/www/awesome-events/shared/public/assets )
+  INFO [56685983] Finished in 0.009 seconds with exit status 0 (successful).
+ DEBUG [e46e0cdb] Running [ -f /var/www/awesome-events/current/REVISION ] as ops@vagrant.local
+ DEBUG [e46e0cdb] Command: [ -f /var/www/awesome-events/current/REVISION ]
+ DEBUG [e46e0cdb] Finished in 0.005 seconds with exit status 0 (successful).
+ DEBUG [da1c3e74] Running /usr/bin/env cat /var/www/awesome-events/current/REVISION 2>/dev/null as ops@vagrant.local
+ DEBUG [da1c3e74] Command: ( export RBENV_ROOT="/usr/local/rbenv" PATH="/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH" ; /usr/bin/env cat /var/www/awesome-events/current/REVISION 2>/dev/null )
+ DEBUG [da1c3e74] 	db55d18f1be551049c1669dce65530b4d3d72dc1
+ DEBUG [da1c3e74] Finished in 0.010 seconds with exit status 0 (successful).
+ DEBUG [6d0c57c5] Running [ -f /var/www/awesome-events/repo/HEAD ] as ops@vagrant.local
+ DEBUG [6d0c57c5] Command: [ -f /var/www/awesome-events/repo/HEAD ]
+ DEBUG [6d0c57c5] Finished in 0.007 seconds with exit status 0 (successful).
+  INFO The repository mirror is at /var/www/awesome-events/repo
+ DEBUG [aa716c7b] Running if test ! -d /var/www/awesome-events/repo; then echo "Directory does not exist '/var/www/awesome-events/repo'" 1>&2; false; fi as ops@vagrant.local
+ DEBUG [aa716c7b] Command: if test ! -d /var/www/awesome-events/repo; then echo "Directory does not exist '/var/www/awesome-events/repo'" 1>&2; false; fi
+ DEBUG [aa716c7b] Finished in 0.005 seconds with exit status 0 (successful).
+  INFO [8b1b7125] Running /usr/bin/env git remote set-url origin https://github.com/takakag/awesome_events.git as ops@vagrant.local
+ DEBUG [8b1b7125] Command: cd /var/www/awesome-events/repo && ( export RBENV_ROOT="/usr/local/rbenv" PATH="/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-awesome_events-staging-takashi_kageyama.sh" ; /usr/bin/env git remote set-url origin https://github.com/takakag/awesome_events.git )
+  INFO [8b1b7125] Finished in 0.013 seconds with exit status 0 (successful).
+  INFO [612d427b] Running /usr/bin/env git remote update --prune as ops@vagrant.local
+ DEBUG [612d427b] Command: cd /var/www/awesome-events/repo && ( export RBENV_ROOT="/usr/local/rbenv" PATH="/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-awesome_events-staging-takashi_kageyama.sh" ; /usr/bin/env git remote update --prune )
+ DEBUG [612d427b] 	Fetching origin
+  INFO [612d427b] Finished in 0.950 seconds with exit status 0 (successful).
+ DEBUG [1e9dda08] Running if test ! -d /var/www/awesome-events/repo; then echo "Directory does not exist '/var/www/awesome-events/repo'" 1>&2; false; fi as ops@vagrant.local
+ DEBUG [1e9dda08] Command: if test ! -d /var/www/awesome-events/repo; then echo "Directory does not exist '/var/www/awesome-events/repo'" 1>&2; false; fi
+ DEBUG [1e9dda08] Finished in 0.005 seconds with exit status 0 (successful).
+  INFO [aed4e483] Running /usr/bin/env mkdir -p /var/www/awesome-events/releases/20180530223050 as ops@vagrant.local
+ DEBUG [aed4e483] Command: cd /var/www/awesome-events/repo && ( export RBENV_ROOT="/usr/local/rbenv" PATH="/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-awesome_events-staging-takashi_kageyama.sh" ; /usr/bin/env mkdir -p /var/www/awesome-events/releases/20180530223050 )
+  INFO [aed4e483] Finished in 0.009 seconds with exit status 0 (successful).
+  INFO [93af276f] Running /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /var/www/awesome-events/releases/20180530223050 as ops@vagrant.local
+ DEBUG [93af276f] Command: cd /var/www/awesome-events/repo && ( export RBENV_ROOT="/usr/local/rbenv" PATH="/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-awesome_events-staging-takashi_kageyama.sh" ; /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /var/www/awesome-events/releases/20180530223050 )
+  INFO [93af276f] Finished in 0.158 seconds with exit status 0 (successful).
+ DEBUG [e4f8188b] Running if test ! -d /var/www/awesome-events/repo; then echo "Directory does not exist '/var/www/awesome-events/repo'" 1>&2; false; fi as ops@vagrant.local
+ DEBUG [e4f8188b] Command: if test ! -d /var/www/awesome-events/repo; then echo "Directory does not exist '/var/www/awesome-events/repo'" 1>&2; false; fi
+ DEBUG [e4f8188b] Finished in 0.006 seconds with exit status 0 (successful).
+ DEBUG [d645c9b2] Running /usr/bin/env git rev-list --max-count=1 master as ops@vagrant.local
+ DEBUG [d645c9b2] Command: cd /var/www/awesome-events/repo && ( export RBENV_ROOT="/usr/local/rbenv" PATH="/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-awesome_events-staging-takashi_kageyama.sh" ; /usr/bin/env git rev-list --max-count=1 master )
+ DEBUG [d645c9b2] 	db55d18f1be551049c1669dce65530b4d3d72dc1
+ DEBUG [d645c9b2] Finished in 0.011 seconds with exit status 0 (successful).
+ DEBUG [96df8f7d] Running if test ! -d /var/www/awesome-events/releases/20180530223050; then echo "Directory does not exist '/var/www/awesome-events/releases/20180530223050'" 1>&2; false; fi as ops@vagrant.local
+ DEBUG [96df8f7d] Command: if test ! -d /var/www/awesome-events/releases/20180530223050; then echo "Directory does not exist '/var/www/awesome-events/releases/20180530223050'" 1>&2; false; fi
+ DEBUG [96df8f7d] Finished in 0.006 seconds with exit status 0 (successful).
+  INFO [fb63aa70] Running /usr/bin/env echo "db55d18f1be551049c1669dce65530b4d3d72dc1" > REVISION as ops@vagrant.local
+ DEBUG [fb63aa70] Command: cd /var/www/awesome-events/releases/20180530223050 && ( export RBENV_ROOT="/usr/local/rbenv" PATH="/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH" ; /usr/bin/env echo "db55d18f1be551049c1669dce65530b4d3d72dc1" > REVISION )
+  INFO [fb63aa70] Finished in 0.009 seconds with exit status 0 (successful).
+  INFO [9eaa7083] Running /usr/bin/env mkdir -p /var/www/awesome-events/releases/20180530223050/tmp /var/www/awesome-events/releases/20180530223050/public as ops@vagrant.local
+ DEBUG [9eaa7083] Command: ( export RBENV_ROOT="/usr/local/rbenv" PATH="/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH" ; /usr/bin/env mkdir -p /var/www/awesome-events/releases/20180530223050/tmp /var/www/awesome-events/releases/20180530223050/public )
+  INFO [9eaa7083] Finished in 0.010 seconds with exit status 0 (successful).
+ DEBUG [6111c9b0] Running [ -L /var/www/awesome-events/releases/20180530223050/tmp/pids ] as ops@vagrant.local
+ DEBUG [6111c9b0] Command: [ -L /var/www/awesome-events/releases/20180530223050/tmp/pids ]
+ DEBUG [6111c9b0] Finished in 0.005 seconds with exit status 1 (failed).
+ DEBUG [ff46e02a] Running [ -d /var/www/awesome-events/releases/20180530223050/tmp/pids ] as ops@vagrant.local
+ DEBUG [ff46e02a] Command: [ -d /var/www/awesome-events/releases/20180530223050/tmp/pids ]
+ DEBUG [ff46e02a] Finished in 0.005 seconds with exit status 1 (failed).
+  INFO [213b2197] Running /usr/bin/env ln -s /var/www/awesome-events/shared/tmp/pids /var/www/awesome-events/releases/20180530223050/tmp/pids as ops@vagrant.local
+ DEBUG [213b2197] Command: ( export RBENV_ROOT="/usr/local/rbenv" PATH="/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH" ; /usr/bin/env ln -s /var/www/awesome-events/shared/tmp/pids /var/www/awesome-events/releases/20180530223050/tmp/pids )
+  INFO [213b2197] Finished in 0.008 seconds with exit status 0 (successful).
+ DEBUG [1396e682] Running [ -L /var/www/awesome-events/releases/20180530223050/public/assets ] as ops@vagrant.local
+ DEBUG [1396e682] Command: [ -L /var/www/awesome-events/releases/20180530223050/public/assets ]
+ DEBUG [1396e682] Finished in 0.006 seconds with exit status 1 (failed).
+ DEBUG [6e5b5a9d] Running [ -d /var/www/awesome-events/releases/20180530223050/public/assets ] as ops@vagrant.local
+ DEBUG [6e5b5a9d] Command: [ -d /var/www/awesome-events/releases/20180530223050/public/assets ]
+ DEBUG [6e5b5a9d] Finished in 0.006 seconds with exit status 1 (failed).
+  INFO [0aa9795e] Running /usr/bin/env ln -s /var/www/awesome-events/shared/public/assets /var/www/awesome-events/releases/20180530223050/public/assets as ops@vagrant.local
+ DEBUG [0aa9795e] Command: ( export RBENV_ROOT="/usr/local/rbenv" PATH="/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH" ; /usr/bin/env ln -s /var/www/awesome-events/shared/public/assets /var/www/awesome-events/releases/20180530223050/public/assets )
+  INFO [0aa9795e] Finished in 0.010 seconds with exit status 0 (successful).
+ DEBUG [c816161d] Running if test ! -d /var/www/awesome-events/releases/20180530223050; then echo "Directory does not exist '/var/www/awesome-events/releases/20180530223050'" 1>&2; false; fi as ops@vagrant.local
+ DEBUG [c816161d] Command: if test ! -d /var/www/awesome-events/releases/20180530223050; then echo "Directory does not exist '/var/www/awesome-events/releases/20180530223050'" 1>&2; false; fi
+ DEBUG [c816161d] Finished in 0.005 seconds with exit status 0 (successful).
+ DEBUG [e425bb38] Running /usr/bin/env bundle check --path /var/www/awesome-events/shared/bundle as ops@vagrant.local
+ DEBUG [e425bb38] Command: cd /var/www/awesome-events/releases/20180530223050 && ( export RBENV_ROOT="/usr/local/rbenv" PATH="/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH" ; /usr/bin/env bundle check --path /var/www/awesome-events/shared/bundle )
+ DEBUG [e425bb38] 	`x64_mingw` is not a valid platform. The available options are: [:ruby,
+:ruby_18, :ruby_19, :ruby_20, :mri, :mri_18, :mri_19, :mri_20, :rbx, :jruby,
+:mswin, :mingw, :mingw_18, :mingw_19, :mingw_20]
+ DEBUG [e425bb38] Finished in 0.163 seconds with exit status 4 (failed).
+  INFO [af7d5dad] Running /usr/bin/env bundle install --path /var/www/awesome-events/shared/bundle --without development test --deployment --quiet as ops@vagrant.local
+ DEBUG [af7d5dad] Command: cd /var/www/awesome-events/releases/20180530223050 && ( export RBENV_ROOT="/usr/local/rbenv" PATH="/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH" ; /usr/bin/env bundle install --path /var/www/awesome-events/shared/bundle --without development test --deployment --quiet )
+ DEBUG [af7d5dad] 	`x64_mingw` is not a valid platform. The available options are: [:ruby,
+:ruby_18, :ruby_19, :ruby_20, :mri, :mri_18, :mri_19, :mri_20, :rbx, :jruby,
+:mswin, :mingw, :mingw_18, :mingw_19, :mingw_20]
+  INFO ---------------------------------------------------------------------------
+  INFO START 2018-05-31 08:24:42 +0900 cap staging deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [064a8f4d] Running /usr/bin/env mkdir -p /tmp as ops@vagrant.local
+ DEBUG [064a8f4d] Command: /usr/bin/env mkdir -p /tmp
+  INFO [064a8f4d] Finished in 0.374 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-awesome_events-staging-takashi_kageyama.sh 0.0%
+  INFO Uploading /tmp/git-ssh-awesome_events-staging-takashi_kageyama.sh 100.0%
+  INFO [a0baa5dc] Running /usr/bin/env chmod 700 /tmp/git-ssh-awesome_events-staging-takashi_kageyama.sh as ops@vagrant.local
+ DEBUG [a0baa5dc] Command: /usr/bin/env chmod 700 /tmp/git-ssh-awesome_events-staging-takashi_kageyama.sh
+  INFO [a0baa5dc] Finished in 0.007 seconds with exit status 0 (successful).
+  INFO [cb81cc5d] Running /usr/bin/env git ls-remote https://github.com/takakag/awesome_events.git HEAD as ops@vagrant.local
+ DEBUG [cb81cc5d] Command: ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-awesome_events-staging-takashi_kageyama.sh" ; /usr/bin/env git ls-remote https://github.com/takakag/awesome_events.git HEAD )
+ DEBUG [cb81cc5d] 	db55d18f1be551049c1669dce65530b4d3d72dc1	HEAD
+  INFO [cb81cc5d] Finished in 0.904 seconds with exit status 0 (successful).
+  INFO [58984c82] Running /usr/bin/env mkdir -p /var/www/awesome-events/shared /var/www/awesome-events/releases as ops@vagrant.local
+ DEBUG [58984c82] Command: /usr/bin/env mkdir -p /var/www/awesome-events/shared /var/www/awesome-events/releases
+  INFO [58984c82] Finished in 0.008 seconds with exit status 0 (successful).
+  INFO [166fef8c] Running /usr/bin/env mkdir -p /var/www/awesome-events/shared/tmp/pids /var/www/awesome-events/shared/public/assets as ops@vagrant.local
+ DEBUG [166fef8c] Command: /usr/bin/env mkdir -p /var/www/awesome-events/shared/tmp/pids /var/www/awesome-events/shared/public/assets
+  INFO [166fef8c] Finished in 0.008 seconds with exit status 0 (successful).
+ DEBUG [093ebaf7] Running [ -f /var/www/awesome-events/current/REVISION ] as ops@vagrant.local
+ DEBUG [093ebaf7] Command: [ -f /var/www/awesome-events/current/REVISION ]
+ DEBUG [093ebaf7] Finished in 0.005 seconds with exit status 0 (successful).
+ DEBUG [331fee37] Running /usr/bin/env cat /var/www/awesome-events/current/REVISION 2>/dev/null as ops@vagrant.local
+ DEBUG [331fee37] Command: /usr/bin/env cat /var/www/awesome-events/current/REVISION 2>/dev/null
+ DEBUG [331fee37] 	db55d18f1be551049c1669dce65530b4d3d72dc1
+ DEBUG [331fee37] Finished in 0.009 seconds with exit status 0 (successful).
+ DEBUG [baf68403] Running [ -f /var/www/awesome-events/repo/HEAD ] as ops@vagrant.local
+ DEBUG [baf68403] Command: [ -f /var/www/awesome-events/repo/HEAD ]
+ DEBUG [baf68403] Finished in 0.007 seconds with exit status 0 (successful).
+  INFO The repository mirror is at /var/www/awesome-events/repo
+ DEBUG [5ba4d366] Running if test ! -d /var/www/awesome-events/repo; then echo "Directory does not exist '/var/www/awesome-events/repo'" 1>&2; false; fi as ops@vagrant.local
+ DEBUG [5ba4d366] Command: if test ! -d /var/www/awesome-events/repo; then echo "Directory does not exist '/var/www/awesome-events/repo'" 1>&2; false; fi
+ DEBUG [5ba4d366] Finished in 0.007 seconds with exit status 0 (successful).
+  INFO [37668e6b] Running /usr/bin/env git remote set-url origin https://github.com/takakag/awesome_events.git as ops@vagrant.local
+ DEBUG [37668e6b] Command: cd /var/www/awesome-events/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-awesome_events-staging-takashi_kageyama.sh" ; /usr/bin/env git remote set-url origin https://github.com/takakag/awesome_events.git )
+  INFO [37668e6b] Finished in 0.009 seconds with exit status 0 (successful).
+  INFO [6d616b4e] Running /usr/bin/env git remote update --prune as ops@vagrant.local
+ DEBUG [6d616b4e] Command: cd /var/www/awesome-events/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-awesome_events-staging-takashi_kageyama.sh" ; /usr/bin/env git remote update --prune )
+ DEBUG [6d616b4e] 	Fetching origin
+  INFO [6d616b4e] Finished in 0.965 seconds with exit status 0 (successful).
+ DEBUG [e36e3a53] Running if test ! -d /var/www/awesome-events/repo; then echo "Directory does not exist '/var/www/awesome-events/repo'" 1>&2; false; fi as ops@vagrant.local
+ DEBUG [e36e3a53] Command: if test ! -d /var/www/awesome-events/repo; then echo "Directory does not exist '/var/www/awesome-events/repo'" 1>&2; false; fi
+ DEBUG [e36e3a53] Finished in 0.006 seconds with exit status 0 (successful).
+  INFO [cf4559c4] Running /usr/bin/env mkdir -p /var/www/awesome-events/releases/20180530232443 as ops@vagrant.local
+ DEBUG [cf4559c4] Command: cd /var/www/awesome-events/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-awesome_events-staging-takashi_kageyama.sh" ; /usr/bin/env mkdir -p /var/www/awesome-events/releases/20180530232443 )
+  INFO [cf4559c4] Finished in 0.010 seconds with exit status 0 (successful).
+  INFO [ec1385e3] Running /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /var/www/awesome-events/releases/20180530232443 as ops@vagrant.local
+ DEBUG [ec1385e3] Command: cd /var/www/awesome-events/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-awesome_events-staging-takashi_kageyama.sh" ; /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /var/www/awesome-events/releases/20180530232443 )
+  INFO [ec1385e3] Finished in 0.221 seconds with exit status 0 (successful).
+ DEBUG [4924408e] Running if test ! -d /var/www/awesome-events/repo; then echo "Directory does not exist '/var/www/awesome-events/repo'" 1>&2; false; fi as ops@vagrant.local
+ DEBUG [4924408e] Command: if test ! -d /var/www/awesome-events/repo; then echo "Directory does not exist '/var/www/awesome-events/repo'" 1>&2; false; fi
+ DEBUG [4924408e] Finished in 0.006 seconds with exit status 0 (successful).
+ DEBUG [e653720c] Running /usr/bin/env git rev-list --max-count=1 master as ops@vagrant.local
+ DEBUG [e653720c] Command: cd /var/www/awesome-events/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-awesome_events-staging-takashi_kageyama.sh" ; /usr/bin/env git rev-list --max-count=1 master )
+ DEBUG [e653720c] 	db55d18f1be551049c1669dce65530b4d3d72dc1
+ DEBUG [e653720c] Finished in 0.011 seconds with exit status 0 (successful).
+ DEBUG [852b2699] Running if test ! -d /var/www/awesome-events/releases/20180530232443; then echo "Directory does not exist '/var/www/awesome-events/releases/20180530232443'" 1>&2; false; fi as ops@vagrant.local
+ DEBUG [852b2699] Command: if test ! -d /var/www/awesome-events/releases/20180530232443; then echo "Directory does not exist '/var/www/awesome-events/releases/20180530232443'" 1>&2; false; fi
+ DEBUG [852b2699] Finished in 0.005 seconds with exit status 0 (successful).
+  INFO [7e822402] Running /usr/bin/env echo "db55d18f1be551049c1669dce65530b4d3d72dc1" > REVISION as ops@vagrant.local
+ DEBUG [7e822402] Command: cd /var/www/awesome-events/releases/20180530232443 && /usr/bin/env echo "db55d18f1be551049c1669dce65530b4d3d72dc1" > REVISION
+  INFO [7e822402] Finished in 0.008 seconds with exit status 0 (successful).
+  INFO [7b763067] Running /usr/bin/env mkdir -p /var/www/awesome-events/releases/20180530232443/tmp /var/www/awesome-events/releases/20180530232443/public as ops@vagrant.local
+ DEBUG [7b763067] Command: /usr/bin/env mkdir -p /var/www/awesome-events/releases/20180530232443/tmp /var/www/awesome-events/releases/20180530232443/public
+  INFO [7b763067] Finished in 0.009 seconds with exit status 0 (successful).
+ DEBUG [6c8a8f3f] Running [ -L /var/www/awesome-events/releases/20180530232443/tmp/pids ] as ops@vagrant.local
+ DEBUG [6c8a8f3f] Command: [ -L /var/www/awesome-events/releases/20180530232443/tmp/pids ]
+ DEBUG [6c8a8f3f] Finished in 0.006 seconds with exit status 1 (failed).
+ DEBUG [e3e840bc] Running [ -d /var/www/awesome-events/releases/20180530232443/tmp/pids ] as ops@vagrant.local
+ DEBUG [e3e840bc] Command: [ -d /var/www/awesome-events/releases/20180530232443/tmp/pids ]
+ DEBUG [e3e840bc] Finished in 0.005 seconds with exit status 1 (failed).
+  INFO [58cd5138] Running /usr/bin/env ln -s /var/www/awesome-events/shared/tmp/pids /var/www/awesome-events/releases/20180530232443/tmp/pids as ops@vagrant.local
+ DEBUG [58cd5138] Command: /usr/bin/env ln -s /var/www/awesome-events/shared/tmp/pids /var/www/awesome-events/releases/20180530232443/tmp/pids
+  INFO [58cd5138] Finished in 0.007 seconds with exit status 0 (successful).
+ DEBUG [0c4da212] Running [ -L /var/www/awesome-events/releases/20180530232443/public/assets ] as ops@vagrant.local
+ DEBUG [0c4da212] Command: [ -L /var/www/awesome-events/releases/20180530232443/public/assets ]
+ DEBUG [0c4da212] Finished in 0.006 seconds with exit status 1 (failed).
+ DEBUG [74c722b6] Running [ -d /var/www/awesome-events/releases/20180530232443/public/assets ] as ops@vagrant.local
+ DEBUG [74c722b6] Command: [ -d /var/www/awesome-events/releases/20180530232443/public/assets ]
+ DEBUG [74c722b6] Finished in 0.006 seconds with exit status 1 (failed).
+  INFO [8ba5ce58] Running /usr/bin/env ln -s /var/www/awesome-events/shared/public/assets /var/www/awesome-events/releases/20180530232443/public/assets as ops@vagrant.local
+ DEBUG [8ba5ce58] Command: /usr/bin/env ln -s /var/www/awesome-events/shared/public/assets /var/www/awesome-events/releases/20180530232443/public/assets
+  INFO [8ba5ce58] Finished in 0.007 seconds with exit status 0 (successful).
+ DEBUG [7e33e038] Running if test ! -d /var/www/awesome-events/releases/20180530232443; then echo "Directory does not exist '/var/www/awesome-events/releases/20180530232443'" 1>&2; false; fi as ops@vagrant.local
+ DEBUG [7e33e038] Command: if test ! -d /var/www/awesome-events/releases/20180530232443; then echo "Directory does not exist '/var/www/awesome-events/releases/20180530232443'" 1>&2; false; fi
+ DEBUG [7e33e038] Finished in 0.006 seconds with exit status 0 (successful).
+ DEBUG [297a28bf] Running /usr/bin/env bundle check --path /var/www/awesome-events/shared/bundle as ops@vagrant.local
+ DEBUG [297a28bf] Command: cd /var/www/awesome-events/releases/20180530232443 && /usr/bin/env bundle check --path /var/www/awesome-events/shared/bundle
+ DEBUG [297a28bf] 	`x64_mingw` is not a valid platform. The available options are: [:ruby,
+:ruby_18, :ruby_19, :ruby_20, :mri, :mri_18, :mri_19, :mri_20, :rbx, :jruby,
+:mswin, :mingw, :mingw_18, :mingw_19, :mingw_20]
+ DEBUG [297a28bf] Finished in 0.165 seconds with exit status 4 (failed).
+  INFO [ec398950] Running /usr/bin/env bundle install --path /var/www/awesome-events/shared/bundle --without development test --deployment --quiet as ops@vagrant.local
+ DEBUG [ec398950] Command: cd /var/www/awesome-events/releases/20180530232443 && /usr/bin/env bundle install --path /var/www/awesome-events/shared/bundle --without development test --deployment --quiet
+ DEBUG [ec398950] 	`x64_mingw` is not a valid platform. The available options are: [:ruby,
+:ruby_18, :ruby_19, :ruby_20, :mri, :mri_18, :mri_19, :mri_20, :rbx, :jruby,
+:mswin, :mingw, :mingw_18, :mingw_19, :mingw_20]
+  INFO ---------------------------------------------------------------------------
+  INFO START 2018-05-31 08:36:22 +0900 cap staging deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [02b9aa78] Running /usr/bin/env mkdir -p /tmp as ops@vagrant.local
+ DEBUG [02b9aa78] Command: ( export RBENV_ROOT="/usr/local/.rbenv" PATH="/usr/local/.rbenv/shims:/usr/local/.rbenv/bin:$PATH" ; /usr/bin/env mkdir -p /tmp )
+  INFO [02b9aa78] Finished in 0.145 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-awesome_events-staging-takashi_kageyama.sh 0.0%
+  INFO Uploading /tmp/git-ssh-awesome_events-staging-takashi_kageyama.sh 100.0%
+  INFO [76a5037c] Running /usr/bin/env chmod 700 /tmp/git-ssh-awesome_events-staging-takashi_kageyama.sh as ops@vagrant.local
+ DEBUG [76a5037c] Command: ( export RBENV_ROOT="/usr/local/.rbenv" PATH="/usr/local/.rbenv/shims:/usr/local/.rbenv/bin:$PATH" ; /usr/bin/env chmod 700 /tmp/git-ssh-awesome_events-staging-takashi_kageyama.sh )
+  INFO [76a5037c] Finished in 0.008 seconds with exit status 0 (successful).
+  INFO [0bfb34f2] Running /usr/bin/env git ls-remote https://github.com/takakag/awesome_events.git HEAD as ops@vagrant.local
+ DEBUG [0bfb34f2] Command: ( export RBENV_ROOT="/usr/local/.rbenv" PATH="/usr/local/.rbenv/shims:/usr/local/.rbenv/bin:$PATH" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-awesome_events-staging-takashi_kageyama.sh" ; /usr/bin/env git ls-remote https://github.com/takakag/awesome_events.git HEAD )
+ DEBUG [0bfb34f2] 	db55d18f1be551049c1669dce65530b4d3d72dc1	HEAD
+  INFO [0bfb34f2] Finished in 0.804 seconds with exit status 0 (successful).
+  INFO [0549c6bf] Running /usr/bin/env mkdir -p /var/www/awesome-events/shared /var/www/awesome-events/releases as ops@vagrant.local
+ DEBUG [0549c6bf] Command: ( export RBENV_ROOT="/usr/local/.rbenv" PATH="/usr/local/.rbenv/shims:/usr/local/.rbenv/bin:$PATH" ; /usr/bin/env mkdir -p /var/www/awesome-events/shared /var/www/awesome-events/releases )
+  INFO [0549c6bf] Finished in 0.009 seconds with exit status 0 (successful).
+  INFO [091756a6] Running /usr/bin/env mkdir -p /var/www/awesome-events/shared/tmp/pids /var/www/awesome-events/shared/public/assets as ops@vagrant.local
+ DEBUG [091756a6] Command: ( export RBENV_ROOT="/usr/local/.rbenv" PATH="/usr/local/.rbenv/shims:/usr/local/.rbenv/bin:$PATH" ; /usr/bin/env mkdir -p /var/www/awesome-events/shared/tmp/pids /var/www/awesome-events/shared/public/assets )
+  INFO [091756a6] Finished in 0.009 seconds with exit status 0 (successful).
+ DEBUG [d9cdcec3] Running [ -f /var/www/awesome-events/current/REVISION ] as ops@vagrant.local
+ DEBUG [d9cdcec3] Command: [ -f /var/www/awesome-events/current/REVISION ]
+ DEBUG [d9cdcec3] Finished in 0.006 seconds with exit status 0 (successful).
+ DEBUG [dcd3f3c9] Running /usr/bin/env cat /var/www/awesome-events/current/REVISION 2>/dev/null as ops@vagrant.local
+ DEBUG [dcd3f3c9] Command: ( export RBENV_ROOT="/usr/local/.rbenv" PATH="/usr/local/.rbenv/shims:/usr/local/.rbenv/bin:$PATH" ; /usr/bin/env cat /var/www/awesome-events/current/REVISION 2>/dev/null )
+ DEBUG [dcd3f3c9] 	db55d18f1be551049c1669dce65530b4d3d72dc1
+ DEBUG [dcd3f3c9] Finished in 0.011 seconds with exit status 0 (successful).
+ DEBUG [f8cc7e17] Running [ -f /var/www/awesome-events/repo/HEAD ] as ops@vagrant.local
+ DEBUG [f8cc7e17] Command: [ -f /var/www/awesome-events/repo/HEAD ]
+ DEBUG [f8cc7e17] Finished in 0.007 seconds with exit status 0 (successful).
+  INFO The repository mirror is at /var/www/awesome-events/repo
+ DEBUG [81fdac1b] Running if test ! -d /var/www/awesome-events/repo; then echo "Directory does not exist '/var/www/awesome-events/repo'" 1>&2; false; fi as ops@vagrant.local
+ DEBUG [81fdac1b] Command: if test ! -d /var/www/awesome-events/repo; then echo "Directory does not exist '/var/www/awesome-events/repo'" 1>&2; false; fi
+ DEBUG [81fdac1b] Finished in 0.006 seconds with exit status 0 (successful).
+  INFO [e1fc2921] Running /usr/bin/env git remote set-url origin https://github.com/takakag/awesome_events.git as ops@vagrant.local
+ DEBUG [e1fc2921] Command: cd /var/www/awesome-events/repo && ( export RBENV_ROOT="/usr/local/.rbenv" PATH="/usr/local/.rbenv/shims:/usr/local/.rbenv/bin:$PATH" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-awesome_events-staging-takashi_kageyama.sh" ; /usr/bin/env git remote set-url origin https://github.com/takakag/awesome_events.git )
+  INFO [e1fc2921] Finished in 0.010 seconds with exit status 0 (successful).
+  INFO [6a052b70] Running /usr/bin/env git remote update --prune as ops@vagrant.local
+ DEBUG [6a052b70] Command: cd /var/www/awesome-events/repo && ( export RBENV_ROOT="/usr/local/.rbenv" PATH="/usr/local/.rbenv/shims:/usr/local/.rbenv/bin:$PATH" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-awesome_events-staging-takashi_kageyama.sh" ; /usr/bin/env git remote update --prune )
+ DEBUG [6a052b70] 	Fetching origin
+  INFO [6a052b70] Finished in 0.856 seconds with exit status 0 (successful).
+ DEBUG [1462f7d1] Running if test ! -d /var/www/awesome-events/repo; then echo "Directory does not exist '/var/www/awesome-events/repo'" 1>&2; false; fi as ops@vagrant.local
+ DEBUG [1462f7d1] Command: if test ! -d /var/www/awesome-events/repo; then echo "Directory does not exist '/var/www/awesome-events/repo'" 1>&2; false; fi
+ DEBUG [1462f7d1] Finished in 0.006 seconds with exit status 0 (successful).
+  INFO [58bdb44c] Running /usr/bin/env mkdir -p /var/www/awesome-events/releases/20180530233623 as ops@vagrant.local
+ DEBUG [58bdb44c] Command: cd /var/www/awesome-events/repo && ( export RBENV_ROOT="/usr/local/.rbenv" PATH="/usr/local/.rbenv/shims:/usr/local/.rbenv/bin:$PATH" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-awesome_events-staging-takashi_kageyama.sh" ; /usr/bin/env mkdir -p /var/www/awesome-events/releases/20180530233623 )
+  INFO [58bdb44c] Finished in 0.009 seconds with exit status 0 (successful).
+  INFO [0d3d6d5e] Running /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /var/www/awesome-events/releases/20180530233623 as ops@vagrant.local
+ DEBUG [0d3d6d5e] Command: cd /var/www/awesome-events/repo && ( export RBENV_ROOT="/usr/local/.rbenv" PATH="/usr/local/.rbenv/shims:/usr/local/.rbenv/bin:$PATH" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-awesome_events-staging-takashi_kageyama.sh" ; /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /var/www/awesome-events/releases/20180530233623 )
+  INFO [0d3d6d5e] Finished in 0.100 seconds with exit status 0 (successful).
+ DEBUG [39f1cd3e] Running if test ! -d /var/www/awesome-events/repo; then echo "Directory does not exist '/var/www/awesome-events/repo'" 1>&2; false; fi as ops@vagrant.local
+ DEBUG [39f1cd3e] Command: if test ! -d /var/www/awesome-events/repo; then echo "Directory does not exist '/var/www/awesome-events/repo'" 1>&2; false; fi
+ DEBUG [39f1cd3e] Finished in 0.006 seconds with exit status 0 (successful).
+ DEBUG [81ddd0aa] Running /usr/bin/env git rev-list --max-count=1 master as ops@vagrant.local
+ DEBUG [81ddd0aa] Command: cd /var/www/awesome-events/repo && ( export RBENV_ROOT="/usr/local/.rbenv" PATH="/usr/local/.rbenv/shims:/usr/local/.rbenv/bin:$PATH" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-awesome_events-staging-takashi_kageyama.sh" ; /usr/bin/env git rev-list --max-count=1 master )
+ DEBUG [81ddd0aa] 	db55d18f1be551049c1669dce65530b4d3d72dc1
+ DEBUG [81ddd0aa] Finished in 0.010 seconds with exit status 0 (successful).
+ DEBUG [0af56951] Running if test ! -d /var/www/awesome-events/releases/20180530233623; then echo "Directory does not exist '/var/www/awesome-events/releases/20180530233623'" 1>&2; false; fi as ops@vagrant.local
+ DEBUG [0af56951] Command: if test ! -d /var/www/awesome-events/releases/20180530233623; then echo "Directory does not exist '/var/www/awesome-events/releases/20180530233623'" 1>&2; false; fi
+ DEBUG [0af56951] Finished in 0.005 seconds with exit status 0 (successful).
+  INFO [fcc8064a] Running /usr/bin/env echo "db55d18f1be551049c1669dce65530b4d3d72dc1" > REVISION as ops@vagrant.local
+ DEBUG [fcc8064a] Command: cd /var/www/awesome-events/releases/20180530233623 && ( export RBENV_ROOT="/usr/local/.rbenv" PATH="/usr/local/.rbenv/shims:/usr/local/.rbenv/bin:$PATH" ; /usr/bin/env echo "db55d18f1be551049c1669dce65530b4d3d72dc1" > REVISION )
+  INFO [fcc8064a] Finished in 0.008 seconds with exit status 0 (successful).
+  INFO [e07bfd93] Running /usr/bin/env mkdir -p /var/www/awesome-events/releases/20180530233623/tmp /var/www/awesome-events/releases/20180530233623/public as ops@vagrant.local
+ DEBUG [e07bfd93] Command: ( export RBENV_ROOT="/usr/local/.rbenv" PATH="/usr/local/.rbenv/shims:/usr/local/.rbenv/bin:$PATH" ; /usr/bin/env mkdir -p /var/www/awesome-events/releases/20180530233623/tmp /var/www/awesome-events/releases/20180530233623/public )
+  INFO [e07bfd93] Finished in 0.010 seconds with exit status 0 (successful).
+ DEBUG [fa3c71e8] Running [ -L /var/www/awesome-events/releases/20180530233623/tmp/pids ] as ops@vagrant.local
+ DEBUG [fa3c71e8] Command: [ -L /var/www/awesome-events/releases/20180530233623/tmp/pids ]
+ DEBUG [fa3c71e8] Finished in 0.006 seconds with exit status 1 (failed).
+ DEBUG [d932ca19] Running [ -d /var/www/awesome-events/releases/20180530233623/tmp/pids ] as ops@vagrant.local
+ DEBUG [d932ca19] Command: [ -d /var/www/awesome-events/releases/20180530233623/tmp/pids ]
+ DEBUG [d932ca19] Finished in 0.006 seconds with exit status 1 (failed).
+  INFO [28208d57] Running /usr/bin/env ln -s /var/www/awesome-events/shared/tmp/pids /var/www/awesome-events/releases/20180530233623/tmp/pids as ops@vagrant.local
+ DEBUG [28208d57] Command: ( export RBENV_ROOT="/usr/local/.rbenv" PATH="/usr/local/.rbenv/shims:/usr/local/.rbenv/bin:$PATH" ; /usr/bin/env ln -s /var/www/awesome-events/shared/tmp/pids /var/www/awesome-events/releases/20180530233623/tmp/pids )
+  INFO [28208d57] Finished in 0.009 seconds with exit status 0 (successful).
+ DEBUG [fb0a325d] Running [ -L /var/www/awesome-events/releases/20180530233623/public/assets ] as ops@vagrant.local
+ DEBUG [fb0a325d] Command: [ -L /var/www/awesome-events/releases/20180530233623/public/assets ]
+ DEBUG [fb0a325d] Finished in 0.007 seconds with exit status 1 (failed).
+ DEBUG [ee52fe98] Running [ -d /var/www/awesome-events/releases/20180530233623/public/assets ] as ops@vagrant.local
+ DEBUG [ee52fe98] Command: [ -d /var/www/awesome-events/releases/20180530233623/public/assets ]
+ DEBUG [ee52fe98] Finished in 0.005 seconds with exit status 1 (failed).
+  INFO [f5a51127] Running /usr/bin/env ln -s /var/www/awesome-events/shared/public/assets /var/www/awesome-events/releases/20180530233623/public/assets as ops@vagrant.local
+ DEBUG [f5a51127] Command: ( export RBENV_ROOT="/usr/local/.rbenv" PATH="/usr/local/.rbenv/shims:/usr/local/.rbenv/bin:$PATH" ; /usr/bin/env ln -s /var/www/awesome-events/shared/public/assets /var/www/awesome-events/releases/20180530233623/public/assets )
+  INFO [f5a51127] Finished in 0.008 seconds with exit status 0 (successful).
+ DEBUG [d82b3f2c] Running if test ! -d /var/www/awesome-events/releases/20180530233623; then echo "Directory does not exist '/var/www/awesome-events/releases/20180530233623'" 1>&2; false; fi as ops@vagrant.local
+ DEBUG [d82b3f2c] Command: if test ! -d /var/www/awesome-events/releases/20180530233623; then echo "Directory does not exist '/var/www/awesome-events/releases/20180530233623'" 1>&2; false; fi
+ DEBUG [d82b3f2c] Finished in 0.005 seconds with exit status 0 (successful).
+ DEBUG [b48d2696] Running /usr/bin/env bundle check --path /var/www/awesome-events/shared/bundle as ops@vagrant.local
+ DEBUG [b48d2696] Command: cd /var/www/awesome-events/releases/20180530233623 && ( export RBENV_ROOT="/usr/local/.rbenv" PATH="/usr/local/.rbenv/shims:/usr/local/.rbenv/bin:$PATH" ; /usr/bin/env bundle check --path /var/www/awesome-events/shared/bundle )
+ DEBUG [b48d2696] 	`x64_mingw` is not a valid platform. The available options are: [:ruby,
+:ruby_18, :ruby_19, :ruby_20, :mri, :mri_18, :mri_19, :mri_20, :rbx, :jruby,
+:mswin, :mingw, :mingw_18, :mingw_19, :mingw_20]
+ DEBUG [b48d2696] Finished in 0.154 seconds with exit status 4 (failed).
+  INFO [68602644] Running /usr/bin/env bundle install --path /var/www/awesome-events/shared/bundle --without development test --deployment --quiet as ops@vagrant.local
+ DEBUG [68602644] Command: cd /var/www/awesome-events/releases/20180530233623 && ( export RBENV_ROOT="/usr/local/.rbenv" PATH="/usr/local/.rbenv/shims:/usr/local/.rbenv/bin:$PATH" ; /usr/bin/env bundle install --path /var/www/awesome-events/shared/bundle --without development test --deployment --quiet )
+ DEBUG [68602644] 	`x64_mingw` is not a valid platform. The available options are: [:ruby,
+:ruby_18, :ruby_19, :ruby_20, :mri, :mri_18, :mri_19, :mri_20, :rbx, :jruby,
+:mswin, :mingw, :mingw_18, :mingw_19, :mingw_20]
+  INFO ---------------------------------------------------------------------------
+  INFO START 2018-05-31 08:36:56 +0900 cap staging deploy:setup
+  INFO ---------------------------------------------------------------------------
+  INFO ---------------------------------------------------------------------------
+  INFO START 2018-05-31 18:05:05 +0900 cap staging deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [1450172e] Running /usr/bin/env mkdir -p /tmp as ops@vagrant.local
+ DEBUG [1450172e] Command: ( export RBENV_ROOT="" PATH="/shims:/bin:$PATH" ; /usr/bin/env mkdir -p /tmp )
+  INFO [1450172e] Finished in 0.375 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-awesome_events-staging-takashi_kageyama.sh 0.0%
+  INFO Uploading /tmp/git-ssh-awesome_events-staging-takashi_kageyama.sh 100.0%
+  INFO [538b794e] Running /usr/bin/env chmod 700 /tmp/git-ssh-awesome_events-staging-takashi_kageyama.sh as ops@vagrant.local
+ DEBUG [538b794e] Command: ( export RBENV_ROOT="" PATH="/shims:/bin:$PATH" ; /usr/bin/env chmod 700 /tmp/git-ssh-awesome_events-staging-takashi_kageyama.sh )
+  INFO [538b794e] Finished in 0.008 seconds with exit status 0 (successful).
+  INFO [baccf419] Running /usr/bin/env git ls-remote https://github.com/takakag/awesome_events.git HEAD as ops@vagrant.local
+ DEBUG [baccf419] Command: ( export RBENV_ROOT="" PATH="/shims:/bin:$PATH" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-awesome_events-staging-takashi_kageyama.sh" ; /usr/bin/env git ls-remote https://github.com/takakag/awesome_events.git HEAD )
+ DEBUG [baccf419] 	db55d18f1be551049c1669dce65530b4d3d72dc1	HEAD
+  INFO [baccf419] Finished in 0.964 seconds with exit status 0 (successful).
+  INFO [847ab272] Running /usr/bin/env mkdir -p /var/www/awesome-events/shared /var/www/awesome-events/releases as ops@vagrant.local
+ DEBUG [847ab272] Command: ( export RBENV_ROOT="" PATH="/shims:/bin:$PATH" ; /usr/bin/env mkdir -p /var/www/awesome-events/shared /var/www/awesome-events/releases )
+  INFO [847ab272] Finished in 0.009 seconds with exit status 0 (successful).
+  INFO [60721863] Running /usr/bin/env mkdir -p /var/www/awesome-events/shared/tmp/pids /var/www/awesome-events/shared/public/assets as ops@vagrant.local
+ DEBUG [60721863] Command: ( export RBENV_ROOT="" PATH="/shims:/bin:$PATH" ; /usr/bin/env mkdir -p /var/www/awesome-events/shared/tmp/pids /var/www/awesome-events/shared/public/assets )
+  INFO [60721863] Finished in 0.009 seconds with exit status 0 (successful).
+ DEBUG [282454a8] Running [ -f /var/www/awesome-events/current/REVISION ] as ops@vagrant.local
+ DEBUG [282454a8] Command: [ -f /var/www/awesome-events/current/REVISION ]
+ DEBUG [282454a8] Finished in 0.006 seconds with exit status 0 (successful).
+ DEBUG [71e307b5] Running /usr/bin/env cat /var/www/awesome-events/current/REVISION 2>/dev/null as ops@vagrant.local
+ DEBUG [71e307b5] Command: ( export RBENV_ROOT="" PATH="/shims:/bin:$PATH" ; /usr/bin/env cat /var/www/awesome-events/current/REVISION 2>/dev/null )
+ DEBUG [71e307b5] 	db55d18f1be551049c1669dce65530b4d3d72dc1
+ DEBUG [71e307b5] Finished in 0.010 seconds with exit status 0 (successful).
+ DEBUG [0be6d3e5] Running [ -f /var/www/awesome-events/repo/HEAD ] as ops@vagrant.local
+ DEBUG [0be6d3e5] Command: [ -f /var/www/awesome-events/repo/HEAD ]
+ DEBUG [0be6d3e5] Finished in 0.006 seconds with exit status 0 (successful).
+  INFO The repository mirror is at /var/www/awesome-events/repo
+ DEBUG [3cf543f9] Running if test ! -d /var/www/awesome-events/repo; then echo "Directory does not exist '/var/www/awesome-events/repo'" 1>&2; false; fi as ops@vagrant.local
+ DEBUG [3cf543f9] Command: if test ! -d /var/www/awesome-events/repo; then echo "Directory does not exist '/var/www/awesome-events/repo'" 1>&2; false; fi
+ DEBUG [3cf543f9] Finished in 0.006 seconds with exit status 0 (successful).
+  INFO [1819d427] Running /usr/bin/env git remote set-url origin https://github.com/takakag/awesome_events.git as ops@vagrant.local
+ DEBUG [1819d427] Command: cd /var/www/awesome-events/repo && ( export RBENV_ROOT="" PATH="/shims:/bin:$PATH" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-awesome_events-staging-takashi_kageyama.sh" ; /usr/bin/env git remote set-url origin https://github.com/takakag/awesome_events.git )
+  INFO [1819d427] Finished in 0.011 seconds with exit status 0 (successful).
+  INFO [78d8547d] Running /usr/bin/env git remote update --prune as ops@vagrant.local
+ DEBUG [78d8547d] Command: cd /var/www/awesome-events/repo && ( export RBENV_ROOT="" PATH="/shims:/bin:$PATH" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-awesome_events-staging-takashi_kageyama.sh" ; /usr/bin/env git remote update --prune )
+ DEBUG [78d8547d] 	Fetching origin
+  INFO [78d8547d] Finished in 0.974 seconds with exit status 0 (successful).
+ DEBUG [3273cf3c] Running if test ! -d /var/www/awesome-events/repo; then echo "Directory does not exist '/var/www/awesome-events/repo'" 1>&2; false; fi as ops@vagrant.local
+ DEBUG [3273cf3c] Command: if test ! -d /var/www/awesome-events/repo; then echo "Directory does not exist '/var/www/awesome-events/repo'" 1>&2; false; fi
+ DEBUG [3273cf3c] Finished in 0.006 seconds with exit status 0 (successful).
+  INFO [40e15d58] Running /usr/bin/env mkdir -p /var/www/awesome-events/releases/20180531090506 as ops@vagrant.local
+ DEBUG [40e15d58] Command: cd /var/www/awesome-events/repo && ( export RBENV_ROOT="" PATH="/shims:/bin:$PATH" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-awesome_events-staging-takashi_kageyama.sh" ; /usr/bin/env mkdir -p /var/www/awesome-events/releases/20180531090506 )
+  INFO [40e15d58] Finished in 0.009 seconds with exit status 0 (successful).
+  INFO [da8b2cfa] Running /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /var/www/awesome-events/releases/20180531090506 as ops@vagrant.local
+ DEBUG [da8b2cfa] Command: cd /var/www/awesome-events/repo && ( export RBENV_ROOT="" PATH="/shims:/bin:$PATH" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-awesome_events-staging-takashi_kageyama.sh" ; /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /var/www/awesome-events/releases/20180531090506 )
+  INFO [da8b2cfa] Finished in 0.125 seconds with exit status 0 (successful).
+ DEBUG [875acbad] Running if test ! -d /var/www/awesome-events/repo; then echo "Directory does not exist '/var/www/awesome-events/repo'" 1>&2; false; fi as ops@vagrant.local
+ DEBUG [875acbad] Command: if test ! -d /var/www/awesome-events/repo; then echo "Directory does not exist '/var/www/awesome-events/repo'" 1>&2; false; fi
+ DEBUG [875acbad] Finished in 0.005 seconds with exit status 0 (successful).
+ DEBUG [b460eb08] Running /usr/bin/env git rev-list --max-count=1 master as ops@vagrant.local
+ DEBUG [b460eb08] Command: cd /var/www/awesome-events/repo && ( export RBENV_ROOT="" PATH="/shims:/bin:$PATH" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-awesome_events-staging-takashi_kageyama.sh" ; /usr/bin/env git rev-list --max-count=1 master )
+ DEBUG [b460eb08] 	db55d18f1be551049c1669dce65530b4d3d72dc1
+ DEBUG [b460eb08] Finished in 0.011 seconds with exit status 0 (successful).
+ DEBUG [2f5afd97] Running if test ! -d /var/www/awesome-events/releases/20180531090506; then echo "Directory does not exist '/var/www/awesome-events/releases/20180531090506'" 1>&2; false; fi as ops@vagrant.local
+ DEBUG [2f5afd97] Command: if test ! -d /var/www/awesome-events/releases/20180531090506; then echo "Directory does not exist '/var/www/awesome-events/releases/20180531090506'" 1>&2; false; fi
+ DEBUG [2f5afd97] Finished in 0.005 seconds with exit status 0 (successful).
+  INFO [478f4a39] Running /usr/bin/env echo "db55d18f1be551049c1669dce65530b4d3d72dc1" > REVISION as ops@vagrant.local
+ DEBUG [478f4a39] Command: cd /var/www/awesome-events/releases/20180531090506 && ( export RBENV_ROOT="" PATH="/shims:/bin:$PATH" ; /usr/bin/env echo "db55d18f1be551049c1669dce65530b4d3d72dc1" > REVISION )
+  INFO [478f4a39] Finished in 0.009 seconds with exit status 0 (successful).
+  INFO [3b985bb6] Running /usr/bin/env mkdir -p /var/www/awesome-events/releases/20180531090506/tmp /var/www/awesome-events/releases/20180531090506/public as ops@vagrant.local
+ DEBUG [3b985bb6] Command: ( export RBENV_ROOT="" PATH="/shims:/bin:$PATH" ; /usr/bin/env mkdir -p /var/www/awesome-events/releases/20180531090506/tmp /var/www/awesome-events/releases/20180531090506/public )
+  INFO [3b985bb6] Finished in 0.010 seconds with exit status 0 (successful).
+ DEBUG [4aa5852f] Running [ -L /var/www/awesome-events/releases/20180531090506/tmp/pids ] as ops@vagrant.local
+ DEBUG [4aa5852f] Command: [ -L /var/www/awesome-events/releases/20180531090506/tmp/pids ]
+ DEBUG [4aa5852f] Finished in 0.006 seconds with exit status 1 (failed).
+ DEBUG [c933debf] Running [ -d /var/www/awesome-events/releases/20180531090506/tmp/pids ] as ops@vagrant.local
+ DEBUG [c933debf] Command: [ -d /var/www/awesome-events/releases/20180531090506/tmp/pids ]
+ DEBUG [c933debf] Finished in 0.006 seconds with exit status 1 (failed).
+  INFO [9fff897c] Running /usr/bin/env ln -s /var/www/awesome-events/shared/tmp/pids /var/www/awesome-events/releases/20180531090506/tmp/pids as ops@vagrant.local
+ DEBUG [9fff897c] Command: ( export RBENV_ROOT="" PATH="/shims:/bin:$PATH" ; /usr/bin/env ln -s /var/www/awesome-events/shared/tmp/pids /var/www/awesome-events/releases/20180531090506/tmp/pids )
+  INFO [9fff897c] Finished in 0.008 seconds with exit status 0 (successful).
+ DEBUG [e5222010] Running [ -L /var/www/awesome-events/releases/20180531090506/public/assets ] as ops@vagrant.local
+ DEBUG [e5222010] Command: [ -L /var/www/awesome-events/releases/20180531090506/public/assets ]
+ DEBUG [e5222010] Finished in 0.005 seconds with exit status 1 (failed).
+ DEBUG [6cf462f4] Running [ -d /var/www/awesome-events/releases/20180531090506/public/assets ] as ops@vagrant.local
+ DEBUG [6cf462f4] Command: [ -d /var/www/awesome-events/releases/20180531090506/public/assets ]
+ DEBUG [6cf462f4] Finished in 0.005 seconds with exit status 1 (failed).
+  INFO [3b226e10] Running /usr/bin/env ln -s /var/www/awesome-events/shared/public/assets /var/www/awesome-events/releases/20180531090506/public/assets as ops@vagrant.local
+ DEBUG [3b226e10] Command: ( export RBENV_ROOT="" PATH="/shims:/bin:$PATH" ; /usr/bin/env ln -s /var/www/awesome-events/shared/public/assets /var/www/awesome-events/releases/20180531090506/public/assets )
+  INFO [3b226e10] Finished in 0.009 seconds with exit status 0 (successful).
+ DEBUG [17e0598c] Running if test ! -d /var/www/awesome-events/releases/20180531090506; then echo "Directory does not exist '/var/www/awesome-events/releases/20180531090506'" 1>&2; false; fi as ops@vagrant.local
+ DEBUG [17e0598c] Command: if test ! -d /var/www/awesome-events/releases/20180531090506; then echo "Directory does not exist '/var/www/awesome-events/releases/20180531090506'" 1>&2; false; fi
+ DEBUG [17e0598c] Finished in 0.006 seconds with exit status 0 (successful).
+ DEBUG [a06f5db9] Running /usr/bin/env bundle check --path /var/www/awesome-events/shared/bundle as ops@vagrant.local
+ DEBUG [a06f5db9] Command: cd /var/www/awesome-events/releases/20180531090506 && ( export RBENV_ROOT="" PATH="/shims:/bin:$PATH" ; /usr/bin/env bundle check --path /var/www/awesome-events/shared/bundle )
+ DEBUG [a06f5db9] 	`x64_mingw` is not a valid platform. The available options are: [:ruby,
+:ruby_18, :ruby_19, :ruby_20, :mri, :mri_18, :mri_19, :mri_20, :rbx, :jruby,
+:mswin, :mingw, :mingw_18, :mingw_19, :mingw_20]
+ DEBUG [a06f5db9] Finished in 0.160 seconds with exit status 4 (failed).
+  INFO [6140fc57] Running /usr/bin/env bundle install --path /var/www/awesome-events/shared/bundle --without development test --deployment --quiet as ops@vagrant.local
+ DEBUG [6140fc57] Command: cd /var/www/awesome-events/releases/20180531090506 && ( export RBENV_ROOT="" PATH="/shims:/bin:$PATH" ; /usr/bin/env bundle install --path /var/www/awesome-events/shared/bundle --without development test --deployment --quiet )
+ DEBUG [6140fc57] 	`x64_mingw` is not a valid platform. The available options are: [:ruby,
+:ruby_18, :ruby_19, :ruby_20, :mri, :mri_18, :mri_19, :mri_20, :rbx, :jruby,
+:mswin, :mingw, :mingw_18, :mingw_19, :mingw_20]
+  INFO ---------------------------------------------------------------------------
+  INFO START 2018-05-31 19:11:40 +0900 cap staging deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [4abfaf27] Running /usr/bin/env mkdir -p /tmp as ops@vagrant.local
+ DEBUG [4abfaf27] Command: ( export RBENV_ROOT="/opt/rbenv" PATH="opt/rbenv/shims:/opt/rbenv/bin:$PATH" ; /usr/bin/env mkdir -p /tmp )
+  INFO [4abfaf27] Finished in 0.371 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-awesome_events-staging-takashi_kageyama.sh 0.0%
+  INFO Uploading /tmp/git-ssh-awesome_events-staging-takashi_kageyama.sh 100.0%
+  INFO [e31ca903] Running /usr/bin/env chmod 700 /tmp/git-ssh-awesome_events-staging-takashi_kageyama.sh as ops@vagrant.local
+ DEBUG [e31ca903] Command: ( export RBENV_ROOT="/opt/rbenv" PATH="opt/rbenv/shims:/opt/rbenv/bin:$PATH" ; /usr/bin/env chmod 700 /tmp/git-ssh-awesome_events-staging-takashi_kageyama.sh )
+  INFO [e31ca903] Finished in 0.009 seconds with exit status 0 (successful).
+  INFO [48ea0171] Running /usr/bin/env git ls-remote https://github.com/takakag/awesome_events.git HEAD as ops@vagrant.local
+ DEBUG [48ea0171] Command: ( export RBENV_ROOT="/opt/rbenv" PATH="opt/rbenv/shims:/opt/rbenv/bin:$PATH" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-awesome_events-staging-takashi_kageyama.sh" ; /usr/bin/env git ls-remote https://github.com/takakag/awesome_events.git HEAD )
+ DEBUG [48ea0171] 	db55d18f1be551049c1669dce65530b4d3d72dc1	HEAD
+  INFO [48ea0171] Finished in 0.961 seconds with exit status 0 (successful).
+  INFO [2c2cf71f] Running /usr/bin/env mkdir -p /var/www/awesome-events/shared /var/www/awesome-events/releases as ops@vagrant.local
+ DEBUG [2c2cf71f] Command: ( export RBENV_ROOT="/opt/rbenv" PATH="opt/rbenv/shims:/opt/rbenv/bin:$PATH" ; /usr/bin/env mkdir -p /var/www/awesome-events/shared /var/www/awesome-events/releases )
+  INFO [2c2cf71f] Finished in 0.009 seconds with exit status 0 (successful).
+  INFO [213dba63] Running /usr/bin/env mkdir -p /var/www/awesome-events/shared/tmp/pids /var/www/awesome-events/shared/public/assets as ops@vagrant.local
+ DEBUG [213dba63] Command: ( export RBENV_ROOT="/opt/rbenv" PATH="opt/rbenv/shims:/opt/rbenv/bin:$PATH" ; /usr/bin/env mkdir -p /var/www/awesome-events/shared/tmp/pids /var/www/awesome-events/shared/public/assets )
+  INFO [213dba63] Finished in 0.009 seconds with exit status 0 (successful).
+ DEBUG [260db7f0] Running [ -f /var/www/awesome-events/current/REVISION ] as ops@vagrant.local
+ DEBUG [260db7f0] Command: [ -f /var/www/awesome-events/current/REVISION ]
+ DEBUG [260db7f0] Finished in 0.005 seconds with exit status 0 (successful).
+ DEBUG [74894a21] Running /usr/bin/env cat /var/www/awesome-events/current/REVISION 2>/dev/null as ops@vagrant.local
+ DEBUG [74894a21] Command: ( export RBENV_ROOT="/opt/rbenv" PATH="opt/rbenv/shims:/opt/rbenv/bin:$PATH" ; /usr/bin/env cat /var/www/awesome-events/current/REVISION 2>/dev/null )
+ DEBUG [74894a21] 	db55d18f1be551049c1669dce65530b4d3d72dc1
+ DEBUG [74894a21] Finished in 0.010 seconds with exit status 0 (successful).
+ DEBUG [e7a54eaf] Running [ -f /var/www/awesome-events/repo/HEAD ] as ops@vagrant.local
+ DEBUG [e7a54eaf] Command: [ -f /var/www/awesome-events/repo/HEAD ]
+ DEBUG [e7a54eaf] Finished in 0.006 seconds with exit status 0 (successful).
+  INFO The repository mirror is at /var/www/awesome-events/repo
+ DEBUG [5e1f4a28] Running if test ! -d /var/www/awesome-events/repo; then echo "Directory does not exist '/var/www/awesome-events/repo'" 1>&2; false; fi as ops@vagrant.local
+ DEBUG [5e1f4a28] Command: if test ! -d /var/www/awesome-events/repo; then echo "Directory does not exist '/var/www/awesome-events/repo'" 1>&2; false; fi
+ DEBUG [5e1f4a28] Finished in 0.005 seconds with exit status 0 (successful).
+  INFO [9d9db1e3] Running /usr/bin/env git remote set-url origin https://github.com/takakag/awesome_events.git as ops@vagrant.local
+ DEBUG [9d9db1e3] Command: cd /var/www/awesome-events/repo && ( export RBENV_ROOT="/opt/rbenv" PATH="opt/rbenv/shims:/opt/rbenv/bin:$PATH" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-awesome_events-staging-takashi_kageyama.sh" ; /usr/bin/env git remote set-url origin https://github.com/takakag/awesome_events.git )
+  INFO [9d9db1e3] Finished in 0.011 seconds with exit status 0 (successful).
+  INFO [87641018] Running /usr/bin/env git remote update --prune as ops@vagrant.local
+ DEBUG [87641018] Command: cd /var/www/awesome-events/repo && ( export RBENV_ROOT="/opt/rbenv" PATH="opt/rbenv/shims:/opt/rbenv/bin:$PATH" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-awesome_events-staging-takashi_kageyama.sh" ; /usr/bin/env git remote update --prune )
+ DEBUG [87641018] 	Fetching origin
+  INFO [87641018] Finished in 0.890 seconds with exit status 0 (successful).
+ DEBUG [6209bb2d] Running if test ! -d /var/www/awesome-events/repo; then echo "Directory does not exist '/var/www/awesome-events/repo'" 1>&2; false; fi as ops@vagrant.local
+ DEBUG [6209bb2d] Command: if test ! -d /var/www/awesome-events/repo; then echo "Directory does not exist '/var/www/awesome-events/repo'" 1>&2; false; fi
+ DEBUG [6209bb2d] Finished in 0.005 seconds with exit status 0 (successful).
+  INFO [0066dc0f] Running /usr/bin/env mkdir -p /var/www/awesome-events/releases/20180531101141 as ops@vagrant.local
+ DEBUG [0066dc0f] Command: cd /var/www/awesome-events/repo && ( export RBENV_ROOT="/opt/rbenv" PATH="opt/rbenv/shims:/opt/rbenv/bin:$PATH" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-awesome_events-staging-takashi_kageyama.sh" ; /usr/bin/env mkdir -p /var/www/awesome-events/releases/20180531101141 )
+  INFO [0066dc0f] Finished in 0.009 seconds with exit status 0 (successful).
+  INFO [886ab131] Running /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /var/www/awesome-events/releases/20180531101141 as ops@vagrant.local
+ DEBUG [886ab131] Command: cd /var/www/awesome-events/repo && ( export RBENV_ROOT="/opt/rbenv" PATH="opt/rbenv/shims:/opt/rbenv/bin:$PATH" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-awesome_events-staging-takashi_kageyama.sh" ; /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /var/www/awesome-events/releases/20180531101141 )
+  INFO [886ab131] Finished in 0.115 seconds with exit status 0 (successful).
+ DEBUG [6d1b56a4] Running if test ! -d /var/www/awesome-events/repo; then echo "Directory does not exist '/var/www/awesome-events/repo'" 1>&2; false; fi as ops@vagrant.local
+ DEBUG [6d1b56a4] Command: if test ! -d /var/www/awesome-events/repo; then echo "Directory does not exist '/var/www/awesome-events/repo'" 1>&2; false; fi
+ DEBUG [6d1b56a4] Finished in 0.006 seconds with exit status 0 (successful).
+ DEBUG [7913dc3b] Running /usr/bin/env git rev-list --max-count=1 master as ops@vagrant.local
+ DEBUG [7913dc3b] Command: cd /var/www/awesome-events/repo && ( export RBENV_ROOT="/opt/rbenv" PATH="opt/rbenv/shims:/opt/rbenv/bin:$PATH" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-awesome_events-staging-takashi_kageyama.sh" ; /usr/bin/env git rev-list --max-count=1 master )
+ DEBUG [7913dc3b] 	db55d18f1be551049c1669dce65530b4d3d72dc1
+ DEBUG [7913dc3b] Finished in 0.011 seconds with exit status 0 (successful).
+ DEBUG [7cfc219c] Running if test ! -d /var/www/awesome-events/releases/20180531101141; then echo "Directory does not exist '/var/www/awesome-events/releases/20180531101141'" 1>&2; false; fi as ops@vagrant.local
+ DEBUG [7cfc219c] Command: if test ! -d /var/www/awesome-events/releases/20180531101141; then echo "Directory does not exist '/var/www/awesome-events/releases/20180531101141'" 1>&2; false; fi
+ DEBUG [7cfc219c] Finished in 0.005 seconds with exit status 0 (successful).
+  INFO [9ef6a75e] Running /usr/bin/env echo "db55d18f1be551049c1669dce65530b4d3d72dc1" > REVISION as ops@vagrant.local
+ DEBUG [9ef6a75e] Command: cd /var/www/awesome-events/releases/20180531101141 && ( export RBENV_ROOT="/opt/rbenv" PATH="opt/rbenv/shims:/opt/rbenv/bin:$PATH" ; /usr/bin/env echo "db55d18f1be551049c1669dce65530b4d3d72dc1" > REVISION )
+  INFO [9ef6a75e] Finished in 0.009 seconds with exit status 0 (successful).
+  INFO [83108458] Running /usr/bin/env mkdir -p /var/www/awesome-events/releases/20180531101141/tmp /var/www/awesome-events/releases/20180531101141/public as ops@vagrant.local
+ DEBUG [83108458] Command: ( export RBENV_ROOT="/opt/rbenv" PATH="opt/rbenv/shims:/opt/rbenv/bin:$PATH" ; /usr/bin/env mkdir -p /var/www/awesome-events/releases/20180531101141/tmp /var/www/awesome-events/releases/20180531101141/public )
+  INFO [83108458] Finished in 0.014 seconds with exit status 0 (successful).
+ DEBUG [d2d61340] Running [ -L /var/www/awesome-events/releases/20180531101141/tmp/pids ] as ops@vagrant.local
+ DEBUG [d2d61340] Command: [ -L /var/www/awesome-events/releases/20180531101141/tmp/pids ]
+ DEBUG [d2d61340] Finished in 0.005 seconds with exit status 1 (failed).
+ DEBUG [5fa9d0c7] Running [ -d /var/www/awesome-events/releases/20180531101141/tmp/pids ] as ops@vagrant.local
+ DEBUG [5fa9d0c7] Command: [ -d /var/www/awesome-events/releases/20180531101141/tmp/pids ]
+ DEBUG [5fa9d0c7] Finished in 0.005 seconds with exit status 1 (failed).
+  INFO [5fd66d71] Running /usr/bin/env ln -s /var/www/awesome-events/shared/tmp/pids /var/www/awesome-events/releases/20180531101141/tmp/pids as ops@vagrant.local
+ DEBUG [5fd66d71] Command: ( export RBENV_ROOT="/opt/rbenv" PATH="opt/rbenv/shims:/opt/rbenv/bin:$PATH" ; /usr/bin/env ln -s /var/www/awesome-events/shared/tmp/pids /var/www/awesome-events/releases/20180531101141/tmp/pids )
+  INFO [5fd66d71] Finished in 0.009 seconds with exit status 0 (successful).
+ DEBUG [eb754557] Running [ -L /var/www/awesome-events/releases/20180531101141/public/assets ] as ops@vagrant.local
+ DEBUG [eb754557] Command: [ -L /var/www/awesome-events/releases/20180531101141/public/assets ]
+ DEBUG [eb754557] Finished in 0.006 seconds with exit status 1 (failed).
+ DEBUG [df9cb298] Running [ -d /var/www/awesome-events/releases/20180531101141/public/assets ] as ops@vagrant.local
+ DEBUG [df9cb298] Command: [ -d /var/www/awesome-events/releases/20180531101141/public/assets ]
+ DEBUG [df9cb298] Finished in 0.006 seconds with exit status 1 (failed).
+  INFO [61e70c0c] Running /usr/bin/env ln -s /var/www/awesome-events/shared/public/assets /var/www/awesome-events/releases/20180531101141/public/assets as ops@vagrant.local
+ DEBUG [61e70c0c] Command: ( export RBENV_ROOT="/opt/rbenv" PATH="opt/rbenv/shims:/opt/rbenv/bin:$PATH" ; /usr/bin/env ln -s /var/www/awesome-events/shared/public/assets /var/www/awesome-events/releases/20180531101141/public/assets )
+  INFO [61e70c0c] Finished in 0.010 seconds with exit status 0 (successful).
+ DEBUG [a6107d99] Running if test ! -d /var/www/awesome-events/releases/20180531101141; then echo "Directory does not exist '/var/www/awesome-events/releases/20180531101141'" 1>&2; false; fi as ops@vagrant.local
+ DEBUG [a6107d99] Command: if test ! -d /var/www/awesome-events/releases/20180531101141; then echo "Directory does not exist '/var/www/awesome-events/releases/20180531101141'" 1>&2; false; fi
+ DEBUG [a6107d99] Finished in 0.006 seconds with exit status 0 (successful).
+ DEBUG [7a866870] Running /usr/bin/env bundle check --path /var/www/awesome-events/shared/bundle as ops@vagrant.local
+ DEBUG [7a866870] Command: cd /var/www/awesome-events/releases/20180531101141 && ( export RBENV_ROOT="/opt/rbenv" PATH="opt/rbenv/shims:/opt/rbenv/bin:$PATH" ; /usr/bin/env bundle check --path /var/www/awesome-events/shared/bundle )
+ DEBUG [7a866870] 	`x64_mingw` is not a valid platform. The available options are: [:ruby,
+:ruby_18, :ruby_19, :ruby_20, :mri, :mri_18, :mri_19, :mri_20, :rbx, :jruby,
+:mswin, :mingw, :mingw_18, :mingw_19, :mingw_20]
+ DEBUG [7a866870] Finished in 0.164 seconds with exit status 4 (failed).
+  INFO [3478e971] Running /usr/bin/env bundle install --path /var/www/awesome-events/shared/bundle --without development test --deployment --quiet as ops@vagrant.local
+ DEBUG [3478e971] Command: cd /var/www/awesome-events/releases/20180531101141 && ( export RBENV_ROOT="/opt/rbenv" PATH="opt/rbenv/shims:/opt/rbenv/bin:$PATH" ; /usr/bin/env bundle install --path /var/www/awesome-events/shared/bundle --without development test --deployment --quiet )
+ DEBUG [3478e971] 	`x64_mingw` is not a valid platform. The available options are: [:ruby,
+:ruby_18, :ruby_19, :ruby_20, :mri, :mri_18, :mri_19, :mri_20, :rbx, :jruby,
+:mswin, :mingw, :mingw_18, :mingw_19, :mingw_20]
+  INFO ---------------------------------------------------------------------------
+  INFO START 2018-05-31 19:12:35 +0900 cap staging deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [73945732] Running /usr/bin/env mkdir -p /tmp as ops@vagrant.local
+ DEBUG [73945732] Command: ( export RBENV_ROOT="/opt/rbenv" PATH="opt/rbenv/shims:/opt/rbenv/plugins:$PATH" ; /usr/bin/env mkdir -p /tmp )
+  INFO [73945732] Finished in 0.341 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-awesome_events-staging-takashi_kageyama.sh 0.0%
+  INFO Uploading /tmp/git-ssh-awesome_events-staging-takashi_kageyama.sh 100.0%
+  INFO [747cfe34] Running /usr/bin/env chmod 700 /tmp/git-ssh-awesome_events-staging-takashi_kageyama.sh as ops@vagrant.local
+ DEBUG [747cfe34] Command: ( export RBENV_ROOT="/opt/rbenv" PATH="opt/rbenv/shims:/opt/rbenv/plugins:$PATH" ; /usr/bin/env chmod 700 /tmp/git-ssh-awesome_events-staging-takashi_kageyama.sh )
+  INFO [747cfe34] Finished in 0.009 seconds with exit status 0 (successful).
+  INFO [d2a3f2ec] Running /usr/bin/env git ls-remote https://github.com/takakag/awesome_events.git HEAD as ops@vagrant.local
+ DEBUG [d2a3f2ec] Command: ( export RBENV_ROOT="/opt/rbenv" PATH="opt/rbenv/shims:/opt/rbenv/plugins:$PATH" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-awesome_events-staging-takashi_kageyama.sh" ; /usr/bin/env git ls-remote https://github.com/takakag/awesome_events.git HEAD )
+ DEBUG [d2a3f2ec] 	db55d18f1be551049c1669dce65530b4d3d72dc1	HEAD
+  INFO [d2a3f2ec] Finished in 0.780 seconds with exit status 0 (successful).
+  INFO [b388622c] Running /usr/bin/env mkdir -p /var/www/awesome-events/shared /var/www/awesome-events/releases as ops@vagrant.local
+ DEBUG [b388622c] Command: ( export RBENV_ROOT="/opt/rbenv" PATH="opt/rbenv/shims:/opt/rbenv/plugins:$PATH" ; /usr/bin/env mkdir -p /var/www/awesome-events/shared /var/www/awesome-events/releases )
+  INFO [b388622c] Finished in 0.010 seconds with exit status 0 (successful).
+  INFO [aee93a58] Running /usr/bin/env mkdir -p /var/www/awesome-events/shared/tmp/pids /var/www/awesome-events/shared/public/assets as ops@vagrant.local
+ DEBUG [aee93a58] Command: ( export RBENV_ROOT="/opt/rbenv" PATH="opt/rbenv/shims:/opt/rbenv/plugins:$PATH" ; /usr/bin/env mkdir -p /var/www/awesome-events/shared/tmp/pids /var/www/awesome-events/shared/public/assets )
+  INFO [aee93a58] Finished in 0.010 seconds with exit status 0 (successful).
+ DEBUG [65e96854] Running [ -f /var/www/awesome-events/current/REVISION ] as ops@vagrant.local
+ DEBUG [65e96854] Command: [ -f /var/www/awesome-events/current/REVISION ]
+ DEBUG [65e96854] Finished in 0.005 seconds with exit status 0 (successful).
+ DEBUG [c4a9a348] Running /usr/bin/env cat /var/www/awesome-events/current/REVISION 2>/dev/null as ops@vagrant.local
+ DEBUG [c4a9a348] Command: ( export RBENV_ROOT="/opt/rbenv" PATH="opt/rbenv/shims:/opt/rbenv/plugins:$PATH" ; /usr/bin/env cat /var/www/awesome-events/current/REVISION 2>/dev/null )
+ DEBUG [c4a9a348] 	db55d18f1be551049c1669dce65530b4d3d72dc1
+ DEBUG [c4a9a348] Finished in 0.010 seconds with exit status 0 (successful).
+ DEBUG [9662036c] Running [ -f /var/www/awesome-events/repo/HEAD ] as ops@vagrant.local
+ DEBUG [9662036c] Command: [ -f /var/www/awesome-events/repo/HEAD ]
+ DEBUG [9662036c] Finished in 0.006 seconds with exit status 0 (successful).
+  INFO The repository mirror is at /var/www/awesome-events/repo
+ DEBUG [8c615d80] Running if test ! -d /var/www/awesome-events/repo; then echo "Directory does not exist '/var/www/awesome-events/repo'" 1>&2; false; fi as ops@vagrant.local
+ DEBUG [8c615d80] Command: if test ! -d /var/www/awesome-events/repo; then echo "Directory does not exist '/var/www/awesome-events/repo'" 1>&2; false; fi
+ DEBUG [8c615d80] Finished in 0.006 seconds with exit status 0 (successful).
+  INFO [88996aa2] Running /usr/bin/env git remote set-url origin https://github.com/takakag/awesome_events.git as ops@vagrant.local
+ DEBUG [88996aa2] Command: cd /var/www/awesome-events/repo && ( export RBENV_ROOT="/opt/rbenv" PATH="opt/rbenv/shims:/opt/rbenv/plugins:$PATH" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-awesome_events-staging-takashi_kageyama.sh" ; /usr/bin/env git remote set-url origin https://github.com/takakag/awesome_events.git )
+  INFO [88996aa2] Finished in 0.011 seconds with exit status 0 (successful).
+  INFO [c54e4628] Running /usr/bin/env git remote update --prune as ops@vagrant.local
+ DEBUG [c54e4628] Command: cd /var/www/awesome-events/repo && ( export RBENV_ROOT="/opt/rbenv" PATH="opt/rbenv/shims:/opt/rbenv/plugins:$PATH" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-awesome_events-staging-takashi_kageyama.sh" ; /usr/bin/env git remote update --prune )
+ DEBUG [c54e4628] 	Fetching origin
+  INFO [c54e4628] Finished in 0.781 seconds with exit status 0 (successful).
+ DEBUG [cf00cb16] Running if test ! -d /var/www/awesome-events/repo; then echo "Directory does not exist '/var/www/awesome-events/repo'" 1>&2; false; fi as ops@vagrant.local
+ DEBUG [cf00cb16] Command: if test ! -d /var/www/awesome-events/repo; then echo "Directory does not exist '/var/www/awesome-events/repo'" 1>&2; false; fi
+ DEBUG [cf00cb16] Finished in 0.005 seconds with exit status 0 (successful).
+  INFO [3cfbb2b9] Running /usr/bin/env mkdir -p /var/www/awesome-events/releases/20180531101236 as ops@vagrant.local
+ DEBUG [3cfbb2b9] Command: cd /var/www/awesome-events/repo && ( export RBENV_ROOT="/opt/rbenv" PATH="opt/rbenv/shims:/opt/rbenv/plugins:$PATH" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-awesome_events-staging-takashi_kageyama.sh" ; /usr/bin/env mkdir -p /var/www/awesome-events/releases/20180531101236 )
+  INFO [3cfbb2b9] Finished in 0.009 seconds with exit status 0 (successful).
+  INFO [b9fa1d41] Running /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /var/www/awesome-events/releases/20180531101236 as ops@vagrant.local
+ DEBUG [b9fa1d41] Command: cd /var/www/awesome-events/repo && ( export RBENV_ROOT="/opt/rbenv" PATH="opt/rbenv/shims:/opt/rbenv/plugins:$PATH" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-awesome_events-staging-takashi_kageyama.sh" ; /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /var/www/awesome-events/releases/20180531101236 )
+  INFO [b9fa1d41] Finished in 0.124 seconds with exit status 0 (successful).
+ DEBUG [24086505] Running if test ! -d /var/www/awesome-events/repo; then echo "Directory does not exist '/var/www/awesome-events/repo'" 1>&2; false; fi as ops@vagrant.local
+ DEBUG [24086505] Command: if test ! -d /var/www/awesome-events/repo; then echo "Directory does not exist '/var/www/awesome-events/repo'" 1>&2; false; fi
+ DEBUG [24086505] Finished in 0.006 seconds with exit status 0 (successful).
+ DEBUG [78cd2ccd] Running /usr/bin/env git rev-list --max-count=1 master as ops@vagrant.local
+ DEBUG [78cd2ccd] Command: cd /var/www/awesome-events/repo && ( export RBENV_ROOT="/opt/rbenv" PATH="opt/rbenv/shims:/opt/rbenv/plugins:$PATH" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-awesome_events-staging-takashi_kageyama.sh" ; /usr/bin/env git rev-list --max-count=1 master )
+ DEBUG [78cd2ccd] 	db55d18f1be551049c1669dce65530b4d3d72dc1
+ DEBUG [78cd2ccd] Finished in 0.011 seconds with exit status 0 (successful).
+ DEBUG [0c3162c2] Running if test ! -d /var/www/awesome-events/releases/20180531101236; then echo "Directory does not exist '/var/www/awesome-events/releases/20180531101236'" 1>&2; false; fi as ops@vagrant.local
+ DEBUG [0c3162c2] Command: if test ! -d /var/www/awesome-events/releases/20180531101236; then echo "Directory does not exist '/var/www/awesome-events/releases/20180531101236'" 1>&2; false; fi
+ DEBUG [0c3162c2] Finished in 0.006 seconds with exit status 0 (successful).
+  INFO [f05333de] Running /usr/bin/env echo "db55d18f1be551049c1669dce65530b4d3d72dc1" > REVISION as ops@vagrant.local
+ DEBUG [f05333de] Command: cd /var/www/awesome-events/releases/20180531101236 && ( export RBENV_ROOT="/opt/rbenv" PATH="opt/rbenv/shims:/opt/rbenv/plugins:$PATH" ; /usr/bin/env echo "db55d18f1be551049c1669dce65530b4d3d72dc1" > REVISION )
+  INFO [f05333de] Finished in 0.009 seconds with exit status 0 (successful).
+  INFO [7e0e5b97] Running /usr/bin/env mkdir -p /var/www/awesome-events/releases/20180531101236/tmp /var/www/awesome-events/releases/20180531101236/public as ops@vagrant.local
+ DEBUG [7e0e5b97] Command: ( export RBENV_ROOT="/opt/rbenv" PATH="opt/rbenv/shims:/opt/rbenv/plugins:$PATH" ; /usr/bin/env mkdir -p /var/www/awesome-events/releases/20180531101236/tmp /var/www/awesome-events/releases/20180531101236/public )
+  INFO [7e0e5b97] Finished in 0.012 seconds with exit status 0 (successful).
+ DEBUG [690b388e] Running [ -L /var/www/awesome-events/releases/20180531101236/tmp/pids ] as ops@vagrant.local
+ DEBUG [690b388e] Command: [ -L /var/www/awesome-events/releases/20180531101236/tmp/pids ]
+ DEBUG [690b388e] Finished in 0.006 seconds with exit status 1 (failed).
+ DEBUG [eb26a689] Running [ -d /var/www/awesome-events/releases/20180531101236/tmp/pids ] as ops@vagrant.local
+ DEBUG [eb26a689] Command: [ -d /var/www/awesome-events/releases/20180531101236/tmp/pids ]
+ DEBUG [eb26a689] Finished in 0.006 seconds with exit status 1 (failed).
+  INFO [3e126108] Running /usr/bin/env ln -s /var/www/awesome-events/shared/tmp/pids /var/www/awesome-events/releases/20180531101236/tmp/pids as ops@vagrant.local
+ DEBUG [3e126108] Command: ( export RBENV_ROOT="/opt/rbenv" PATH="opt/rbenv/shims:/opt/rbenv/plugins:$PATH" ; /usr/bin/env ln -s /var/www/awesome-events/shared/tmp/pids /var/www/awesome-events/releases/20180531101236/tmp/pids )
+  INFO [3e126108] Finished in 0.013 seconds with exit status 0 (successful).
+ DEBUG [cc72a6be] Running [ -L /var/www/awesome-events/releases/20180531101236/public/assets ] as ops@vagrant.local
+ DEBUG [cc72a6be] Command: [ -L /var/www/awesome-events/releases/20180531101236/public/assets ]
+ DEBUG [cc72a6be] Finished in 0.006 seconds with exit status 1 (failed).
+ DEBUG [c03be6b5] Running [ -d /var/www/awesome-events/releases/20180531101236/public/assets ] as ops@vagrant.local
+ DEBUG [c03be6b5] Command: [ -d /var/www/awesome-events/releases/20180531101236/public/assets ]
+ DEBUG [c03be6b5] Finished in 0.005 seconds with exit status 1 (failed).
+  INFO [72d887ef] Running /usr/bin/env ln -s /var/www/awesome-events/shared/public/assets /var/www/awesome-events/releases/20180531101236/public/assets as ops@vagrant.local
+ DEBUG [72d887ef] Command: ( export RBENV_ROOT="/opt/rbenv" PATH="opt/rbenv/shims:/opt/rbenv/plugins:$PATH" ; /usr/bin/env ln -s /var/www/awesome-events/shared/public/assets /var/www/awesome-events/releases/20180531101236/public/assets )
+  INFO [72d887ef] Finished in 0.010 seconds with exit status 0 (successful).
+ DEBUG [9d8252d2] Running if test ! -d /var/www/awesome-events/releases/20180531101236; then echo "Directory does not exist '/var/www/awesome-events/releases/20180531101236'" 1>&2; false; fi as ops@vagrant.local
+ DEBUG [9d8252d2] Command: if test ! -d /var/www/awesome-events/releases/20180531101236; then echo "Directory does not exist '/var/www/awesome-events/releases/20180531101236'" 1>&2; false; fi
+ DEBUG [9d8252d2] Finished in 0.006 seconds with exit status 0 (successful).
+ DEBUG [218c4817] Running /usr/bin/env bundle check --path /var/www/awesome-events/shared/bundle as ops@vagrant.local
+ DEBUG [218c4817] Command: cd /var/www/awesome-events/releases/20180531101236 && ( export RBENV_ROOT="/opt/rbenv" PATH="opt/rbenv/shims:/opt/rbenv/plugins:$PATH" ; /usr/bin/env bundle check --path /var/www/awesome-events/shared/bundle )
+ DEBUG [218c4817] 	`x64_mingw` is not a valid platform. The available options are: [:ruby,
+:ruby_18, :ruby_19, :ruby_20, :mri, :mri_18, :mri_19, :mri_20, :rbx, :jruby,
+:mswin, :mingw, :mingw_18, :mingw_19, :mingw_20]
+ DEBUG [218c4817] Finished in 0.164 seconds with exit status 4 (failed).
+  INFO [79fc7f9e] Running /usr/bin/env bundle install --path /var/www/awesome-events/shared/bundle --without development test --deployment --quiet as ops@vagrant.local
+ DEBUG [79fc7f9e] Command: cd /var/www/awesome-events/releases/20180531101236 && ( export RBENV_ROOT="/opt/rbenv" PATH="opt/rbenv/shims:/opt/rbenv/plugins:$PATH" ; /usr/bin/env bundle install --path /var/www/awesome-events/shared/bundle --without development test --deployment --quiet )
+ DEBUG [79fc7f9e] 	`x64_mingw` is not a valid platform. The available options are: [:ruby,
+:ruby_18, :ruby_19, :ruby_20, :mri, :mri_18, :mri_19, :mri_20, :rbx, :jruby,
+:mswin, :mingw, :mingw_18, :mingw_19, :mingw_20]
+  INFO ---------------------------------------------------------------------------
+  INFO START 2018-05-31 19:30:09 +0900 cap staging deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [242baa15] Running /usr/bin/env mkdir -p /tmp as ops@vagrant.local
+ DEBUG [242baa15] Command: /usr/bin/env mkdir -p /tmp
+  INFO [242baa15] Finished in 0.414 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-awesome_events-staging-takashi_kageyama.sh 0.0%
+  INFO Uploading /tmp/git-ssh-awesome_events-staging-takashi_kageyama.sh 100.0%
+  INFO [9679c386] Running /usr/bin/env chmod 700 /tmp/git-ssh-awesome_events-staging-takashi_kageyama.sh as ops@vagrant.local
+ DEBUG [9679c386] Command: /usr/bin/env chmod 700 /tmp/git-ssh-awesome_events-staging-takashi_kageyama.sh
+  INFO [9679c386] Finished in 0.008 seconds with exit status 0 (successful).
+  INFO [a2c88d93] Running /usr/bin/env git ls-remote https://github.com/takakag/awesome_events.git HEAD as ops@vagrant.local
+ DEBUG [a2c88d93] Command: ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-awesome_events-staging-takashi_kageyama.sh" ; /usr/bin/env git ls-remote https://github.com/takakag/awesome_events.git HEAD )
+ DEBUG [a2c88d93] 	db55d18f1be551049c1669dce65530b4d3d72dc1	HEAD
+  INFO [a2c88d93] Finished in 0.795 seconds with exit status 0 (successful).
+  INFO [301a667e] Running /usr/bin/env mkdir -p /var/www/awesome-events/shared /var/www/awesome-events/releases as ops@vagrant.local
+ DEBUG [301a667e] Command: /usr/bin/env mkdir -p /var/www/awesome-events/shared /var/www/awesome-events/releases
+  INFO [301a667e] Finished in 0.008 seconds with exit status 0 (successful).
+  INFO [70d45886] Running /usr/bin/env mkdir -p /var/www/awesome-events/shared/tmp/pids /var/www/awesome-events/shared/public/assets as ops@vagrant.local
+ DEBUG [70d45886] Command: /usr/bin/env mkdir -p /var/www/awesome-events/shared/tmp/pids /var/www/awesome-events/shared/public/assets
+  INFO [70d45886] Finished in 0.009 seconds with exit status 0 (successful).
+ DEBUG [c4bc5e70] Running [ -f /var/www/awesome-events/current/REVISION ] as ops@vagrant.local
+ DEBUG [c4bc5e70] Command: [ -f /var/www/awesome-events/current/REVISION ]
+ DEBUG [c4bc5e70] Finished in 0.006 seconds with exit status 0 (successful).
+ DEBUG [408235da] Running /usr/bin/env cat /var/www/awesome-events/current/REVISION 2>/dev/null as ops@vagrant.local
+ DEBUG [408235da] Command: /usr/bin/env cat /var/www/awesome-events/current/REVISION 2>/dev/null
+ DEBUG [408235da] 	db55d18f1be551049c1669dce65530b4d3d72dc1
+ DEBUG [408235da] Finished in 0.008 seconds with exit status 0 (successful).
+ DEBUG [000b3128] Running [ -f /var/www/awesome-events/repo/HEAD ] as ops@vagrant.local
+ DEBUG [000b3128] Command: [ -f /var/www/awesome-events/repo/HEAD ]
+ DEBUG [000b3128] Finished in 0.007 seconds with exit status 0 (successful).
+  INFO The repository mirror is at /var/www/awesome-events/repo
+ DEBUG [97a56be0] Running if test ! -d /var/www/awesome-events/repo; then echo "Directory does not exist '/var/www/awesome-events/repo'" 1>&2; false; fi as ops@vagrant.local
+ DEBUG [97a56be0] Command: if test ! -d /var/www/awesome-events/repo; then echo "Directory does not exist '/var/www/awesome-events/repo'" 1>&2; false; fi
+ DEBUG [97a56be0] Finished in 0.006 seconds with exit status 0 (successful).
+  INFO [7b53c20a] Running /usr/bin/env git remote set-url origin https://github.com/takakag/awesome_events.git as ops@vagrant.local
+ DEBUG [7b53c20a] Command: cd /var/www/awesome-events/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-awesome_events-staging-takashi_kageyama.sh" ; /usr/bin/env git remote set-url origin https://github.com/takakag/awesome_events.git )
+  INFO [7b53c20a] Finished in 0.009 seconds with exit status 0 (successful).
+  INFO [76a46cf5] Running /usr/bin/env git remote update --prune as ops@vagrant.local
+ DEBUG [76a46cf5] Command: cd /var/www/awesome-events/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-awesome_events-staging-takashi_kageyama.sh" ; /usr/bin/env git remote update --prune )
+ DEBUG [76a46cf5] 	Fetching origin
+  INFO [76a46cf5] Finished in 0.836 seconds with exit status 0 (successful).
+ DEBUG [f0e30a28] Running if test ! -d /var/www/awesome-events/repo; then echo "Directory does not exist '/var/www/awesome-events/repo'" 1>&2; false; fi as ops@vagrant.local
+ DEBUG [f0e30a28] Command: if test ! -d /var/www/awesome-events/repo; then echo "Directory does not exist '/var/www/awesome-events/repo'" 1>&2; false; fi
+ DEBUG [f0e30a28] Finished in 0.006 seconds with exit status 0 (successful).
+  INFO [3ae60710] Running /usr/bin/env mkdir -p /var/www/awesome-events/releases/20180531103010 as ops@vagrant.local
+ DEBUG [3ae60710] Command: cd /var/www/awesome-events/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-awesome_events-staging-takashi_kageyama.sh" ; /usr/bin/env mkdir -p /var/www/awesome-events/releases/20180531103010 )
+  INFO [3ae60710] Finished in 0.009 seconds with exit status 0 (successful).
+  INFO [170954c1] Running /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /var/www/awesome-events/releases/20180531103010 as ops@vagrant.local
+ DEBUG [170954c1] Command: cd /var/www/awesome-events/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-awesome_events-staging-takashi_kageyama.sh" ; /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /var/www/awesome-events/releases/20180531103010 )
+  INFO [170954c1] Finished in 0.119 seconds with exit status 0 (successful).
+ DEBUG [2ba77741] Running if test ! -d /var/www/awesome-events/repo; then echo "Directory does not exist '/var/www/awesome-events/repo'" 1>&2; false; fi as ops@vagrant.local
+ DEBUG [2ba77741] Command: if test ! -d /var/www/awesome-events/repo; then echo "Directory does not exist '/var/www/awesome-events/repo'" 1>&2; false; fi
+ DEBUG [2ba77741] Finished in 0.006 seconds with exit status 0 (successful).
+ DEBUG [2657e685] Running /usr/bin/env git rev-list --max-count=1 master as ops@vagrant.local
+ DEBUG [2657e685] Command: cd /var/www/awesome-events/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-awesome_events-staging-takashi_kageyama.sh" ; /usr/bin/env git rev-list --max-count=1 master )
+ DEBUG [2657e685] 	db55d18f1be551049c1669dce65530b4d3d72dc1
+ DEBUG [2657e685] Finished in 0.011 seconds with exit status 0 (successful).
+ DEBUG [311059ee] Running if test ! -d /var/www/awesome-events/releases/20180531103010; then echo "Directory does not exist '/var/www/awesome-events/releases/20180531103010'" 1>&2; false; fi as ops@vagrant.local
+ DEBUG [311059ee] Command: if test ! -d /var/www/awesome-events/releases/20180531103010; then echo "Directory does not exist '/var/www/awesome-events/releases/20180531103010'" 1>&2; false; fi
+ DEBUG [311059ee] Finished in 0.005 seconds with exit status 0 (successful).
+  INFO [9f194fbb] Running /usr/bin/env echo "db55d18f1be551049c1669dce65530b4d3d72dc1" > REVISION as ops@vagrant.local
+ DEBUG [9f194fbb] Command: cd /var/www/awesome-events/releases/20180531103010 && /usr/bin/env echo "db55d18f1be551049c1669dce65530b4d3d72dc1" > REVISION
+  INFO [9f194fbb] Finished in 0.007 seconds with exit status 0 (successful).
+  INFO [49a70505] Running /usr/bin/env mkdir -p /var/www/awesome-events/releases/20180531103010/tmp /var/www/awesome-events/releases/20180531103010/public as ops@vagrant.local
+ DEBUG [49a70505] Command: /usr/bin/env mkdir -p /var/www/awesome-events/releases/20180531103010/tmp /var/www/awesome-events/releases/20180531103010/public
+  INFO [49a70505] Finished in 0.009 seconds with exit status 0 (successful).
+ DEBUG [7447b5e0] Running [ -L /var/www/awesome-events/releases/20180531103010/tmp/pids ] as ops@vagrant.local
+ DEBUG [7447b5e0] Command: [ -L /var/www/awesome-events/releases/20180531103010/tmp/pids ]
+ DEBUG [7447b5e0] Finished in 0.005 seconds with exit status 1 (failed).
+ DEBUG [52d6154a] Running [ -d /var/www/awesome-events/releases/20180531103010/tmp/pids ] as ops@vagrant.local
+ DEBUG [52d6154a] Command: [ -d /var/www/awesome-events/releases/20180531103010/tmp/pids ]
+ DEBUG [52d6154a] Finished in 0.005 seconds with exit status 1 (failed).
+  INFO [e151500a] Running /usr/bin/env ln -s /var/www/awesome-events/shared/tmp/pids /var/www/awesome-events/releases/20180531103010/tmp/pids as ops@vagrant.local
+ DEBUG [e151500a] Command: /usr/bin/env ln -s /var/www/awesome-events/shared/tmp/pids /var/www/awesome-events/releases/20180531103010/tmp/pids
+  INFO [e151500a] Finished in 0.007 seconds with exit status 0 (successful).
+ DEBUG [5a13f15a] Running [ -L /var/www/awesome-events/releases/20180531103010/public/assets ] as ops@vagrant.local
+ DEBUG [5a13f15a] Command: [ -L /var/www/awesome-events/releases/20180531103010/public/assets ]
+ DEBUG [5a13f15a] Finished in 0.006 seconds with exit status 1 (failed).
+ DEBUG [248be276] Running [ -d /var/www/awesome-events/releases/20180531103010/public/assets ] as ops@vagrant.local
+ DEBUG [248be276] Command: [ -d /var/www/awesome-events/releases/20180531103010/public/assets ]
+ DEBUG [248be276] Finished in 0.005 seconds with exit status 1 (failed).
+  INFO [9ded7919] Running /usr/bin/env ln -s /var/www/awesome-events/shared/public/assets /var/www/awesome-events/releases/20180531103010/public/assets as ops@vagrant.local
+ DEBUG [9ded7919] Command: /usr/bin/env ln -s /var/www/awesome-events/shared/public/assets /var/www/awesome-events/releases/20180531103010/public/assets
+  INFO [9ded7919] Finished in 0.007 seconds with exit status 0 (successful).
+ DEBUG [8a4761ad] Running if test ! -d /var/www/awesome-events/releases/20180531103010; then echo "Directory does not exist '/var/www/awesome-events/releases/20180531103010'" 1>&2; false; fi as ops@vagrant.local
+ DEBUG [8a4761ad] Command: if test ! -d /var/www/awesome-events/releases/20180531103010; then echo "Directory does not exist '/var/www/awesome-events/releases/20180531103010'" 1>&2; false; fi
+ DEBUG [8a4761ad] Finished in 0.005 seconds with exit status 0 (successful).
+ DEBUG [e41f8bb5] Running /usr/bin/env bundle check --path /var/www/awesome-events/shared/bundle as ops@vagrant.local
+ DEBUG [e41f8bb5] Command: cd /var/www/awesome-events/releases/20180531103010 && /usr/bin/env bundle check --path /var/www/awesome-events/shared/bundle
+ DEBUG [e41f8bb5] 	`x64_mingw` is not a valid platform. The available options are: [:ruby,
+:ruby_18, :ruby_19, :ruby_20, :mri, :mri_18, :mri_19, :mri_20, :rbx, :jruby,
+:mswin, :mingw, :mingw_18, :mingw_19, :mingw_20]
+ DEBUG [e41f8bb5] Finished in 0.165 seconds with exit status 4 (failed).
+  INFO [849da949] Running /usr/bin/env bundle install --path /var/www/awesome-events/shared/bundle --without development test --deployment --quiet as ops@vagrant.local
+ DEBUG [849da949] Command: cd /var/www/awesome-events/releases/20180531103010 && /usr/bin/env bundle install --path /var/www/awesome-events/shared/bundle --without development test --deployment --quiet
+ DEBUG [849da949] 	`x64_mingw` is not a valid platform. The available options are: [:ruby,
+:ruby_18, :ruby_19, :ruby_20, :mri, :mri_18, :mri_19, :mri_20, :rbx, :jruby,
+:mswin, :mingw, :mingw_18, :mingw_19, :mingw_20]

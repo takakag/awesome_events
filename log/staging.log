@@ -584,3 +584,430 @@ F, [2018-05-29T21:13:59.895088 #3044] FATAL -- : [6f3b39d0-e316-4a9e-ad49-e95c93
 [6f3b39d0-e316-4a9e-ad49-e95c93fe6a55]    10:   </head>
 F, [2018-05-29T21:13:59.895107 #3044] FATAL -- : [6f3b39d0-e316-4a9e-ad49-e95c93fe6a55]   
 F, [2018-05-29T21:13:59.895125 #3044] FATAL -- : [6f3b39d0-e316-4a9e-ad49-e95c93fe6a55] app/views/layouts/application.html.erb:7:in `_app_views_layouts_application_html_erb__266469439303669526_70330767509980'
+D, [2018-05-29T21:20:33.110020 #3089] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+D, [2018-05-29T21:20:33.113887 #3089] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+D, [2018-05-29T21:20:33.114310 #3089] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+D, [2018-05-29T21:20:33.114776 #3089] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+D, [2018-05-29T21:20:33.115148 #3089] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+D, [2018-05-29T21:20:33.115506 #3089] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+D, [2018-05-29T21:20:33.119563 #3089] DEBUG -- :   [1m[35m (1.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "events"[0m
+D, [2018-05-29T21:20:33.119813 #3089] DEBUG -- :   [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+D, [2018-05-29T21:20:33.120869 #3089] DEBUG -- :   [1m[35m (0.9ms)[0m  [1m[35mCREATE TABLE "events" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "owner_id" integer, "name" varchar NOT NULL, "place" varchar NOT NULL, "start_time" datetime NOT NULL, "end_time" datetime NOT NULL, "content" text NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "event_image" varchar)[0m
+D, [2018-05-29T21:20:33.122123 #3089] DEBUG -- :   [1m[35m (0.9ms)[0m  [1m[35mCREATE  INDEX "index_events_on_owner_id" ON "events" ("owner_id")[0m
+D, [2018-05-29T21:20:33.123493 #3089] DEBUG -- :   [1m[35m (1.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "tickets"[0m
+D, [2018-05-29T21:20:33.124580 #3089] DEBUG -- :   [1m[35m (0.9ms)[0m  [1m[35mCREATE TABLE "tickets" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "event_id" integer NOT NULL, "comment" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+D, [2018-05-29T21:20:33.126031 #3089] DEBUG -- :   [1m[35m (1.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_tickets_on_event_id_and_user_id" ON "tickets" ("event_id", "user_id")[0m
+D, [2018-05-29T21:20:33.127222 #3089] DEBUG -- :   [1m[35m (0.6ms)[0m  [1m[35mCREATE  INDEX "index_tickets_on_event_id" ON "tickets" ("event_id")[0m
+D, [2018-05-29T21:20:33.128520 #3089] DEBUG -- :   [1m[35m (0.5ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_tickets_on_user_id_and_event_id" ON "tickets" ("user_id", "event_id")[0m
+D, [2018-05-29T21:20:33.130022 #3089] DEBUG -- :   [1m[35m (0.5ms)[0m  [1m[35mCREATE  INDEX "index_tickets_on_user_id" ON "tickets" ("user_id")[0m
+D, [2018-05-29T21:20:33.131170 #3089] DEBUG -- :   [1m[35m (0.8ms)[0m  [1m[35mDROP TABLE IF EXISTS "users"[0m
+D, [2018-05-29T21:20:33.132488 #3089] DEBUG -- :   [1m[35m (0.9ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "provider" varchar NOT NULL, "uid" varchar NOT NULL, "nickname" varchar NOT NULL, "image_url" varchar NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+D, [2018-05-29T21:20:33.133853 #3089] DEBUG -- :   [1m[35m (0.8ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_provider_and_uid" ON "users" ("provider", "uid")[0m
+D, [2018-05-29T21:20:33.134958 #3089] DEBUG -- :   [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+D, [2018-05-29T21:20:33.136480 #3089] DEBUG -- :   [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+D, [2018-05-29T21:20:33.140552 #3089] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+D, [2018-05-29T21:20:33.141159 #3089] DEBUG -- :   [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+D, [2018-05-29T21:20:33.141701 #3089] DEBUG -- :   [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+D, [2018-05-29T21:20:33.141843 #3089] DEBUG -- :   [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+D, [2018-05-29T21:20:33.142111 #3089] DEBUG -- :   [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+D, [2018-05-29T21:20:33.144252 #3089] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+I, [2018-05-29T21:20:59.207601 #3117]  INFO -- : [d2b5950a-9552-4f43-a89f-cb4bee7dfe5b] Started GET "/" for 127.0.0.1 at 2018-05-29 21:20:59 +0900
+I, [2018-05-29T21:20:59.215301 #3117]  INFO -- : [d2b5950a-9552-4f43-a89f-cb4bee7dfe5b] Processing by WelcomeController#index as HTML
+I, [2018-05-29T21:20:59.215826 #3117]  INFO -- : [2fdaf772-373a-4262-a048-d5052e2f0a1a] Started GET "/assets/application..self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2018-05-29 21:20:59 +0900
+F, [2018-05-29T21:20:59.221192 #3117] FATAL -- : [2fdaf772-373a-4262-a048-d5052e2f0a1a]   
+F, [2018-05-29T21:20:59.221244 #3117] FATAL -- : [2fdaf772-373a-4262-a048-d5052e2f0a1a] ActionController::RoutingError (No route matches [GET] "/assets/application..self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css"):
+F, [2018-05-29T21:20:59.221311 #3117] FATAL -- : [2fdaf772-373a-4262-a048-d5052e2f0a1a]   
+F, [2018-05-29T21:20:59.221368 #3117] FATAL -- : [2fdaf772-373a-4262-a048-d5052e2f0a1a] actionpack (5.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+[2fdaf772-373a-4262-a048-d5052e2f0a1a] actionpack (5.2.0) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+[2fdaf772-373a-4262-a048-d5052e2f0a1a] railties (5.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+[2fdaf772-373a-4262-a048-d5052e2f0a1a] railties (5.2.0) lib/rails/rack/logger.rb:26:in `block in call'
+[2fdaf772-373a-4262-a048-d5052e2f0a1a] activesupport (5.2.0) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+[2fdaf772-373a-4262-a048-d5052e2f0a1a] activesupport (5.2.0) lib/active_support/tagged_logging.rb:28:in `tagged'
+[2fdaf772-373a-4262-a048-d5052e2f0a1a] activesupport (5.2.0) lib/active_support/tagged_logging.rb:71:in `tagged'
+[2fdaf772-373a-4262-a048-d5052e2f0a1a] railties (5.2.0) lib/rails/rack/logger.rb:26:in `call'
+[2fdaf772-373a-4262-a048-d5052e2f0a1a] actionpack (5.2.0) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+[2fdaf772-373a-4262-a048-d5052e2f0a1a] actionpack (5.2.0) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+[2fdaf772-373a-4262-a048-d5052e2f0a1a] rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+[2fdaf772-373a-4262-a048-d5052e2f0a1a] rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+[2fdaf772-373a-4262-a048-d5052e2f0a1a] activesupport (5.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+[2fdaf772-373a-4262-a048-d5052e2f0a1a] actionpack (5.2.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+[2fdaf772-373a-4262-a048-d5052e2f0a1a] rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+[2fdaf772-373a-4262-a048-d5052e2f0a1a] railties (5.2.0) lib/rails/engine.rb:524:in `call'
+[2fdaf772-373a-4262-a048-d5052e2f0a1a] puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+[2fdaf772-373a-4262-a048-d5052e2f0a1a] puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+[2fdaf772-373a-4262-a048-d5052e2f0a1a] puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+[2fdaf772-373a-4262-a048-d5052e2f0a1a] puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+[2fdaf772-373a-4262-a048-d5052e2f0a1a] puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+I, [2018-05-29T21:20:59.243809 #3117]  INFO -- : [d2b5950a-9552-4f43-a89f-cb4bee7dfe5b]   Rendering welcome/index.html.erb within layouts/application
+D, [2018-05-29T21:20:59.401274 #3117] DEBUG -- : [d2b5950a-9552-4f43-a89f-cb4bee7dfe5b]   [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT  DISTINCT "events".* FROM "events" WHERE "events"."start_time" >= '2018-05-29 12:20:59.216985' ORDER BY "events"."start_time" ASC LIMIT ? OFFSET ?[0m  [["LIMIT", 5], ["OFFSET", 0]]
+I, [2018-05-29T21:20:59.405246 #3117]  INFO -- : [d2b5950a-9552-4f43-a89f-cb4bee7dfe5b]   Rendered welcome/index.html.erb within layouts/application (161.3ms)
+I, [2018-05-29T21:20:59.407186 #3117]  INFO -- : [d2b5950a-9552-4f43-a89f-cb4bee7dfe5b] Completed 500 Internal Server Error in 191ms (ActiveRecord: 1.0ms)
+F, [2018-05-29T21:20:59.407681 #3117] FATAL -- : [d2b5950a-9552-4f43-a89f-cb4bee7dfe5b]   
+F, [2018-05-29T21:20:59.407708 #3117] FATAL -- : [d2b5950a-9552-4f43-a89f-cb4bee7dfe5b] ActionView::Template::Error (The asset "application.css" is not present in the asset pipeline.):
+F, [2018-05-29T21:20:59.407782 #3117] FATAL -- : [d2b5950a-9552-4f43-a89f-cb4bee7dfe5b]     4:     <title>AwesomeEvents</title>
+[d2b5950a-9552-4f43-a89f-cb4bee7dfe5b]     5:     <meta charset="utf-8">
+[d2b5950a-9552-4f43-a89f-cb4bee7dfe5b]     6:     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+[d2b5950a-9552-4f43-a89f-cb4bee7dfe5b]     7:     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+[d2b5950a-9552-4f43-a89f-cb4bee7dfe5b]     8:     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+[d2b5950a-9552-4f43-a89f-cb4bee7dfe5b]     9:     <%= csrf_meta_tags %>
+[d2b5950a-9552-4f43-a89f-cb4bee7dfe5b]    10:   </head>
+F, [2018-05-29T21:20:59.407802 #3117] FATAL -- : [d2b5950a-9552-4f43-a89f-cb4bee7dfe5b]   
+F, [2018-05-29T21:20:59.407821 #3117] FATAL -- : [d2b5950a-9552-4f43-a89f-cb4bee7dfe5b] app/views/layouts/application.html.erb:7:in `_app_views_layouts_application_html_erb___1719094422360025109_70299490962360'
+I, [2018-05-29T21:21:06.712951 #3117]  INFO -- : [f18c5b13-a6b8-4bd0-b35e-6bc5ecf0b82e] Started GET "/assets/application..self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2018-05-29 21:21:06 +0900
+F, [2018-05-29T21:21:06.713797 #3117] FATAL -- : [f18c5b13-a6b8-4bd0-b35e-6bc5ecf0b82e]   
+F, [2018-05-29T21:21:06.713832 #3117] FATAL -- : [f18c5b13-a6b8-4bd0-b35e-6bc5ecf0b82e] ActionController::RoutingError (No route matches [GET] "/assets/application..self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css"):
+F, [2018-05-29T21:21:06.713867 #3117] FATAL -- : [f18c5b13-a6b8-4bd0-b35e-6bc5ecf0b82e]   
+F, [2018-05-29T21:21:06.713910 #3117] FATAL -- : [f18c5b13-a6b8-4bd0-b35e-6bc5ecf0b82e] actionpack (5.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+[f18c5b13-a6b8-4bd0-b35e-6bc5ecf0b82e] actionpack (5.2.0) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+[f18c5b13-a6b8-4bd0-b35e-6bc5ecf0b82e] railties (5.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+[f18c5b13-a6b8-4bd0-b35e-6bc5ecf0b82e] railties (5.2.0) lib/rails/rack/logger.rb:26:in `block in call'
+[f18c5b13-a6b8-4bd0-b35e-6bc5ecf0b82e] activesupport (5.2.0) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+[f18c5b13-a6b8-4bd0-b35e-6bc5ecf0b82e] activesupport (5.2.0) lib/active_support/tagged_logging.rb:28:in `tagged'
+[f18c5b13-a6b8-4bd0-b35e-6bc5ecf0b82e] activesupport (5.2.0) lib/active_support/tagged_logging.rb:71:in `tagged'
+[f18c5b13-a6b8-4bd0-b35e-6bc5ecf0b82e] railties (5.2.0) lib/rails/rack/logger.rb:26:in `call'
+[f18c5b13-a6b8-4bd0-b35e-6bc5ecf0b82e] actionpack (5.2.0) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+[f18c5b13-a6b8-4bd0-b35e-6bc5ecf0b82e] actionpack (5.2.0) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+[f18c5b13-a6b8-4bd0-b35e-6bc5ecf0b82e] rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+[f18c5b13-a6b8-4bd0-b35e-6bc5ecf0b82e] rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+[f18c5b13-a6b8-4bd0-b35e-6bc5ecf0b82e] activesupport (5.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+[f18c5b13-a6b8-4bd0-b35e-6bc5ecf0b82e] actionpack (5.2.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+[f18c5b13-a6b8-4bd0-b35e-6bc5ecf0b82e] rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+[f18c5b13-a6b8-4bd0-b35e-6bc5ecf0b82e] railties (5.2.0) lib/rails/engine.rb:524:in `call'
+[f18c5b13-a6b8-4bd0-b35e-6bc5ecf0b82e] puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+[f18c5b13-a6b8-4bd0-b35e-6bc5ecf0b82e] puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+[f18c5b13-a6b8-4bd0-b35e-6bc5ecf0b82e] puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+[f18c5b13-a6b8-4bd0-b35e-6bc5ecf0b82e] puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+[f18c5b13-a6b8-4bd0-b35e-6bc5ecf0b82e] puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+I, [2018-05-29T21:21:06.714681 #3117]  INFO -- : [3f1d2703-8742-4a47-8701-939ce0e16683] Started GET "/" for 127.0.0.1 at 2018-05-29 21:21:06 +0900
+I, [2018-05-29T21:21:06.715382 #3117]  INFO -- : [3f1d2703-8742-4a47-8701-939ce0e16683] Processing by WelcomeController#index as HTML
+I, [2018-05-29T21:21:06.716356 #3117]  INFO -- : [3f1d2703-8742-4a47-8701-939ce0e16683]   Rendering welcome/index.html.erb within layouts/application
+D, [2018-05-29T21:21:06.718041 #3117] DEBUG -- : [3f1d2703-8742-4a47-8701-939ce0e16683]   [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT  DISTINCT "events".* FROM "events" WHERE "events"."start_time" >= '2018-05-29 12:21:06.715662' ORDER BY "events"."start_time" ASC LIMIT ? OFFSET ?[0m  [["LIMIT", 5], ["OFFSET", 0]]
+I, [2018-05-29T21:21:06.718329 #3117]  INFO -- : [3f1d2703-8742-4a47-8701-939ce0e16683]   Rendered welcome/index.html.erb within layouts/application (1.9ms)
+I, [2018-05-29T21:21:06.719851 #3117]  INFO -- : [3f1d2703-8742-4a47-8701-939ce0e16683] Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.2ms)
+F, [2018-05-29T21:21:06.720359 #3117] FATAL -- : [3f1d2703-8742-4a47-8701-939ce0e16683]   
+F, [2018-05-29T21:21:06.720390 #3117] FATAL -- : [3f1d2703-8742-4a47-8701-939ce0e16683] ActionView::Template::Error (The asset "application.css" is not present in the asset pipeline.):
+F, [2018-05-29T21:21:06.720465 #3117] FATAL -- : [3f1d2703-8742-4a47-8701-939ce0e16683]     4:     <title>AwesomeEvents</title>
+[3f1d2703-8742-4a47-8701-939ce0e16683]     5:     <meta charset="utf-8">
+[3f1d2703-8742-4a47-8701-939ce0e16683]     6:     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+[3f1d2703-8742-4a47-8701-939ce0e16683]     7:     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+[3f1d2703-8742-4a47-8701-939ce0e16683]     8:     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+[3f1d2703-8742-4a47-8701-939ce0e16683]     9:     <%= csrf_meta_tags %>
+[3f1d2703-8742-4a47-8701-939ce0e16683]    10:   </head>
+F, [2018-05-29T21:21:06.720514 #3117] FATAL -- : [3f1d2703-8742-4a47-8701-939ce0e16683]   
+F, [2018-05-29T21:21:06.720535 #3117] FATAL -- : [3f1d2703-8742-4a47-8701-939ce0e16683] app/views/layouts/application.html.erb:7:in `_app_views_layouts_application_html_erb___1719094422360025109_70299490962360'
+D, [2018-05-29T21:29:01.377320 #3194] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+D, [2018-05-29T21:29:01.381535 #3194] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+D, [2018-05-29T21:29:01.381958 #3194] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+D, [2018-05-29T21:29:01.382395 #3194] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+D, [2018-05-29T21:29:01.382760 #3194] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+D, [2018-05-29T21:29:01.383130 #3194] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+D, [2018-05-29T21:29:01.386863 #3194] DEBUG -- :   [1m[35m (0.9ms)[0m  [1m[35mDROP TABLE IF EXISTS "events"[0m
+D, [2018-05-29T21:29:01.387143 #3194] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+D, [2018-05-29T21:29:01.388290 #3194] DEBUG -- :   [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "events" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "owner_id" integer, "name" varchar NOT NULL, "place" varchar NOT NULL, "start_time" datetime NOT NULL, "end_time" datetime NOT NULL, "content" text NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "event_image" varchar)[0m
+D, [2018-05-29T21:29:01.389505 #3194] DEBUG -- :   [1m[35m (0.9ms)[0m  [1m[35mCREATE  INDEX "index_events_on_owner_id" ON "events" ("owner_id")[0m
+D, [2018-05-29T21:29:01.390753 #3194] DEBUG -- :   [1m[35m (1.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "tickets"[0m
+D, [2018-05-29T21:29:01.391754 #3194] DEBUG -- :   [1m[35m (0.8ms)[0m  [1m[35mCREATE TABLE "tickets" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "event_id" integer NOT NULL, "comment" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+D, [2018-05-29T21:29:01.392897 #3194] DEBUG -- :   [1m[35m (0.8ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_tickets_on_event_id_and_user_id" ON "tickets" ("event_id", "user_id")[0m
+D, [2018-05-29T21:29:01.394626 #3194] DEBUG -- :   [1m[35m (1.1ms)[0m  [1m[35mCREATE  INDEX "index_tickets_on_event_id" ON "tickets" ("event_id")[0m
+D, [2018-05-29T21:29:01.396584 #3194] DEBUG -- :   [1m[35m (0.9ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_tickets_on_user_id_and_event_id" ON "tickets" ("user_id", "event_id")[0m
+D, [2018-05-29T21:29:01.399194 #3194] DEBUG -- :   [1m[35m (1.3ms)[0m  [1m[35mCREATE  INDEX "index_tickets_on_user_id" ON "tickets" ("user_id")[0m
+D, [2018-05-29T21:29:01.400878 #3194] DEBUG -- :   [1m[35m (1.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "users"[0m
+D, [2018-05-29T21:29:01.402072 #3194] DEBUG -- :   [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "provider" varchar NOT NULL, "uid" varchar NOT NULL, "nickname" varchar NOT NULL, "image_url" varchar NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+D, [2018-05-29T21:29:01.403292 #3194] DEBUG -- :   [1m[35m (0.9ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_provider_and_uid" ON "users" ("provider", "uid")[0m
+D, [2018-05-29T21:29:01.403930 #3194] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+D, [2018-05-29T21:29:01.404670 #3194] DEBUG -- :   [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+D, [2018-05-29T21:29:01.408554 #3194] DEBUG -- :   [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+D, [2018-05-29T21:29:01.409144 #3194] DEBUG -- :   [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+D, [2018-05-29T21:29:01.409643 #3194] DEBUG -- :   [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+D, [2018-05-29T21:29:01.409818 #3194] DEBUG -- :   [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+D, [2018-05-29T21:29:01.410085 #3194] DEBUG -- :   [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+D, [2018-05-29T21:29:01.411777 #3194] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+I, [2018-05-29T21:36:48.875215 #3310]  INFO -- : [9cc7cfa2-ae3e-44b6-82ac-cf17b92c3063] Started GET "/" for 127.0.0.1 at 2018-05-29 21:36:48 +0900
+I, [2018-05-29T21:36:48.882707 #3310]  INFO -- : [9cc7cfa2-ae3e-44b6-82ac-cf17b92c3063] Processing by WelcomeController#index as HTML
+I, [2018-05-29T21:36:48.883273 #3310]  INFO -- : [0a23a84c-70a5-4874-b274-bbec7064c101] Started GET "/assets/application..self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2018-05-29 21:36:48 +0900
+F, [2018-05-29T21:36:48.891919 #3310] FATAL -- : [0a23a84c-70a5-4874-b274-bbec7064c101]   
+F, [2018-05-29T21:36:48.891981 #3310] FATAL -- : [0a23a84c-70a5-4874-b274-bbec7064c101] ActionController::RoutingError (No route matches [GET] "/assets/application..self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css"):
+F, [2018-05-29T21:36:48.892054 #3310] FATAL -- : [0a23a84c-70a5-4874-b274-bbec7064c101]   
+F, [2018-05-29T21:36:48.892108 #3310] FATAL -- : [0a23a84c-70a5-4874-b274-bbec7064c101] actionpack (5.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+[0a23a84c-70a5-4874-b274-bbec7064c101] actionpack (5.2.0) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+[0a23a84c-70a5-4874-b274-bbec7064c101] railties (5.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+[0a23a84c-70a5-4874-b274-bbec7064c101] railties (5.2.0) lib/rails/rack/logger.rb:26:in `block in call'
+[0a23a84c-70a5-4874-b274-bbec7064c101] activesupport (5.2.0) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+[0a23a84c-70a5-4874-b274-bbec7064c101] activesupport (5.2.0) lib/active_support/tagged_logging.rb:28:in `tagged'
+[0a23a84c-70a5-4874-b274-bbec7064c101] activesupport (5.2.0) lib/active_support/tagged_logging.rb:71:in `tagged'
+[0a23a84c-70a5-4874-b274-bbec7064c101] railties (5.2.0) lib/rails/rack/logger.rb:26:in `call'
+[0a23a84c-70a5-4874-b274-bbec7064c101] actionpack (5.2.0) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+[0a23a84c-70a5-4874-b274-bbec7064c101] actionpack (5.2.0) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+[0a23a84c-70a5-4874-b274-bbec7064c101] rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+[0a23a84c-70a5-4874-b274-bbec7064c101] rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+[0a23a84c-70a5-4874-b274-bbec7064c101] activesupport (5.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+[0a23a84c-70a5-4874-b274-bbec7064c101] actionpack (5.2.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+[0a23a84c-70a5-4874-b274-bbec7064c101] rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+[0a23a84c-70a5-4874-b274-bbec7064c101] railties (5.2.0) lib/rails/engine.rb:524:in `call'
+[0a23a84c-70a5-4874-b274-bbec7064c101] puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+[0a23a84c-70a5-4874-b274-bbec7064c101] puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+[0a23a84c-70a5-4874-b274-bbec7064c101] puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+[0a23a84c-70a5-4874-b274-bbec7064c101] puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+[0a23a84c-70a5-4874-b274-bbec7064c101] puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+I, [2018-05-29T21:36:48.910794 #3310]  INFO -- : [9cc7cfa2-ae3e-44b6-82ac-cf17b92c3063]   Rendering welcome/index.html.erb within layouts/application
+D, [2018-05-29T21:36:49.074230 #3310] DEBUG -- : [9cc7cfa2-ae3e-44b6-82ac-cf17b92c3063]   [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT  DISTINCT "events".* FROM "events" WHERE "events"."start_time" >= '2018-05-29 12:36:48.884714' ORDER BY "events"."start_time" ASC LIMIT ? OFFSET ?[0m  [["LIMIT", 5], ["OFFSET", 0]]
+I, [2018-05-29T21:36:49.078052 #3310]  INFO -- : [9cc7cfa2-ae3e-44b6-82ac-cf17b92c3063]   Rendered welcome/index.html.erb within layouts/application (167.2ms)
+I, [2018-05-29T21:36:49.080183 #3310]  INFO -- : [9cc7cfa2-ae3e-44b6-82ac-cf17b92c3063] Completed 500 Internal Server Error in 197ms (ActiveRecord: 1.0ms)
+F, [2018-05-29T21:36:49.080687 #3310] FATAL -- : [9cc7cfa2-ae3e-44b6-82ac-cf17b92c3063]   
+F, [2018-05-29T21:36:49.080714 #3310] FATAL -- : [9cc7cfa2-ae3e-44b6-82ac-cf17b92c3063] ActionView::Template::Error (The asset "application.css" is not present in the asset pipeline.):
+F, [2018-05-29T21:36:49.080789 #3310] FATAL -- : [9cc7cfa2-ae3e-44b6-82ac-cf17b92c3063]     4:     <title>AwesomeEvents</title>
+[9cc7cfa2-ae3e-44b6-82ac-cf17b92c3063]     5:     <meta charset="utf-8">
+[9cc7cfa2-ae3e-44b6-82ac-cf17b92c3063]     6:     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+[9cc7cfa2-ae3e-44b6-82ac-cf17b92c3063]     7:     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+[9cc7cfa2-ae3e-44b6-82ac-cf17b92c3063]     8:     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+[9cc7cfa2-ae3e-44b6-82ac-cf17b92c3063]     9:     <%= csrf_meta_tags %>
+[9cc7cfa2-ae3e-44b6-82ac-cf17b92c3063]    10:   </head>
+F, [2018-05-29T21:36:49.080816 #3310] FATAL -- : [9cc7cfa2-ae3e-44b6-82ac-cf17b92c3063]   
+F, [2018-05-29T21:36:49.080836 #3310] FATAL -- : [9cc7cfa2-ae3e-44b6-82ac-cf17b92c3063] app/views/layouts/application.html.erb:7:in `_app_views_layouts_application_html_erb___3670315475986209411_70226090309840'
+D, [2018-05-30T06:56:49.248382 #4921] DEBUG -- :   [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+D, [2018-05-30T06:56:49.266304 #4921] DEBUG -- :   [1m[35m (0.7ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+D, [2018-05-30T06:56:49.266765 #4921] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+D, [2018-05-30T06:56:49.267191 #4921] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+D, [2018-05-30T06:56:49.267512 #4921] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+D, [2018-05-30T06:56:49.267957 #4921] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+D, [2018-05-30T06:56:49.274699 #4921] DEBUG -- :   [1m[35m (2.8ms)[0m  [1m[35mDROP TABLE IF EXISTS "events"[0m
+D, [2018-05-30T06:56:49.275201 #4921] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+D, [2018-05-30T06:56:49.277059 #4921] DEBUG -- :   [1m[35m (1.7ms)[0m  [1m[35mCREATE TABLE "events" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "owner_id" integer, "name" varchar NOT NULL, "place" varchar NOT NULL, "start_time" datetime NOT NULL, "end_time" datetime NOT NULL, "content" text NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "event_image" varchar)[0m
+D, [2018-05-30T06:56:49.279114 #4921] DEBUG -- :   [1m[35m (1.6ms)[0m  [1m[35mCREATE  INDEX "index_events_on_owner_id" ON "events" ("owner_id")[0m
+D, [2018-05-30T06:56:49.330368 #4921] DEBUG -- :   [1m[35m (50.9ms)[0m  [1m[35mDROP TABLE IF EXISTS "tickets"[0m
+D, [2018-05-30T06:56:49.332293 #4921] DEBUG -- :   [1m[35m (1.7ms)[0m  [1m[35mCREATE TABLE "tickets" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "event_id" integer NOT NULL, "comment" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+D, [2018-05-30T06:56:49.334157 #4921] DEBUG -- :   [1m[35m (1.5ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_tickets_on_event_id_and_user_id" ON "tickets" ("event_id", "user_id")[0m
+D, [2018-05-30T06:56:49.336351 #4921] DEBUG -- :   [1m[35m (1.6ms)[0m  [1m[35mCREATE  INDEX "index_tickets_on_event_id" ON "tickets" ("event_id")[0m
+D, [2018-05-30T06:56:49.338625 #4921] DEBUG -- :   [1m[35m (1.6ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_tickets_on_user_id_and_event_id" ON "tickets" ("user_id", "event_id")[0m
+D, [2018-05-30T06:56:49.341675 #4921] DEBUG -- :   [1m[35m (1.9ms)[0m  [1m[35mCREATE  INDEX "index_tickets_on_user_id" ON "tickets" ("user_id")[0m
+D, [2018-05-30T06:56:49.362650 #4921] DEBUG -- :   [1m[35m (20.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "users"[0m
+D, [2018-05-30T06:56:49.364140 #4921] DEBUG -- :   [1m[35m (1.3ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "provider" varchar NOT NULL, "uid" varchar NOT NULL, "nickname" varchar NOT NULL, "image_url" varchar NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+D, [2018-05-30T06:56:49.366165 #4921] DEBUG -- :   [1m[35m (1.6ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_provider_and_uid" ON "users" ("provider", "uid")[0m
+D, [2018-05-30T06:56:49.367672 #4921] DEBUG -- :   [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+D, [2018-05-30T06:56:49.368684 #4921] DEBUG -- :   [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+D, [2018-05-30T06:56:49.373862 #4921] DEBUG -- :   [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+D, [2018-05-30T06:56:49.374636 #4921] DEBUG -- :   [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+D, [2018-05-30T06:56:49.375312 #4921] DEBUG -- :   [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+D, [2018-05-30T06:56:49.375464 #4921] DEBUG -- :   [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+D, [2018-05-30T06:56:49.376019 #4921] DEBUG -- :   [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+D, [2018-05-30T06:56:49.378602 #4921] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+I, [2018-05-30T06:57:11.524647 #4949]  INFO -- : [8ac31873-c0c7-4170-9be0-89c7590b1adf] Started GET "/" for 127.0.0.1 at 2018-05-30 06:57:11 +0900
+I, [2018-05-30T06:57:11.533374 #4949]  INFO -- : [8ac31873-c0c7-4170-9be0-89c7590b1adf] Processing by WelcomeController#index as HTML
+I, [2018-05-30T06:57:11.525073 #4949]  INFO -- : [1075d098-7ec2-4943-b4a0-09328936eb89] Started GET "/assets/application..self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2018-05-30 06:57:11 +0900
+F, [2018-05-30T06:57:11.541149 #4949] FATAL -- : [1075d098-7ec2-4943-b4a0-09328936eb89]   
+F, [2018-05-30T06:57:11.541208 #4949] FATAL -- : [1075d098-7ec2-4943-b4a0-09328936eb89] ActionController::RoutingError (No route matches [GET] "/assets/application..self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css"):
+F, [2018-05-30T06:57:11.541277 #4949] FATAL -- : [1075d098-7ec2-4943-b4a0-09328936eb89]   
+F, [2018-05-30T06:57:11.541340 #4949] FATAL -- : [1075d098-7ec2-4943-b4a0-09328936eb89] actionpack (5.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+[1075d098-7ec2-4943-b4a0-09328936eb89] actionpack (5.2.0) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+[1075d098-7ec2-4943-b4a0-09328936eb89] railties (5.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+[1075d098-7ec2-4943-b4a0-09328936eb89] railties (5.2.0) lib/rails/rack/logger.rb:26:in `block in call'
+[1075d098-7ec2-4943-b4a0-09328936eb89] activesupport (5.2.0) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+[1075d098-7ec2-4943-b4a0-09328936eb89] activesupport (5.2.0) lib/active_support/tagged_logging.rb:28:in `tagged'
+[1075d098-7ec2-4943-b4a0-09328936eb89] activesupport (5.2.0) lib/active_support/tagged_logging.rb:71:in `tagged'
+[1075d098-7ec2-4943-b4a0-09328936eb89] railties (5.2.0) lib/rails/rack/logger.rb:26:in `call'
+[1075d098-7ec2-4943-b4a0-09328936eb89] actionpack (5.2.0) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+[1075d098-7ec2-4943-b4a0-09328936eb89] actionpack (5.2.0) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+[1075d098-7ec2-4943-b4a0-09328936eb89] rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+[1075d098-7ec2-4943-b4a0-09328936eb89] rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+[1075d098-7ec2-4943-b4a0-09328936eb89] activesupport (5.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+[1075d098-7ec2-4943-b4a0-09328936eb89] actionpack (5.2.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+[1075d098-7ec2-4943-b4a0-09328936eb89] rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+[1075d098-7ec2-4943-b4a0-09328936eb89] railties (5.2.0) lib/rails/engine.rb:524:in `call'
+[1075d098-7ec2-4943-b4a0-09328936eb89] puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+[1075d098-7ec2-4943-b4a0-09328936eb89] puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+[1075d098-7ec2-4943-b4a0-09328936eb89] puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+[1075d098-7ec2-4943-b4a0-09328936eb89] puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+[1075d098-7ec2-4943-b4a0-09328936eb89] puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+I, [2018-05-30T06:57:11.597535 #4949]  INFO -- : [8ac31873-c0c7-4170-9be0-89c7590b1adf]   Rendering welcome/index.html.erb within layouts/application
+D, [2018-05-30T06:57:11.898895 #4949] DEBUG -- : [8ac31873-c0c7-4170-9be0-89c7590b1adf]   [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT  DISTINCT "events".* FROM "events" WHERE "events"."start_time" >= '2018-05-29 21:57:11.534370' ORDER BY "events"."start_time" ASC LIMIT ? OFFSET ?[0m  [["LIMIT", 5], ["OFFSET", 0]]
+I, [2018-05-30T06:57:11.976480 #4949]  INFO -- : [8ac31873-c0c7-4170-9be0-89c7590b1adf]   Rendered welcome/index.html.erb within layouts/application (378.9ms)
+I, [2018-05-30T06:57:11.978601 #4949]  INFO -- : [8ac31873-c0c7-4170-9be0-89c7590b1adf] Completed 500 Internal Server Error in 445ms (ActiveRecord: 0.9ms)
+F, [2018-05-30T06:57:11.979149 #4949] FATAL -- : [8ac31873-c0c7-4170-9be0-89c7590b1adf]   
+F, [2018-05-30T06:57:11.979178 #4949] FATAL -- : [8ac31873-c0c7-4170-9be0-89c7590b1adf] ActionView::Template::Error (The asset "application.css" is not present in the asset pipeline.):
+F, [2018-05-30T06:57:11.979260 #4949] FATAL -- : [8ac31873-c0c7-4170-9be0-89c7590b1adf]     4:     <title>AwesomeEvents</title>
+[8ac31873-c0c7-4170-9be0-89c7590b1adf]     5:     <meta charset="utf-8">
+[8ac31873-c0c7-4170-9be0-89c7590b1adf]     6:     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+[8ac31873-c0c7-4170-9be0-89c7590b1adf]     7:     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+[8ac31873-c0c7-4170-9be0-89c7590b1adf]     8:     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+[8ac31873-c0c7-4170-9be0-89c7590b1adf]     9:     <%= csrf_meta_tags %>
+[8ac31873-c0c7-4170-9be0-89c7590b1adf]    10:   </head>
+F, [2018-05-30T06:57:11.979281 #4949] FATAL -- : [8ac31873-c0c7-4170-9be0-89c7590b1adf]   
+F, [2018-05-30T06:57:11.979301 #4949] FATAL -- : [8ac31873-c0c7-4170-9be0-89c7590b1adf] app/views/layouts/application.html.erb:7:in `_app_views_layouts_application_html_erb__3950557076104157947_70309125373780'
+I, [2018-05-30T07:11:39.834419 #5017]  INFO -- : [dd9f33a6-4780-43f3-ad0a-1343a029f231] Started GET "/" for 127.0.0.1 at 2018-05-30 07:11:39 +0900
+I, [2018-05-30T07:11:39.896545 #5017]  INFO -- : [dd9f33a6-4780-43f3-ad0a-1343a029f231] Processing by WelcomeController#index as HTML
+I, [2018-05-30T07:11:39.834874 #5017]  INFO -- : [d0259619-8967-492b-849d-889a8f8d7c15] Started GET "/assets/application..self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2018-05-30 07:11:39 +0900
+F, [2018-05-30T07:11:39.900170 #5017] FATAL -- : [d0259619-8967-492b-849d-889a8f8d7c15]   
+F, [2018-05-30T07:11:39.900206 #5017] FATAL -- : [d0259619-8967-492b-849d-889a8f8d7c15] ActionController::RoutingError (No route matches [GET] "/assets/application..self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css"):
+F, [2018-05-30T07:11:39.900227 #5017] FATAL -- : [d0259619-8967-492b-849d-889a8f8d7c15]   
+F, [2018-05-30T07:11:39.900252 #5017] FATAL -- : [d0259619-8967-492b-849d-889a8f8d7c15] actionpack (5.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+[d0259619-8967-492b-849d-889a8f8d7c15] actionpack (5.2.0) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+[d0259619-8967-492b-849d-889a8f8d7c15] railties (5.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+[d0259619-8967-492b-849d-889a8f8d7c15] railties (5.2.0) lib/rails/rack/logger.rb:26:in `block in call'
+[d0259619-8967-492b-849d-889a8f8d7c15] activesupport (5.2.0) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+[d0259619-8967-492b-849d-889a8f8d7c15] activesupport (5.2.0) lib/active_support/tagged_logging.rb:28:in `tagged'
+[d0259619-8967-492b-849d-889a8f8d7c15] activesupport (5.2.0) lib/active_support/tagged_logging.rb:71:in `tagged'
+[d0259619-8967-492b-849d-889a8f8d7c15] railties (5.2.0) lib/rails/rack/logger.rb:26:in `call'
+[d0259619-8967-492b-849d-889a8f8d7c15] actionpack (5.2.0) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+[d0259619-8967-492b-849d-889a8f8d7c15] actionpack (5.2.0) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+[d0259619-8967-492b-849d-889a8f8d7c15] rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+[d0259619-8967-492b-849d-889a8f8d7c15] rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+[d0259619-8967-492b-849d-889a8f8d7c15] activesupport (5.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+[d0259619-8967-492b-849d-889a8f8d7c15] actionpack (5.2.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+[d0259619-8967-492b-849d-889a8f8d7c15] rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+[d0259619-8967-492b-849d-889a8f8d7c15] railties (5.2.0) lib/rails/engine.rb:524:in `call'
+[d0259619-8967-492b-849d-889a8f8d7c15] puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+[d0259619-8967-492b-849d-889a8f8d7c15] puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+[d0259619-8967-492b-849d-889a8f8d7c15] puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+[d0259619-8967-492b-849d-889a8f8d7c15] puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+[d0259619-8967-492b-849d-889a8f8d7c15] puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+I, [2018-05-30T07:11:39.930977 #5017]  INFO -- : [dd9f33a6-4780-43f3-ad0a-1343a029f231] Completed 500 Internal Server Error in 34ms (ActiveRecord: 0.6ms)
+F, [2018-05-30T07:11:39.931463 #5017] FATAL -- : [dd9f33a6-4780-43f3-ad0a-1343a029f231]   
+F, [2018-05-30T07:11:39.931492 #5017] FATAL -- : [dd9f33a6-4780-43f3-ad0a-1343a029f231] RuntimeError (No table named events exists.):
+F, [2018-05-30T07:11:39.931511 #5017] FATAL -- : [dd9f33a6-4780-43f3-ad0a-1343a029f231]   
+F, [2018-05-30T07:11:39.931538 #5017] FATAL -- : [dd9f33a6-4780-43f3-ad0a-1343a029f231] app/controllers/welcome_controller.rb:7:in `index'
+D, [2018-05-30T07:23:29.298599 #5264] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "events"[0m
+D, [2018-05-30T07:23:29.313366 #5264] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+D, [2018-05-30T07:23:29.321030 #5264] DEBUG -- :   [1m[35m (7.5ms)[0m  [1m[35mCREATE TABLE "events" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "owner_id" integer, "name" varchar NOT NULL, "place" varchar NOT NULL, "start_time" datetime NOT NULL, "end_time" datetime NOT NULL, "content" text NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "event_image" varchar)[0m
+D, [2018-05-30T07:23:29.323040 #5264] DEBUG -- :   [1m[35m (1.3ms)[0m  [1m[35mCREATE  INDEX "index_events_on_owner_id" ON "events" ("owner_id")[0m
+D, [2018-05-30T07:23:29.323705 #5264] DEBUG -- :   [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "tickets"[0m
+D, [2018-05-30T07:23:29.325068 #5264] DEBUG -- :   [1m[35m (1.2ms)[0m  [1m[35mCREATE TABLE "tickets" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "event_id" integer NOT NULL, "comment" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+D, [2018-05-30T07:23:29.326544 #5264] DEBUG -- :   [1m[35m (1.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_tickets_on_event_id_and_user_id" ON "tickets" ("event_id", "user_id")[0m
+D, [2018-05-30T07:23:29.328056 #5264] DEBUG -- :   [1m[35m (0.9ms)[0m  [1m[35mCREATE  INDEX "index_tickets_on_event_id" ON "tickets" ("event_id")[0m
+D, [2018-05-30T07:23:29.329968 #5264] DEBUG -- :   [1m[35m (1.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_tickets_on_user_id_and_event_id" ON "tickets" ("user_id", "event_id")[0m
+D, [2018-05-30T07:23:29.332193 #5264] DEBUG -- :   [1m[35m (1.2ms)[0m  [1m[35mCREATE  INDEX "index_tickets_on_user_id" ON "tickets" ("user_id")[0m
+D, [2018-05-30T07:23:29.332625 #5264] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "users"[0m
+D, [2018-05-30T07:23:29.333849 #5264] DEBUG -- :   [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "provider" varchar NOT NULL, "uid" varchar NOT NULL, "nickname" varchar NOT NULL, "image_url" varchar NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+D, [2018-05-30T07:23:29.335366 #5264] DEBUG -- :   [1m[35m (1.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_provider_and_uid" ON "users" ("provider", "uid")[0m
+D, [2018-05-30T07:23:29.336717 #5264] DEBUG -- :   [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+D, [2018-05-30T07:23:29.357702 #5264] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+D, [2018-05-30T07:23:29.366944 #5264] DEBUG -- :   [1m[35m (9.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20180529100404)[0m
+D, [2018-05-30T07:23:29.370783 #5264] DEBUG -- :   [1m[35m (3.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20180203034355),
+(20180205103707),
+(20180527015947);
+
+[0m
+D, [2018-05-30T07:23:29.394884 #5264] DEBUG -- :   [1m[35m (21.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+D, [2018-05-30T07:23:29.398039 #5264] DEBUG -- :   [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+D, [2018-05-30T07:23:29.401533 #5264] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+D, [2018-05-30T07:23:29.402653 #5264] DEBUG -- :   [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "staging"], ["created_at", "2018-05-29 22:23:29.401984"], ["updated_at", "2018-05-29 22:23:29.401984"]]
+D, [2018-05-30T07:23:29.404293 #5264] DEBUG -- :   [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+D, [2018-05-30T07:23:29.404833 #5264] DEBUG -- :   [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+D, [2018-05-30T07:23:29.406506 #5264] DEBUG -- :   [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+D, [2018-05-30T07:23:29.406862 #5264] DEBUG -- :   [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+D, [2018-05-30T07:23:29.408815 #5264] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+D, [2018-05-30T07:25:22.682938 #5330] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "events"[0m
+D, [2018-05-30T07:25:22.700604 #5330] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+D, [2018-05-30T07:25:22.702338 #5330] DEBUG -- :   [1m[35m (1.6ms)[0m  [1m[35mCREATE TABLE "events" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "owner_id" integer, "name" varchar NOT NULL, "place" varchar NOT NULL, "start_time" datetime NOT NULL, "end_time" datetime NOT NULL, "content" text NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "event_image" varchar)[0m
+D, [2018-05-30T07:25:22.705093 #5330] DEBUG -- :   [1m[35m (2.4ms)[0m  [1m[35mCREATE  INDEX "index_events_on_owner_id" ON "events" ("owner_id")[0m
+D, [2018-05-30T07:25:22.705522 #5330] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "tickets"[0m
+D, [2018-05-30T07:25:22.707335 #5330] DEBUG -- :   [1m[35m (1.6ms)[0m  [1m[35mCREATE TABLE "tickets" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "event_id" integer NOT NULL, "comment" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+D, [2018-05-30T07:25:22.709103 #5330] DEBUG -- :   [1m[35m (1.5ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_tickets_on_event_id_and_user_id" ON "tickets" ("event_id", "user_id")[0m
+D, [2018-05-30T07:25:22.711092 #5330] DEBUG -- :   [1m[35m (1.5ms)[0m  [1m[35mCREATE  INDEX "index_tickets_on_event_id" ON "tickets" ("event_id")[0m
+D, [2018-05-30T07:25:22.713689 #5330] DEBUG -- :   [1m[35m (1.7ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_tickets_on_user_id_and_event_id" ON "tickets" ("user_id", "event_id")[0m
+D, [2018-05-30T07:25:22.716216 #5330] DEBUG -- :   [1m[35m (1.6ms)[0m  [1m[35mCREATE  INDEX "index_tickets_on_user_id" ON "tickets" ("user_id")[0m
+D, [2018-05-30T07:25:22.716848 #5330] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "users"[0m
+D, [2018-05-30T07:25:22.719196 #5330] DEBUG -- :   [1m[35m (2.0ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "provider" varchar NOT NULL, "uid" varchar NOT NULL, "nickname" varchar NOT NULL, "image_url" varchar NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+D, [2018-05-30T07:25:22.722403 #5330] DEBUG -- :   [1m[35m (2.4ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_provider_and_uid" ON "users" ("provider", "uid")[0m
+D, [2018-05-30T07:25:22.724895 #5330] DEBUG -- :   [1m[35m (1.9ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+D, [2018-05-30T07:25:22.742803 #5330] DEBUG -- :   [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+D, [2018-05-30T07:25:22.745032 #5330] DEBUG -- :   [1m[35m (1.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20180529100404)[0m
+D, [2018-05-30T07:25:22.747063 #5330] DEBUG -- :   [1m[35m (1.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20180203034355),
+(20180205103707),
+(20180527015947);
+
+[0m
+D, [2018-05-30T07:25:22.751882 #5330] DEBUG -- :   [1m[35m (1.6ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+D, [2018-05-30T07:25:22.755900 #5330] DEBUG -- :   [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+D, [2018-05-30T07:25:22.759271 #5330] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+D, [2018-05-30T07:25:22.760982 #5330] DEBUG -- :   [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "staging"], ["created_at", "2018-05-29 22:25:22.759676"], ["updated_at", "2018-05-29 22:25:22.759676"]]
+D, [2018-05-30T07:25:22.762895 #5330] DEBUG -- :   [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+D, [2018-05-30T07:25:22.763485 #5330] DEBUG -- :   [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+D, [2018-05-30T07:25:22.765264 #5330] DEBUG -- :   [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+D, [2018-05-30T07:25:22.765678 #5330] DEBUG -- :   [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+D, [2018-05-30T07:25:22.767643 #5330] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+I, [2018-05-30T08:38:36.676605 #6220]  INFO -- : [5c31e636-f07d-4869-bede-f1d3d1cb63e3] Started GET "/assets/application..self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2018-05-30 08:38:36 +0900
+I, [2018-05-30T08:38:36.676953 #6220]  INFO -- : [307be922-103e-48d4-b481-9dca65ce1c88] Started GET "/" for 127.0.0.1 at 2018-05-30 08:38:36 +0900
+I, [2018-05-30T08:38:36.732418 #6220]  INFO -- : [307be922-103e-48d4-b481-9dca65ce1c88] Processing by WelcomeController#index as HTML
+F, [2018-05-30T08:38:36.730749 #6220] FATAL -- : [5c31e636-f07d-4869-bede-f1d3d1cb63e3]   
+F, [2018-05-30T08:38:36.753834 #6220] FATAL -- : [5c31e636-f07d-4869-bede-f1d3d1cb63e3] ActionController::RoutingError (No route matches [GET] "/assets/application..self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css"):
+F, [2018-05-30T08:38:36.753904 #6220] FATAL -- : [5c31e636-f07d-4869-bede-f1d3d1cb63e3]   
+F, [2018-05-30T08:38:36.753987 #6220] FATAL -- : [5c31e636-f07d-4869-bede-f1d3d1cb63e3] actionpack (5.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+[5c31e636-f07d-4869-bede-f1d3d1cb63e3] actionpack (5.2.0) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+[5c31e636-f07d-4869-bede-f1d3d1cb63e3] railties (5.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+[5c31e636-f07d-4869-bede-f1d3d1cb63e3] railties (5.2.0) lib/rails/rack/logger.rb:26:in `block in call'
+[5c31e636-f07d-4869-bede-f1d3d1cb63e3] activesupport (5.2.0) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+[5c31e636-f07d-4869-bede-f1d3d1cb63e3] activesupport (5.2.0) lib/active_support/tagged_logging.rb:28:in `tagged'
+[5c31e636-f07d-4869-bede-f1d3d1cb63e3] activesupport (5.2.0) lib/active_support/tagged_logging.rb:71:in `tagged'
+[5c31e636-f07d-4869-bede-f1d3d1cb63e3] railties (5.2.0) lib/rails/rack/logger.rb:26:in `call'
+[5c31e636-f07d-4869-bede-f1d3d1cb63e3] actionpack (5.2.0) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+[5c31e636-f07d-4869-bede-f1d3d1cb63e3] actionpack (5.2.0) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+[5c31e636-f07d-4869-bede-f1d3d1cb63e3] rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+[5c31e636-f07d-4869-bede-f1d3d1cb63e3] rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+[5c31e636-f07d-4869-bede-f1d3d1cb63e3] activesupport (5.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+[5c31e636-f07d-4869-bede-f1d3d1cb63e3] actionpack (5.2.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+[5c31e636-f07d-4869-bede-f1d3d1cb63e3] rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+[5c31e636-f07d-4869-bede-f1d3d1cb63e3] railties (5.2.0) lib/rails/engine.rb:524:in `call'
+[5c31e636-f07d-4869-bede-f1d3d1cb63e3] puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+[5c31e636-f07d-4869-bede-f1d3d1cb63e3] puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+[5c31e636-f07d-4869-bede-f1d3d1cb63e3] puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+[5c31e636-f07d-4869-bede-f1d3d1cb63e3] puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+[5c31e636-f07d-4869-bede-f1d3d1cb63e3] puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+I, [2018-05-30T08:38:36.817438 #6220]  INFO -- : [307be922-103e-48d4-b481-9dca65ce1c88]   Rendering welcome/index.html.erb within layouts/application
+D, [2018-05-30T08:38:37.176115 #6220] DEBUG -- : [307be922-103e-48d4-b481-9dca65ce1c88]   [1m[36mEvent Load (0.8ms)[0m  [1m[34mSELECT  DISTINCT "events".* FROM "events" WHERE "events"."start_time" >= '2018-05-29 23:38:36.733472' ORDER BY "events"."start_time" ASC LIMIT ? OFFSET ?[0m  [["LIMIT", 5], ["OFFSET", 0]]
+I, [2018-05-30T08:38:37.182067 #6220]  INFO -- : [307be922-103e-48d4-b481-9dca65ce1c88]   Rendered welcome/index.html.erb within layouts/application (364.5ms)
+I, [2018-05-30T08:38:37.184470 #6220]  INFO -- : [307be922-103e-48d4-b481-9dca65ce1c88] Completed 500 Internal Server Error in 452ms (ActiveRecord: 1.4ms)
+F, [2018-05-30T08:38:37.185411 #6220] FATAL -- : [307be922-103e-48d4-b481-9dca65ce1c88]   
+F, [2018-05-30T08:38:37.185542 #6220] FATAL -- : [307be922-103e-48d4-b481-9dca65ce1c88] ActionView::Template::Error (The asset "application.css" is not present in the asset pipeline.):
+F, [2018-05-30T08:38:37.185711 #6220] FATAL -- : [307be922-103e-48d4-b481-9dca65ce1c88]     4:     <title>AwesomeEvents</title>
+[307be922-103e-48d4-b481-9dca65ce1c88]     5:     <meta charset="utf-8">
+[307be922-103e-48d4-b481-9dca65ce1c88]     6:     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+[307be922-103e-48d4-b481-9dca65ce1c88]     7:     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+[307be922-103e-48d4-b481-9dca65ce1c88]     8:     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+[307be922-103e-48d4-b481-9dca65ce1c88]     9:     <%= csrf_meta_tags %>
+[307be922-103e-48d4-b481-9dca65ce1c88]    10:   </head>
+F, [2018-05-30T08:38:37.185738 #6220] FATAL -- : [307be922-103e-48d4-b481-9dca65ce1c88]   
+F, [2018-05-30T08:38:37.185776 #6220] FATAL -- : [307be922-103e-48d4-b481-9dca65ce1c88] app/views/layouts/application.html.erb:7:in `_app_views_layouts_application_html_erb__4272269634581751000_70364288599020'
+I, [2018-05-30T08:38:42.746399 #6220]  INFO -- : [d338c323-89d8-47cf-a47e-3cc64b86aef0] Started GET "/assets/application..self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2018-05-30 08:38:42 +0900
+I, [2018-05-30T08:38:42.746685 #6220]  INFO -- : [aa637e9d-3cb6-4b6b-afe3-0f788d238025] Started GET "/" for 127.0.0.1 at 2018-05-30 08:38:42 +0900
+I, [2018-05-30T08:38:42.749748 #6220]  INFO -- : [aa637e9d-3cb6-4b6b-afe3-0f788d238025] Processing by WelcomeController#index as HTML
+I, [2018-05-30T08:38:42.750750 #6220]  INFO -- : [aa637e9d-3cb6-4b6b-afe3-0f788d238025]   Rendering welcome/index.html.erb within layouts/application
+D, [2018-05-30T08:38:42.752293 #6220] DEBUG -- : [aa637e9d-3cb6-4b6b-afe3-0f788d238025]   [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT  DISTINCT "events".* FROM "events" WHERE "events"."start_time" >= '2018-05-29 23:38:42.750065' ORDER BY "events"."start_time" ASC LIMIT ? OFFSET ?[0m  [["LIMIT", 5], ["OFFSET", 0]]
+I, [2018-05-30T08:38:42.752740 #6220]  INFO -- : [aa637e9d-3cb6-4b6b-afe3-0f788d238025]   Rendered welcome/index.html.erb within layouts/application (1.9ms)
+F, [2018-05-30T08:38:42.755555 #6220] FATAL -- : [d338c323-89d8-47cf-a47e-3cc64b86aef0]   
+F, [2018-05-30T08:38:42.755650 #6220] FATAL -- : [d338c323-89d8-47cf-a47e-3cc64b86aef0] ActionController::RoutingError (No route matches [GET] "/assets/application..self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css"):
+F, [2018-05-30T08:38:42.756096 #6220] FATAL -- : [d338c323-89d8-47cf-a47e-3cc64b86aef0]   
+F, [2018-05-30T08:38:42.756142 #6220] FATAL -- : [d338c323-89d8-47cf-a47e-3cc64b86aef0] actionpack (5.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+[d338c323-89d8-47cf-a47e-3cc64b86aef0] actionpack (5.2.0) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+[d338c323-89d8-47cf-a47e-3cc64b86aef0] railties (5.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+[d338c323-89d8-47cf-a47e-3cc64b86aef0] railties (5.2.0) lib/rails/rack/logger.rb:26:in `block in call'
+[d338c323-89d8-47cf-a47e-3cc64b86aef0] activesupport (5.2.0) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+[d338c323-89d8-47cf-a47e-3cc64b86aef0] activesupport (5.2.0) lib/active_support/tagged_logging.rb:28:in `tagged'
+[d338c323-89d8-47cf-a47e-3cc64b86aef0] activesupport (5.2.0) lib/active_support/tagged_logging.rb:71:in `tagged'
+[d338c323-89d8-47cf-a47e-3cc64b86aef0] railties (5.2.0) lib/rails/rack/logger.rb:26:in `call'
+[d338c323-89d8-47cf-a47e-3cc64b86aef0] actionpack (5.2.0) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+[d338c323-89d8-47cf-a47e-3cc64b86aef0] actionpack (5.2.0) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+[d338c323-89d8-47cf-a47e-3cc64b86aef0] rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+[d338c323-89d8-47cf-a47e-3cc64b86aef0] rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+[d338c323-89d8-47cf-a47e-3cc64b86aef0] activesupport (5.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+[d338c323-89d8-47cf-a47e-3cc64b86aef0] actionpack (5.2.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+[d338c323-89d8-47cf-a47e-3cc64b86aef0] rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+[d338c323-89d8-47cf-a47e-3cc64b86aef0] railties (5.2.0) lib/rails/engine.rb:524:in `call'
+[d338c323-89d8-47cf-a47e-3cc64b86aef0] puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+[d338c323-89d8-47cf-a47e-3cc64b86aef0] puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+[d338c323-89d8-47cf-a47e-3cc64b86aef0] puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+[d338c323-89d8-47cf-a47e-3cc64b86aef0] puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+[d338c323-89d8-47cf-a47e-3cc64b86aef0] puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+I, [2018-05-30T08:38:42.756060 #6220]  INFO -- : [aa637e9d-3cb6-4b6b-afe3-0f788d238025] Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.2ms)
+F, [2018-05-30T08:38:42.756937 #6220] FATAL -- : [aa637e9d-3cb6-4b6b-afe3-0f788d238025]   
+F, [2018-05-30T08:38:42.756975 #6220] FATAL -- : [aa637e9d-3cb6-4b6b-afe3-0f788d238025] ActionView::Template::Error (The asset "application.css" is not present in the asset pipeline.):
+F, [2018-05-30T08:38:42.757356 #6220] FATAL -- : [aa637e9d-3cb6-4b6b-afe3-0f788d238025]     4:     <title>AwesomeEvents</title>
+[aa637e9d-3cb6-4b6b-afe3-0f788d238025]     5:     <meta charset="utf-8">
+[aa637e9d-3cb6-4b6b-afe3-0f788d238025]     6:     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+[aa637e9d-3cb6-4b6b-afe3-0f788d238025]     7:     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+[aa637e9d-3cb6-4b6b-afe3-0f788d238025]     8:     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+[aa637e9d-3cb6-4b6b-afe3-0f788d238025]     9:     <%= csrf_meta_tags %>
+[aa637e9d-3cb6-4b6b-afe3-0f788d238025]    10:   </head>
+F, [2018-05-30T08:38:42.757384 #6220] FATAL -- : [aa637e9d-3cb6-4b6b-afe3-0f788d238025]   
+F, [2018-05-30T08:38:42.757407 #6220] FATAL -- : [aa637e9d-3cb6-4b6b-afe3-0f788d238025] app/views/layouts/application.html.erb:7:in `_app_views_layouts_application_html_erb__4272269634581751000_70364288599020'
