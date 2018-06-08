@@ -1011,3 +1011,97 @@ F, [2018-05-30T08:38:42.757356 #6220] FATAL -- : [aa637e9d-3cb6-4b6b-afe3-0f788d
 [aa637e9d-3cb6-4b6b-afe3-0f788d238025]    10:   </head>
 F, [2018-05-30T08:38:42.757384 #6220] FATAL -- : [aa637e9d-3cb6-4b6b-afe3-0f788d238025]   
 F, [2018-05-30T08:38:42.757407 #6220] FATAL -- : [aa637e9d-3cb6-4b6b-afe3-0f788d238025] app/views/layouts/application.html.erb:7:in `_app_views_layouts_application_html_erb__4272269634581751000_70364288599020'
+D, [2018-06-05T21:57:47.269757 #5441] DEBUG -- :   [1m[35m (15.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+D, [2018-06-05T21:57:47.309123 #5441] DEBUG -- :   [1m[35m (19.9ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+D, [2018-06-05T21:57:47.309615 #5441] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+D, [2018-06-05T21:57:47.310057 #5441] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+D, [2018-06-05T21:57:47.310402 #5441] DEBUG -- :   [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+D, [2018-06-05T21:57:47.310778 #5441] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+D, [2018-06-05T21:57:47.330181 #5441] DEBUG -- :   [1m[35m (2.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "events"[0m
+D, [2018-06-05T21:57:47.330773 #5441] DEBUG -- :   [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+D, [2018-06-05T21:57:47.332650 #5441] DEBUG -- :   [1m[35m (1.8ms)[0m  [1m[35mCREATE TABLE "events" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "owner_id" integer, "name" varchar NOT NULL, "place" varchar NOT NULL, "start_time" datetime NOT NULL, "end_time" datetime NOT NULL, "content" text NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "event_image" varchar)[0m
+D, [2018-06-05T21:57:47.336068 #5441] DEBUG -- :   [1m[35m (3.0ms)[0m  [1m[35mCREATE  INDEX "index_events_on_owner_id" ON "events" ("owner_id")[0m
+D, [2018-06-05T21:57:47.340020 #5441] DEBUG -- :   [1m[35m (3.7ms)[0m  [1m[35mDROP TABLE IF EXISTS "tickets"[0m
+D, [2018-06-05T21:57:47.341944 #5441] DEBUG -- :   [1m[35m (1.7ms)[0m  [1m[35mCREATE TABLE "tickets" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "event_id" integer NOT NULL, "comment" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+D, [2018-06-05T21:57:47.345453 #5441] DEBUG -- :   [1m[35m (3.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_tickets_on_event_id_and_user_id" ON "tickets" ("event_id", "user_id")[0m
+D, [2018-06-05T21:57:47.347775 #5441] DEBUG -- :   [1m[35m (1.7ms)[0m  [1m[35mCREATE  INDEX "index_tickets_on_event_id" ON "tickets" ("event_id")[0m
+D, [2018-06-05T21:57:47.350681 #5441] DEBUG -- :   [1m[35m (2.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_tickets_on_user_id_and_event_id" ON "tickets" ("user_id", "event_id")[0m
+D, [2018-06-05T21:57:47.353968 #5441] DEBUG -- :   [1m[35m (2.3ms)[0m  [1m[35mCREATE  INDEX "index_tickets_on_user_id" ON "tickets" ("user_id")[0m
+D, [2018-06-05T21:57:47.356764 #5441] DEBUG -- :   [1m[35m (2.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "users"[0m
+D, [2018-06-05T21:57:47.358579 #5441] DEBUG -- :   [1m[35m (1.7ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "provider" varchar NOT NULL, "uid" varchar NOT NULL, "nickname" varchar NOT NULL, "image_url" varchar NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+D, [2018-06-05T21:57:47.360017 #5441] DEBUG -- :   [1m[35m (1.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_provider_and_uid" ON "users" ("provider", "uid")[0m
+D, [2018-06-05T21:57:47.360682 #5441] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+D, [2018-06-05T21:57:47.361827 #5441] DEBUG -- :   [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+D, [2018-06-05T21:57:47.367935 #5441] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+D, [2018-06-05T21:57:47.368774 #5441] DEBUG -- :   [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+D, [2018-06-05T21:57:47.369528 #5441] DEBUG -- :   [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+D, [2018-06-05T21:57:47.369703 #5441] DEBUG -- :   [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+D, [2018-06-05T21:57:47.370059 #5441] DEBUG -- :   [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+D, [2018-06-05T21:57:47.372248 #5441] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+I, [2018-06-05T21:58:13.075073 #5469]  INFO -- : [2bf26c83-254c-4107-b4e6-1b9810f4257f] Started GET "/" for 127.0.0.1 at 2018-06-05 21:58:13 +0900
+I, [2018-06-05T21:58:13.081879 #5469]  INFO -- : [2bf26c83-254c-4107-b4e6-1b9810f4257f] Processing by WelcomeController#index as HTML
+I, [2018-06-05T21:58:13.122880 #5469]  INFO -- : [2bf26c83-254c-4107-b4e6-1b9810f4257f]   Rendering welcome/index.html.erb within layouts/application
+D, [2018-06-05T21:58:13.407758 #5469] DEBUG -- : [2bf26c83-254c-4107-b4e6-1b9810f4257f]   [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT  DISTINCT "events".* FROM "events" WHERE "events"."start_time" >= '2018-06-05 12:58:13.082646' ORDER BY "events"."start_time" ASC LIMIT ? OFFSET ?[0m  [["LIMIT", 5], ["OFFSET", 0]]
+I, [2018-06-05T21:58:13.412086 #5469]  INFO -- : [2bf26c83-254c-4107-b4e6-1b9810f4257f]   Rendered welcome/index.html.erb within layouts/application (289.1ms)
+I, [2018-06-05T21:58:13.414087 #5469]  INFO -- : [2bf26c83-254c-4107-b4e6-1b9810f4257f] Completed 500 Internal Server Error in 332ms (ActiveRecord: 0.8ms)
+F, [2018-06-05T21:58:13.414586 #5469] FATAL -- : [2bf26c83-254c-4107-b4e6-1b9810f4257f]   
+F, [2018-06-05T21:58:13.414613 #5469] FATAL -- : [2bf26c83-254c-4107-b4e6-1b9810f4257f] ActionView::Template::Error (The asset "application.css" is not present in the asset pipeline.):
+F, [2018-06-05T21:58:13.414691 #5469] FATAL -- : [2bf26c83-254c-4107-b4e6-1b9810f4257f]     4:     <title>AwesomeEvents</title>
+[2bf26c83-254c-4107-b4e6-1b9810f4257f]     5:     <meta charset="utf-8">
+[2bf26c83-254c-4107-b4e6-1b9810f4257f]     6:     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+[2bf26c83-254c-4107-b4e6-1b9810f4257f]     7:     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+[2bf26c83-254c-4107-b4e6-1b9810f4257f]     8:     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+[2bf26c83-254c-4107-b4e6-1b9810f4257f]     9:     <%= csrf_meta_tags %>
+[2bf26c83-254c-4107-b4e6-1b9810f4257f]    10:   </head>
+F, [2018-06-05T21:58:13.414710 #5469] FATAL -- : [2bf26c83-254c-4107-b4e6-1b9810f4257f]   
+F, [2018-06-05T21:58:13.414729 #5469] FATAL -- : [2bf26c83-254c-4107-b4e6-1b9810f4257f] app/views/layouts/application.html.erb:7:in `_app_views_layouts_application_html_erb__3501738005647968110_70210844524180'
+I, [2018-06-05T21:58:13.493277 #5469]  INFO -- : [57985b85-3e77-4e15-b0ec-2183ccc394a3] Started GET "/apple-touch-icon-precomposed.png" for 127.0.0.1 at 2018-06-05 21:58:13 +0900
+F, [2018-06-05T21:58:13.493968 #5469] FATAL -- : [57985b85-3e77-4e15-b0ec-2183ccc394a3]   
+F, [2018-06-05T21:58:13.494005 #5469] FATAL -- : [57985b85-3e77-4e15-b0ec-2183ccc394a3] ActionController::RoutingError (No route matches [GET] "/apple-touch-icon-precomposed.png"):
+F, [2018-06-05T21:58:13.494026 #5469] FATAL -- : [57985b85-3e77-4e15-b0ec-2183ccc394a3]   
+F, [2018-06-05T21:58:13.494048 #5469] FATAL -- : [57985b85-3e77-4e15-b0ec-2183ccc394a3] actionpack (5.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+[57985b85-3e77-4e15-b0ec-2183ccc394a3] actionpack (5.2.0) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+[57985b85-3e77-4e15-b0ec-2183ccc394a3] railties (5.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+[57985b85-3e77-4e15-b0ec-2183ccc394a3] railties (5.2.0) lib/rails/rack/logger.rb:26:in `block in call'
+[57985b85-3e77-4e15-b0ec-2183ccc394a3] activesupport (5.2.0) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+[57985b85-3e77-4e15-b0ec-2183ccc394a3] activesupport (5.2.0) lib/active_support/tagged_logging.rb:28:in `tagged'
+[57985b85-3e77-4e15-b0ec-2183ccc394a3] activesupport (5.2.0) lib/active_support/tagged_logging.rb:71:in `tagged'
+[57985b85-3e77-4e15-b0ec-2183ccc394a3] railties (5.2.0) lib/rails/rack/logger.rb:26:in `call'
+[57985b85-3e77-4e15-b0ec-2183ccc394a3] actionpack (5.2.0) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+[57985b85-3e77-4e15-b0ec-2183ccc394a3] actionpack (5.2.0) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+[57985b85-3e77-4e15-b0ec-2183ccc394a3] rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+[57985b85-3e77-4e15-b0ec-2183ccc394a3] rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+[57985b85-3e77-4e15-b0ec-2183ccc394a3] activesupport (5.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+[57985b85-3e77-4e15-b0ec-2183ccc394a3] actionpack (5.2.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+[57985b85-3e77-4e15-b0ec-2183ccc394a3] rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+[57985b85-3e77-4e15-b0ec-2183ccc394a3] railties (5.2.0) lib/rails/engine.rb:524:in `call'
+[57985b85-3e77-4e15-b0ec-2183ccc394a3] puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+[57985b85-3e77-4e15-b0ec-2183ccc394a3] puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+[57985b85-3e77-4e15-b0ec-2183ccc394a3] puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+[57985b85-3e77-4e15-b0ec-2183ccc394a3] puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+[57985b85-3e77-4e15-b0ec-2183ccc394a3] puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+I, [2018-06-05T21:58:13.497715 #5469]  INFO -- : [f47a6dda-a224-4fe5-9c7b-548b6435798e] Started GET "/apple-touch-icon.png" for 127.0.0.1 at 2018-06-05 21:58:13 +0900
+F, [2018-06-05T21:58:13.498334 #5469] FATAL -- : [f47a6dda-a224-4fe5-9c7b-548b6435798e]   
+F, [2018-06-05T21:58:13.498366 #5469] FATAL -- : [f47a6dda-a224-4fe5-9c7b-548b6435798e] ActionController::RoutingError (No route matches [GET] "/apple-touch-icon.png"):
+F, [2018-06-05T21:58:13.498386 #5469] FATAL -- : [f47a6dda-a224-4fe5-9c7b-548b6435798e]   
+F, [2018-06-05T21:58:13.498408 #5469] FATAL -- : [f47a6dda-a224-4fe5-9c7b-548b6435798e] actionpack (5.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+[f47a6dda-a224-4fe5-9c7b-548b6435798e] actionpack (5.2.0) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+[f47a6dda-a224-4fe5-9c7b-548b6435798e] railties (5.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+[f47a6dda-a224-4fe5-9c7b-548b6435798e] railties (5.2.0) lib/rails/rack/logger.rb:26:in `block in call'
+[f47a6dda-a224-4fe5-9c7b-548b6435798e] activesupport (5.2.0) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+[f47a6dda-a224-4fe5-9c7b-548b6435798e] activesupport (5.2.0) lib/active_support/tagged_logging.rb:28:in `tagged'
+[f47a6dda-a224-4fe5-9c7b-548b6435798e] activesupport (5.2.0) lib/active_support/tagged_logging.rb:71:in `tagged'
+[f47a6dda-a224-4fe5-9c7b-548b6435798e] railties (5.2.0) lib/rails/rack/logger.rb:26:in `call'
+[f47a6dda-a224-4fe5-9c7b-548b6435798e] actionpack (5.2.0) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+[f47a6dda-a224-4fe5-9c7b-548b6435798e] actionpack (5.2.0) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+[f47a6dda-a224-4fe5-9c7b-548b6435798e] rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+[f47a6dda-a224-4fe5-9c7b-548b6435798e] rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+[f47a6dda-a224-4fe5-9c7b-548b6435798e] activesupport (5.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+[f47a6dda-a224-4fe5-9c7b-548b6435798e] actionpack (5.2.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+[f47a6dda-a224-4fe5-9c7b-548b6435798e] rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+[f47a6dda-a224-4fe5-9c7b-548b6435798e] railties (5.2.0) lib/rails/engine.rb:524:in `call'
+[f47a6dda-a224-4fe5-9c7b-548b6435798e] puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+[f47a6dda-a224-4fe5-9c7b-548b6435798e] puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+[f47a6dda-a224-4fe5-9c7b-548b6435798e] puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+[f47a6dda-a224-4fe5-9c7b-548b6435798e] puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+[f47a6dda-a224-4fe5-9c7b-548b6435798e] puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'

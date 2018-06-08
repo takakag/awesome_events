@@ -10,6 +10,7 @@ set :repo_url, "https://github.com/takakag/awesome_events.git"
 # Default deploy_to directory is /var/www/my_app_name
 set :deploy_to, "/var/www/awesome-events"
 set :scm, :git
+
 #set :git
 # Default value for :format is :airbrussh.
 # set :format, :airbrussh
@@ -37,6 +38,11 @@ set :scm, :git
 # Default value for keep_releases is 5
 set :keep_releases, 5
 
+#set :rbenv_type, :user
+#set :rbenv_ruby, '2.5.0'
+#set :rbenv_path, '~/.rbenv'
+#set :rbenv_prefix, "RBENV_ROOT=#{fetch(:rbenv_path)} RBENV_VERSION=#{fetch(:rbenv_ruby)} #{fetch(:rbenv_path)}/bin/rbenv exec"
+
 # 共有ディレクトリにSymlinkする対象を追加13yy
 set :linked_dirs, fetch(:linked_dirs, ['tmp/pids'])
 
@@ -57,11 +63,10 @@ end
 #require 'capistrano-rbenv'
 #set :rbenv_ruby_version, '2.5.0'
 
-set :rbenv_root_path, '/opt/rbenv'
-#set :default_env, {
-#  rbenv_root: "/opt/rbenv",
-#  path: "opt/rbenv/shims:/opt/rbenv/plugins:$PATH"
-#}
+set :default_env, {
+  rbenv_root: "/usr/local/rbenv",
+  path: "/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH"
+}
 
 #namespace :rbenv do
 #  task :setup_shellenv do
