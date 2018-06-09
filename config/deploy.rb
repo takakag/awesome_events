@@ -9,7 +9,13 @@ set :repo_url, "https://github.com/takakag/awesome_events.git"
 
 # Default deploy_to directory is /var/www/my_app_name
 set :deploy_to, "/var/www/awesome-events"
-set :scm, :git
+#set :scm, :git
+#set :rbenv_costum_path, '/home/ops/.rbenv'
+
+set :default_env, {
+	rbenv_root: '/home/ops/.rbenv',
+	path: '/home/ops/.rbenv/shims:/home/ops/.rbenv/bin:$PATH'
+}
 
 #set :git
 # Default value for :format is :airbrussh.
@@ -43,8 +49,25 @@ set :keep_releases, 5
 #set :rbenv_path, '~/.rbenv'
 #set :rbenv_prefix, "RBENV_ROOT=#{fetch(:rbenv_path)} RBENV_VERSION=#{fetch(:rbenv_ruby)} #{fetch(:rbenv_path)}/bin/rbenv exec"
 
+
+# Uncomment the following to require manually verifying the host key before first deploy.
+# set :ssh_options, verify_host_key: :secure
+
+#require 'capistrano-rbenv'
+#set :rbenv_ruby_version, '2.5.0'
+
+#namespace :rbenv do
+#  task :setup_shellenv do
+#    set :default_env, {
+#      'RBENV_ROOT' => "#{rbenv_path}",
+#      'PATH' => "#{rbenv_path}/shims:#{rbenv_path}/bin:$PATH"
+#    }
+#  end
+#  after 'multistage:ensure', 'rbenv:setup_shellenv'
+#end
+
 # 共有ディレクトリにSymlinkする対象を追加13yy
-set :linked_dirs, fetch(:linked_dirs, ['tmp/pids'])
+set :linked_dirs, fetch(:linked_dirs,[]).push('tmp/pids')
 
 # Unicorn周りの設定をする
 set :unicorn_rack_env, "none"
@@ -56,24 +79,3 @@ namespace :deploy do
     invoke 'unicorn:restart'
   end
 end
-
-# Uncomment the following to require manually verifying the host key before first deploy.
-# set :ssh_options, verify_host_key: :secure
-
-#require 'capistrano-rbenv'
-#set :rbenv_ruby_version, '2.5.0'
-
-set :default_env, {
-  rbenv_root: "/usr/local/rbenv",
-  path: "/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH"
-}
-
-#namespace :rbenv do
-#  task :setup_shellenv do
-#    set :default_env, {
-#      'RBENV_ROOT' => "#{rbenv_path}",
-#      'PATH' => "#{rbenv_path}/shims:#{rbenv_path}/bin:$PATH"
-#    }
-#  end
-#  after 'multistage:ensure', 'rbenv:setup_shellenv'
-#end
