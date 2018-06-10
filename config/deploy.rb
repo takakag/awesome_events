@@ -73,7 +73,7 @@ set :linked_dirs, fetch(:linked_dirs,[]).push('tmp/pids')
 set :unicorn_rack_env, "none"
 set :unicorn_config_path, 'config/unicorn.rb'
 
-#after 'deploy:publishing', 'deploy:restart'
+after 'deploy:publishing', 'deploy:restart'
 namespace :deploy do
   task :restart do
     invoke 'unicorn:restart'
