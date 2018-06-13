@@ -12,10 +12,6 @@ set :deploy_to, "/var/www/awesome-events"
 #set :scm, :git
 #set :rbenv_costum_path, '/home/ops/.rbenv'
 
-set :default_env, {
-	rbenv_root: '/home/ops/.rbenv',
-	path: '/home/ops/.rbenv/shims:/home/ops/.rbenv/bin:$PATH'
-}
 
 #set :git
 # Default value for :format is :airbrussh.
@@ -49,6 +45,10 @@ set :keep_releases, 5
 #set :rbenv_path, '~/.rbenv'
 #set :rbenv_prefix, "RBENV_ROOT=#{fetch(:rbenv_path)} RBENV_VERSION=#{fetch(:rbenv_ruby)} #{fetch(:rbenv_path)}/bin/rbenv exec"
 
+set :default_env, {
+	rbenv_root: '/home/ops/.rbenv',
+	path: '/home/ops/.rbenv/shims:/home/ops/.rbenv/bin:$PATH'
+}
 
 # Uncomment the following to require manually verifying the host key before first deploy.
 # set :ssh_options, verify_host_key: :secure
