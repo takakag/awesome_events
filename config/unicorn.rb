@@ -1,6 +1,6 @@
 # -*- config: utf-8 -*-
 
-working_directory "/var/www/awesome-events/current"
+#working_directory "/var/www/awesome-events/current"
 # Unicornのプロセスがリッスンするアドレスとポーとを指定
 listen "127.0.0.1:3000"
 
