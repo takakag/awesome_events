@@ -88,3 +88,5 @@ gem 'mini_magick'
 gem 'warden'
 
 gem 'capistrano-rbenv'
+
+gem 'newrelic_rpm'
