@@ -1,0 +1,4 @@
+config/secrets.yml
+config/database.yml
+config/newrelic.yml
+Gemfile.lock
