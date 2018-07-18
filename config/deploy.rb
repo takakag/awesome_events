@@ -93,4 +93,7 @@ namespace :deploy do
       upload!('config/newrelic.yml', "#{shared_path}/config/newrelic.yml")
     end
   end
+  
+  before :starting, 'deploy:upload'
+  after :finishing, 'deploy:cleanup'
 end
