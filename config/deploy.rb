@@ -28,7 +28,7 @@ set :deploy_to, "/var/www/awesome-events"
 # Default value for :linked_files is []
 # append :linked_files, "config/database.yml"
 
-set :linked_files, %w{config/secrets.yml config/database.yml Gemfile.lock}
+set :linked_files, %w{config/secrets.yml config/database.yml Gemfile.lock config/newrelic.yml}
 
 # Default value for linked_dirs is []
 # append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/system"
@@ -90,6 +90,7 @@ namespace :deploy do
       upload!('config/secrets.yml', "#{shared_path}/config/secrets.yml")
       upload!('config/database.yml', "#{shared_path}/config/database.yml")
       upload!('Gemfile.lock', "#{shared_path}/Gemfile.lock")
+      upload!('config/newrelic.yml', "#{shared_path}/config/newrelic.yml")
     end
   end
 end
