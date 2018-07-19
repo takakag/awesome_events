@@ -14950,3 +14950,308 @@ any of the sources listed in your Gemfile. If you haven't changed sources, that
 means the author of rake (12.3.1) has removed it. You'll need to update your
 bundle to a version other than rake (12.3.1) that hasn't been removed in order
 to install.
+  INFO ---------------------------------------------------------------------------
+  INFO START 2018-07-19 21:02:13 +0900 cap staging deploy
+  INFO ---------------------------------------------------------------------------
+ DEBUG [d5a45b5d] Running [ -d $HOME/.rbenv/versions/2.5.0 ] as ops@vagrant.local
+ DEBUG [d5a45b5d] Command: [ -d $HOME/.rbenv/versions/2.5.0 ]
+ DEBUG [d5a45b5d] Finished in 0.108 seconds with exit status 0 (successful).
+ DEBUG [466bfb4f] Running [ !-d /var/www/awesome-events/shared/config ] as ops@vagrant.local
+ DEBUG [466bfb4f] Command: [ !-d /var/www/awesome-events/shared/config ]
+ DEBUG [466bfb4f] 	bash: line 0: [: !-d: unary operator expected
+ DEBUG [466bfb4f] Finished in 0.006 seconds with exit status 2 (failed).
+ DEBUG Uploading config/secrets.yml 0.0%
+  INFO Uploading config/secrets.yml 100.0%
+ DEBUG Uploading config/database.yml 0.0%
+  INFO Uploading config/database.yml 100.0%
+ DEBUG Uploading Gemfile.lock 0.0%
+  INFO Uploading Gemfile.lock 100.0%
+ DEBUG Uploading config/newrelic.yml 0.0%
+  INFO Uploading config/newrelic.yml 100.0%
+  INFO [9957a933] Running /usr/bin/env mkdir -p /tmp as ops@vagrant.local
+ DEBUG [9957a933] Command: ( export RBENV_ROOT="$HOME/.rbenv" PATH="/home/ops/.rbenv/shims:/home/ops/.rbenv/bin:$PATH" RBENV_VERSION="2.5.0" ; /usr/bin/env mkdir -p /tmp )
+  INFO [9957a933] Finished in 0.010 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-awesome_events-staging-takashi_kageyama.sh 0.0%
+  INFO Uploading /tmp/git-ssh-awesome_events-staging-takashi_kageyama.sh 100.0%
+  INFO [27b48800] Running /usr/bin/env chmod 700 /tmp/git-ssh-awesome_events-staging-takashi_kageyama.sh as ops@vagrant.local
+ DEBUG [27b48800] Command: ( export RBENV_ROOT="$HOME/.rbenv" PATH="/home/ops/.rbenv/shims:/home/ops/.rbenv/bin:$PATH" RBENV_VERSION="2.5.0" ; /usr/bin/env chmod 700 /tmp/git-ssh-awesome_events-staging-takashi_kageyama.sh )
+  INFO [27b48800] Finished in 0.009 seconds with exit status 0 (successful).
+  INFO [abbdbce8] Running /usr/bin/env git ls-remote https://github.com/takakag/awesome_events.git HEAD as ops@vagrant.local
+ DEBUG [abbdbce8] Command: ( export RBENV_ROOT="$HOME/.rbenv" PATH="/home/ops/.rbenv/shims:/home/ops/.rbenv/bin:$PATH" RBENV_VERSION="2.5.0" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-awesome_events-staging-takashi_kageyama.sh" ; /usr/bin/env git ls-remote https://github.com/takakag/awesome_events.git HEAD )
+ DEBUG [abbdbce8] 	4fb0e67f3a243eb3352f99104c8d0a5ef57896e4	HEAD
+  INFO [abbdbce8] Finished in 0.793 seconds with exit status 0 (successful).
+  INFO [68d0afbc] Running /usr/bin/env mkdir -p /var/www/awesome-events/shared /var/www/awesome-events/releases as ops@vagrant.local
+ DEBUG [68d0afbc] Command: ( export RBENV_ROOT="$HOME/.rbenv" PATH="/home/ops/.rbenv/shims:/home/ops/.rbenv/bin:$PATH" RBENV_VERSION="2.5.0" ; /usr/bin/env mkdir -p /var/www/awesome-events/shared /var/www/awesome-events/releases )
+  INFO [68d0afbc] Finished in 0.009 seconds with exit status 0 (successful).
+  INFO [fab11c71] Running /usr/bin/env mkdir -p /var/www/awesome-events/shared/tmp/pids /var/www/awesome-events/shared/public/assets as ops@vagrant.local
+ DEBUG [fab11c71] Command: ( export RBENV_ROOT="$HOME/.rbenv" PATH="/home/ops/.rbenv/shims:/home/ops/.rbenv/bin:$PATH" RBENV_VERSION="2.5.0" ; /usr/bin/env mkdir -p /var/www/awesome-events/shared/tmp/pids /var/www/awesome-events/shared/public/assets )
+  INFO [fab11c71] Finished in 0.009 seconds with exit status 0 (successful).
+  INFO [9f4ac795] Running /usr/bin/env mkdir -p /var/www/awesome-events/shared/config /var/www/awesome-events/shared as ops@vagrant.local
+ DEBUG [9f4ac795] Command: ( export RBENV_ROOT="$HOME/.rbenv" PATH="/home/ops/.rbenv/shims:/home/ops/.rbenv/bin:$PATH" RBENV_VERSION="2.5.0" ; /usr/bin/env mkdir -p /var/www/awesome-events/shared/config /var/www/awesome-events/shared )
+  INFO [9f4ac795] Finished in 0.009 seconds with exit status 0 (successful).
+ DEBUG [624fcf0b] Running [ -f /var/www/awesome-events/shared/config/secrets.yml ] as ops@vagrant.local
+ DEBUG [624fcf0b] Command: [ -f /var/www/awesome-events/shared/config/secrets.yml ]
+ DEBUG [624fcf0b] Finished in 0.006 seconds with exit status 0 (successful).
+ DEBUG [e84695d5] Running [ -f /var/www/awesome-events/shared/config/database.yml ] as ops@vagrant.local
+ DEBUG [e84695d5] Command: [ -f /var/www/awesome-events/shared/config/database.yml ]
+ DEBUG [e84695d5] Finished in 0.006 seconds with exit status 0 (successful).
+ DEBUG [879973d7] Running [ -f /var/www/awesome-events/shared/Gemfile.lock ] as ops@vagrant.local
+ DEBUG [879973d7] Command: [ -f /var/www/awesome-events/shared/Gemfile.lock ]
+ DEBUG [879973d7] Finished in 0.005 seconds with exit status 0 (successful).
+ DEBUG [75d18316] Running [ -f /var/www/awesome-events/shared/config/newrelic.yml ] as ops@vagrant.local
+ DEBUG [75d18316] Command: [ -f /var/www/awesome-events/shared/config/newrelic.yml ]
+ DEBUG [75d18316] Finished in 0.006 seconds with exit status 0 (successful).
+ DEBUG [d0dded77] Running [ -f /var/www/awesome-events/current/REVISION ] as ops@vagrant.local
+ DEBUG [d0dded77] Command: [ -f /var/www/awesome-events/current/REVISION ]
+ DEBUG [d0dded77] Finished in 0.005 seconds with exit status 1 (failed).
+ DEBUG [7fb88e46] Running [ -f /var/www/awesome-events/repo/HEAD ] as ops@vagrant.local
+ DEBUG [7fb88e46] Command: [ -f /var/www/awesome-events/repo/HEAD ]
+ DEBUG [7fb88e46] Finished in 0.006 seconds with exit status 0 (successful).
+  INFO The repository mirror is at /var/www/awesome-events/repo
+ DEBUG [c6552fc9] Running if test ! -d /var/www/awesome-events/repo; then echo "Directory does not exist '/var/www/awesome-events/repo'" 1>&2; false; fi as ops@vagrant.local
+ DEBUG [c6552fc9] Command: if test ! -d /var/www/awesome-events/repo; then echo "Directory does not exist '/var/www/awesome-events/repo'" 1>&2; false; fi
+ DEBUG [c6552fc9] Finished in 0.006 seconds with exit status 0 (successful).
+  INFO [ecb00b97] Running /usr/bin/env git remote set-url origin https://github.com/takakag/awesome_events.git as ops@vagrant.local
+ DEBUG [ecb00b97] Command: cd /var/www/awesome-events/repo && ( export RBENV_ROOT="$HOME/.rbenv" PATH="/home/ops/.rbenv/shims:/home/ops/.rbenv/bin:$PATH" RBENV_VERSION="2.5.0" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-awesome_events-staging-takashi_kageyama.sh" ; /usr/bin/env git remote set-url origin https://github.com/takakag/awesome_events.git )
+  INFO [ecb00b97] Finished in 0.009 seconds with exit status 0 (successful).
+  INFO [c1671e41] Running /usr/bin/env git remote update --prune as ops@vagrant.local
+ DEBUG [c1671e41] Command: cd /var/www/awesome-events/repo && ( export RBENV_ROOT="$HOME/.rbenv" PATH="/home/ops/.rbenv/shims:/home/ops/.rbenv/bin:$PATH" RBENV_VERSION="2.5.0" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-awesome_events-staging-takashi_kageyama.sh" ; /usr/bin/env git remote update --prune )
+ DEBUG [c1671e41] 	Fetching origin
+ DEBUG [c1671e41] 	From https://github.com/takakag/awesome_events
+ DEBUG [c1671e41] 	   feb91ad..4fb0e67  master     -> master
+  INFO [c1671e41] Finished in 1.689 seconds with exit status 0 (successful).
+ DEBUG [8bfe4d44] Running if test ! -d /var/www/awesome-events/repo; then echo "Directory does not exist '/var/www/awesome-events/repo'" 1>&2; false; fi as ops@vagrant.local
+ DEBUG [8bfe4d44] Command: if test ! -d /var/www/awesome-events/repo; then echo "Directory does not exist '/var/www/awesome-events/repo'" 1>&2; false; fi
+ DEBUG [8bfe4d44] Finished in 0.005 seconds with exit status 0 (successful).
+  INFO [14c540bb] Running /usr/bin/env mkdir -p /var/www/awesome-events/releases/20180719120214 as ops@vagrant.local
+ DEBUG [14c540bb] Command: cd /var/www/awesome-events/repo && ( export RBENV_ROOT="$HOME/.rbenv" PATH="/home/ops/.rbenv/shims:/home/ops/.rbenv/bin:$PATH" RBENV_VERSION="2.5.0" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-awesome_events-staging-takashi_kageyama.sh" ; /usr/bin/env mkdir -p /var/www/awesome-events/releases/20180719120214 )
+  INFO [14c540bb] Finished in 0.009 seconds with exit status 0 (successful).
+  INFO [5dac3705] Running /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /var/www/awesome-events/releases/20180719120214 as ops@vagrant.local
+ DEBUG [5dac3705] Command: cd /var/www/awesome-events/repo && ( export RBENV_ROOT="$HOME/.rbenv" PATH="/home/ops/.rbenv/shims:/home/ops/.rbenv/bin:$PATH" RBENV_VERSION="2.5.0" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-awesome_events-staging-takashi_kageyama.sh" ; /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /var/www/awesome-events/releases/20180719120214 )
+  INFO [5dac3705] Finished in 0.126 seconds with exit status 0 (successful).
+ DEBUG [e74a372f] Running if test ! -d /var/www/awesome-events/repo; then echo "Directory does not exist '/var/www/awesome-events/repo'" 1>&2; false; fi as ops@vagrant.local
+ DEBUG [e74a372f] Command: if test ! -d /var/www/awesome-events/repo; then echo "Directory does not exist '/var/www/awesome-events/repo'" 1>&2; false; fi
+ DEBUG [e74a372f] Finished in 0.005 seconds with exit status 0 (successful).
+ DEBUG [0e043127] Running /usr/bin/env git rev-list --max-count=1 master as ops@vagrant.local
+ DEBUG [0e043127] Command: cd /var/www/awesome-events/repo && ( export RBENV_ROOT="$HOME/.rbenv" PATH="/home/ops/.rbenv/shims:/home/ops/.rbenv/bin:$PATH" RBENV_VERSION="2.5.0" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-awesome_events-staging-takashi_kageyama.sh" ; /usr/bin/env git rev-list --max-count=1 master )
+ DEBUG [0e043127] 	4fb0e67f3a243eb3352f99104c8d0a5ef57896e4
+ DEBUG [0e043127] Finished in 0.010 seconds with exit status 0 (successful).
+ DEBUG [50247e92] Running if test ! -d /var/www/awesome-events/releases/20180719120214; then echo "Directory does not exist '/var/www/awesome-events/releases/20180719120214'" 1>&2; false; fi as ops@vagrant.local
+ DEBUG [50247e92] Command: if test ! -d /var/www/awesome-events/releases/20180719120214; then echo "Directory does not exist '/var/www/awesome-events/releases/20180719120214'" 1>&2; false; fi
+ DEBUG [50247e92] Finished in 0.005 seconds with exit status 0 (successful).
+  INFO [1ed38429] Running /usr/bin/env echo "4fb0e67f3a243eb3352f99104c8d0a5ef57896e4" > REVISION as ops@vagrant.local
+ DEBUG [1ed38429] Command: cd /var/www/awesome-events/releases/20180719120214 && ( export RBENV_ROOT="$HOME/.rbenv" PATH="/home/ops/.rbenv/shims:/home/ops/.rbenv/bin:$PATH" RBENV_VERSION="2.5.0" ; /usr/bin/env echo "4fb0e67f3a243eb3352f99104c8d0a5ef57896e4" > REVISION )
+  INFO [1ed38429] Finished in 0.008 seconds with exit status 0 (successful).
+  INFO [4b8cde91] Running /usr/bin/env mkdir -p /var/www/awesome-events/releases/20180719120214/config /var/www/awesome-events/releases/20180719120214 as ops@vagrant.local
+ DEBUG [4b8cde91] Command: ( export RBENV_ROOT="$HOME/.rbenv" PATH="/home/ops/.rbenv/shims:/home/ops/.rbenv/bin:$PATH" RBENV_VERSION="2.5.0" ; /usr/bin/env mkdir -p /var/www/awesome-events/releases/20180719120214/config /var/www/awesome-events/releases/20180719120214 )
+  INFO [4b8cde91] Finished in 0.011 seconds with exit status 0 (successful).
+ DEBUG [607c5e34] Running [ -L /var/www/awesome-events/releases/20180719120214/config/secrets.yml ] as ops@vagrant.local
+ DEBUG [607c5e34] Command: [ -L /var/www/awesome-events/releases/20180719120214/config/secrets.yml ]
+ DEBUG [607c5e34] Finished in 0.006 seconds with exit status 1 (failed).
+ DEBUG [e02fcfd5] Running [ -f /var/www/awesome-events/releases/20180719120214/config/secrets.yml ] as ops@vagrant.local
+ DEBUG [e02fcfd5] Command: [ -f /var/www/awesome-events/releases/20180719120214/config/secrets.yml ]
+ DEBUG [e02fcfd5] Finished in 0.005 seconds with exit status 1 (failed).
+  INFO [0a4b8c5e] Running /usr/bin/env ln -s /var/www/awesome-events/shared/config/secrets.yml /var/www/awesome-events/releases/20180719120214/config/secrets.yml as ops@vagrant.local
+ DEBUG [0a4b8c5e] Command: ( export RBENV_ROOT="$HOME/.rbenv" PATH="/home/ops/.rbenv/shims:/home/ops/.rbenv/bin:$PATH" RBENV_VERSION="2.5.0" ; /usr/bin/env ln -s /var/www/awesome-events/shared/config/secrets.yml /var/www/awesome-events/releases/20180719120214/config/secrets.yml )
+  INFO [0a4b8c5e] Finished in 0.009 seconds with exit status 0 (successful).
+ DEBUG [28a6777d] Running [ -L /var/www/awesome-events/releases/20180719120214/config/database.yml ] as ops@vagrant.local
+ DEBUG [28a6777d] Command: [ -L /var/www/awesome-events/releases/20180719120214/config/database.yml ]
+ DEBUG [28a6777d] Finished in 0.005 seconds with exit status 1 (failed).
+ DEBUG [9925b5c8] Running [ -f /var/www/awesome-events/releases/20180719120214/config/database.yml ] as ops@vagrant.local
+ DEBUG [9925b5c8] Command: [ -f /var/www/awesome-events/releases/20180719120214/config/database.yml ]
+ DEBUG [9925b5c8] Finished in 0.006 seconds with exit status 1 (failed).
+  INFO [acabc346] Running /usr/bin/env ln -s /var/www/awesome-events/shared/config/database.yml /var/www/awesome-events/releases/20180719120214/config/database.yml as ops@vagrant.local
+ DEBUG [acabc346] Command: ( export RBENV_ROOT="$HOME/.rbenv" PATH="/home/ops/.rbenv/shims:/home/ops/.rbenv/bin:$PATH" RBENV_VERSION="2.5.0" ; /usr/bin/env ln -s /var/www/awesome-events/shared/config/database.yml /var/www/awesome-events/releases/20180719120214/config/database.yml )
+  INFO [acabc346] Finished in 0.008 seconds with exit status 0 (successful).
+ DEBUG [a4f6199d] Running [ -L /var/www/awesome-events/releases/20180719120214/Gemfile.lock ] as ops@vagrant.local
+ DEBUG [a4f6199d] Command: [ -L /var/www/awesome-events/releases/20180719120214/Gemfile.lock ]
+ DEBUG [a4f6199d] Finished in 0.006 seconds with exit status 1 (failed).
+ DEBUG [092133a4] Running [ -f /var/www/awesome-events/releases/20180719120214/Gemfile.lock ] as ops@vagrant.local
+ DEBUG [092133a4] Command: [ -f /var/www/awesome-events/releases/20180719120214/Gemfile.lock ]
+ DEBUG [092133a4] Finished in 0.005 seconds with exit status 1 (failed).
+  INFO [c2c9fe2a] Running /usr/bin/env ln -s /var/www/awesome-events/shared/Gemfile.lock /var/www/awesome-events/releases/20180719120214/Gemfile.lock as ops@vagrant.local
+ DEBUG [c2c9fe2a] Command: ( export RBENV_ROOT="$HOME/.rbenv" PATH="/home/ops/.rbenv/shims:/home/ops/.rbenv/bin:$PATH" RBENV_VERSION="2.5.0" ; /usr/bin/env ln -s /var/www/awesome-events/shared/Gemfile.lock /var/www/awesome-events/releases/20180719120214/Gemfile.lock )
+  INFO [c2c9fe2a] Finished in 0.008 seconds with exit status 0 (successful).
+ DEBUG [c7ee5bdb] Running [ -L /var/www/awesome-events/releases/20180719120214/config/newrelic.yml ] as ops@vagrant.local
+ DEBUG [c7ee5bdb] Command: [ -L /var/www/awesome-events/releases/20180719120214/config/newrelic.yml ]
+ DEBUG [c7ee5bdb] Finished in 0.006 seconds with exit status 1 (failed).
+ DEBUG [e69d1679] Running [ -f /var/www/awesome-events/releases/20180719120214/config/newrelic.yml ] as ops@vagrant.local
+ DEBUG [e69d1679] Command: [ -f /var/www/awesome-events/releases/20180719120214/config/newrelic.yml ]
+ DEBUG [e69d1679] Finished in 0.006 seconds with exit status 1 (failed).
+  INFO [a2978fa5] Running /usr/bin/env ln -s /var/www/awesome-events/shared/config/newrelic.yml /var/www/awesome-events/releases/20180719120214/config/newrelic.yml as ops@vagrant.local
+ DEBUG [a2978fa5] Command: ( export RBENV_ROOT="$HOME/.rbenv" PATH="/home/ops/.rbenv/shims:/home/ops/.rbenv/bin:$PATH" RBENV_VERSION="2.5.0" ; /usr/bin/env ln -s /var/www/awesome-events/shared/config/newrelic.yml /var/www/awesome-events/releases/20180719120214/config/newrelic.yml )
+  INFO [a2978fa5] Finished in 0.008 seconds with exit status 0 (successful).
+  INFO [7c12aec3] Running /usr/bin/env mkdir -p /var/www/awesome-events/releases/20180719120214/tmp /var/www/awesome-events/releases/20180719120214/public as ops@vagrant.local
+ DEBUG [7c12aec3] Command: ( export RBENV_ROOT="$HOME/.rbenv" PATH="/home/ops/.rbenv/shims:/home/ops/.rbenv/bin:$PATH" RBENV_VERSION="2.5.0" ; /usr/bin/env mkdir -p /var/www/awesome-events/releases/20180719120214/tmp /var/www/awesome-events/releases/20180719120214/public )
+  INFO [7c12aec3] Finished in 0.009 seconds with exit status 0 (successful).
+ DEBUG [0fb1d4dc] Running [ -L /var/www/awesome-events/releases/20180719120214/tmp/pids ] as ops@vagrant.local
+ DEBUG [0fb1d4dc] Command: [ -L /var/www/awesome-events/releases/20180719120214/tmp/pids ]
+ DEBUG [0fb1d4dc] Finished in 0.005 seconds with exit status 1 (failed).
+ DEBUG [c59ee83d] Running [ -d /var/www/awesome-events/releases/20180719120214/tmp/pids ] as ops@vagrant.local
+ DEBUG [c59ee83d] Command: [ -d /var/www/awesome-events/releases/20180719120214/tmp/pids ]
+ DEBUG [c59ee83d] Finished in 0.005 seconds with exit status 1 (failed).
+  INFO [7f8bc3a5] Running /usr/bin/env ln -s /var/www/awesome-events/shared/tmp/pids /var/www/awesome-events/releases/20180719120214/tmp/pids as ops@vagrant.local
+ DEBUG [7f8bc3a5] Command: ( export RBENV_ROOT="$HOME/.rbenv" PATH="/home/ops/.rbenv/shims:/home/ops/.rbenv/bin:$PATH" RBENV_VERSION="2.5.0" ; /usr/bin/env ln -s /var/www/awesome-events/shared/tmp/pids /var/www/awesome-events/releases/20180719120214/tmp/pids )
+  INFO [7f8bc3a5] Finished in 0.009 seconds with exit status 0 (successful).
+ DEBUG [f89d1a02] Running [ -L /var/www/awesome-events/releases/20180719120214/public/assets ] as ops@vagrant.local
+ DEBUG [f89d1a02] Command: [ -L /var/www/awesome-events/releases/20180719120214/public/assets ]
+ DEBUG [f89d1a02] Finished in 0.005 seconds with exit status 1 (failed).
+ DEBUG [d13a632c] Running [ -d /var/www/awesome-events/releases/20180719120214/public/assets ] as ops@vagrant.local
+ DEBUG [d13a632c] Command: [ -d /var/www/awesome-events/releases/20180719120214/public/assets ]
+ DEBUG [d13a632c] Finished in 0.005 seconds with exit status 0 (successful).
+  INFO [1bf3a3dc] Running /usr/bin/env rm -rf /var/www/awesome-events/releases/20180719120214/public/assets as ops@vagrant.local
+ DEBUG [1bf3a3dc] Command: ( export RBENV_ROOT="$HOME/.rbenv" PATH="/home/ops/.rbenv/shims:/home/ops/.rbenv/bin:$PATH" RBENV_VERSION="2.5.0" ; /usr/bin/env rm -rf /var/www/awesome-events/releases/20180719120214/public/assets )
+  INFO [1bf3a3dc] Finished in 0.009 seconds with exit status 0 (successful).
+  INFO [d24d3e92] Running /usr/bin/env ln -s /var/www/awesome-events/shared/public/assets /var/www/awesome-events/releases/20180719120214/public/assets as ops@vagrant.local
+ DEBUG [d24d3e92] Command: ( export RBENV_ROOT="$HOME/.rbenv" PATH="/home/ops/.rbenv/shims:/home/ops/.rbenv/bin:$PATH" RBENV_VERSION="2.5.0" ; /usr/bin/env ln -s /var/www/awesome-events/shared/public/assets /var/www/awesome-events/releases/20180719120214/public/assets )
+  INFO [d24d3e92] Finished in 0.009 seconds with exit status 0 (successful).
+ DEBUG [88c73b54] Running if test ! -d /var/www/awesome-events/releases/20180719120214; then echo "Directory does not exist '/var/www/awesome-events/releases/20180719120214'" 1>&2; false; fi as ops@vagrant.local
+ DEBUG [88c73b54] Command: if test ! -d /var/www/awesome-events/releases/20180719120214; then echo "Directory does not exist '/var/www/awesome-events/releases/20180719120214'" 1>&2; false; fi
+ DEBUG [88c73b54] Finished in 0.006 seconds with exit status 0 (successful).
+ DEBUG [c6678b8e] Running $HOME/.rbenv/bin/rbenv exec bundle check --path /var/www/awesome-events/shared/bundle as ops@vagrant.local
+ DEBUG [c6678b8e] Command: cd /var/www/awesome-events/releases/20180719120214 && ( export RBENV_ROOT="$HOME/.rbenv" PATH="/home/ops/.rbenv/shims:/home/ops/.rbenv/bin:$PATH" RBENV_VERSION="2.5.0" ; $HOME/.rbenv/bin/rbenv exec bundle check --path /var/www/awesome-events/shared/bundle )
+ DEBUG [c6678b8e] 	The following gems are missing
+ DEBUG [c6678b8e] 	 * rake (12.3.1)
+ DEBUG [c6678b8e] 	 * concurrent-ruby (1.0.5)
+ DEBUG [c6678b8e] 	 * i18n (1.0.1)
+ DEBUG [c6678b8e] 	 * minitest (5.11.3)
+ DEBUG [c6678b8e] 	 * thread_safe (0.3.6)
+ DEBUG [c6678b8e] 	 * tzinfo (1.2.5)
+ DEBUG [c6678b8e] 	 * activesupport (5.2.0)
+ DEBUG [c6678b8e] 	 * builder (3.2.3)
+ DEBUG [c6678b8e] 	 * erubi (1.7.1)
+ DEBUG [c6678b8e] 	 * mini_portile2 (2.3.0)
+ DEBUG [c6678b8e] 	 * nokogiri (1.8.3)
+ DEBUG [c6678b8e] 	 * rails-dom-testing (2.0.3)
+ DEBUG [c6678b8e] 	 * crass (1.0.4)
+ DEBUG [c6678b8e] 	 * loofah (2.2.2)
+ DEBUG [c6678b8e] 	 * rails-html-sanitizer (1.0.4)
+ DEBUG [c6678b8e] 	 * actionview (5.2.0)
+ DEBUG [c6678b8e] 	 * rack (2.0.5)
+ DEBUG [c6678b8e] 	 * rack-test (1.0.0)
+ DEBUG [c6678b8e] 	 * actionpack (5.2.0)
+ DEBUG [c6678b8e] 	 * nio4r (2.3.1)
+ DEBUG [c6678b8e] 	 * websocket-extensions (0.1.3)
+ DEBUG [c6678b8e] 	 * websocket-driver (0.7.0)
+ DEBUG [c6678b8e] 	 * actioncable (5.2.0)
+ DEBUG [c6678b8e] 	 * globalid (0.4.1)
+ DEBUG [c6678b8e] 	 * activejob (5.2.0)
+ DEBUG [c6678b8e] 	 * mini_mime (1.0.0)
+ DEBUG [c6678b8e] 	 * mail (2.7.0)
+ DEBUG [c6678b8e] 	 * actionmailer (5.2.0)
+ DEBUG [c6678b8e] 	 * activemodel (5.2.0)
+ DEBUG [c6678b8e] 	 * arel (9.0.0)
+ DEBUG [c6678b8e] 	 * activerecord (5.2.0)
+ DEBUG [c6678b8e] 	 * mimemagic (0.3.2)
+ DEBUG [c6678b8e] 	 * marcel (0.3.2)
+ DEBUG [c6678b8e] 	 * activestorage (5.2.0)
+ DEBUG [c6678b8e] 	 * public_suffix (3.0.2)
+ DEBUG [c6678b8e] 	 * addressable (2.5.2)
+ DEBUG [c6678b8e] 	 * net-ssh (4.2.0)
+ DEBUG [c6678b8e] 	 * net-scp (1.2.1)
+ DEBUG [c6678b8e] 	 * sshkit (1.16.0)
+ DEBUG [c6678b8e] 	 * airbrussh (1.3.0)
+ DEBUG [c6678b8e] 	 * bcrypt (3.1.12)
+ DEBUG [c6678b8e] 	 * bindex (0.5.0)
+ DEBUG [c6678b8e] 	 * byebug (10.0.2)
+ DEBUG [c6678b8e] 	 * capistrano (3.10.2)
+ DEBUG [c6678b8e] 	 * capistrano-bundler (1.3.0)
+ DEBUG [c6678b8e] 	 * capistrano-rails (1.3.1)
+ DEBUG [c6678b8e] 	 * capistrano-rbenv (2.1.3)
+ DEBUG [c6678b8e] 	 * capistrano3-unicorn (0.2.1)
+ DEBUG [c6678b8e] 	 * xpath (3.0.0)
+ DEBUG [c6678b8e] 	 * capybara (2.18.0)
+ DEBUG [c6678b8e] 	 * mime-types-data (3.2016.0521)
+ DEBUG [c6678b8e] 	 * mime-types (3.1)
+ DEBUG [c6678b8e] 	 * carrierwave (1.2.2)
+ DEBUG [c6678b8e] 	 * ffi (1.9.25)
+ DEBUG [c6678b8e] 	 * childprocess (0.9.0)
+ DEBUG [c6678b8e] 	 * cliver (0.3.2)
+ DEBUG [c6678b8e] 	 * coffee-script-source (1.12.2)
+ DEBUG [c6678b8e] 	 * execjs (2.7.0)
+ DEBUG [c6678b8e] 	 * coffee-script (2.4.1)
+ DEBUG [c6678b8e] 	 * method_source (0.9.0)
+ DEBUG [c6678b8e] 	 * thor (0.20.0)
+ DEBUG [c6678b8e] 	 * railties (5.2.0)
+ DEBUG [c6678b8e] 	 * coffee-rails (4.2.2)
+ DEBUG [c6678b8e] 	 * database_cleaner (1.6.2)
+ DEBUG [c6678b8e] 	 * orm_adapter (0.5.0)
+ DEBUG [c6678b8e] 	 * responders (2.4.0)
+ DEBUG [c6678b8e] 	 * warden (1.2.7)
+ DEBUG [c6678b8e] 	 * devise (4.4.3)
+ DEBUG [c6678b8e] 	 * devise-i18n (1.6.2)
+ DEBUG [c6678b8e] 	 * diff-lcs (1.3)
+ DEBUG [c6678b8e] 	 * factory_bot (4.8.2)
+ DEBUG [c6678b8e] 	 * factory_bot_rails (4.8.2)
+ DEBUG [c6678b8e] 	 * hashie (3.5.7)
+ DEBUG [c6678b8e] 	 * multi_json (1.13.1)
+ DEBUG [c6678b8e] 	 * jbuilder (2.7.0)
+ * jquery (0.0.1)
+ * jquery-rails (4.3.3)
+ * kaminari-core (1.1.1)
+ * kaminari-actionview (1.1.1)
+ * kaminari-activerecord (1.1.1)
+ DEBUG [c6678b8e] 	 * kaminari (1.1.1)
+ * sprockets (3.7.2)
+ DEBUG [c6678b8e] 	 * sprockets-rails (3.2.1)
+ * rails (5.2.0)
+ * kaminari-bootstrap (3.0.1)
+ * kgio (2.11.2)
+ DEBUG [c6678b8e] 	 * rb-fsevent (0.10.3)
+ * rb-inotify (0.9.10)
+ DEBUG [c6678b8e] 	 * ruby_dep (1.5.0)
+ * listen (3.1.5)
+ * mini_magick (4.8.0)
+ * newrelic_rpm (5.2.0.345)
+ * oauth (0.5.4)
+ * omniauth (1.8.1)
+ * omniauth-oauth (1.1.0)
+ DEBUG [c6678b8e] 	 * omniauth-twitter (1.4.0)
+ * poltergeist (1.17.0)
+ DEBUG [c6678b8e] 	 * polyamorous (1.3.3)
+ * puma (3.11.4)
+ * rails-controller-testing (1.0.2)
+ * raindrops (0.19.0)
+ DEBUG [c6678b8e] 	 * ransack (1.8.8)
+ DEBUG [c6678b8e] 	 * rspec-support (3.7.1)
+ DEBUG [c6678b8e] 	 * rspec-core (3.7.1)
+ * rspec-expectations (3.7.0)
+ * rspec-mocks (3.7.0)
+ * rspec (3.7.0)
+ DEBUG [c6678b8e] 	 * rspec-rails (3.7.2)
+ DEBUG [c6678b8e] 	 * rubyzip (1.2.1)
+ * sass-listen (4.0.0)
+ DEBUG [c6678b8e] 	 * sass (3.5.6)
+ DEBUG [c6678b8e] 	 * tilt (2.0.8)
+ * sass-rails (5.0.7)
+ DEBUG [c6678b8e] 	 * selenium-webdriver (3.11.0)
+ * shoulda-matchers (3.1.2)
+ DEBUG [c6678b8e] 	 * spring (2.0.2)
+ DEBUG [c6678b8e] 	 * spring-watcher-listen (2.0.1)
+ * sqlite3 (1.3.13)
+ * turbolinks-source (5.1.0)
+ * turbolinks (5.1.1)
+ * uglifier (4.1.14)
+ DEBUG [c6678b8e] 	 * unicorn (5.4.0)
+ DEBUG [c6678b8e] 	 * warden-rspec-rails (0.2.0)
+ * web-console (3.6.2)
+Install missing gems with `bundle install`
+ DEBUG [c6678b8e] Finished in 0.289 seconds with exit status 1 (failed).
+  INFO [e578e7c9] Running $HOME/.rbenv/bin/rbenv exec bundle install --path /var/www/awesome-events/shared/bundle --without development test --deployment --quiet as ops@vagrant.local
+ DEBUG [e578e7c9] Command: cd /var/www/awesome-events/releases/20180719120214 && ( export RBENV_ROOT="$HOME/.rbenv" PATH="/home/ops/.rbenv/shims:/home/ops/.rbenv/bin:$PATH" RBENV_VERSION="2.5.0" ; $HOME/.rbenv/bin/rbenv exec bundle install --path /var/www/awesome-events/shared/bundle --without development test --deployment --quiet )
+ DEBUG [e578e7c9] 	Your bundle is locked to rake (12.3.1), but that version could not be found in
+any of the sources listed in your Gemfile. If you haven't changed sources, that
+means the author of rake (12.3.1) has removed it. You'll need to update your
+bundle to a version other than rake (12.3.1) that hasn't been removed in order
+to install.
+  INFO ---------------------------------------------------------------------------
+  INFO START 2018-07-19 21:26:55 +0900 cap staging deploy
+  INFO ---------------------------------------------------------------------------
+ DEBUG [344063c6] Running [ -d $HOME/.rbenv/versions/2.5.0 ] as ops@vagrant.local
+ DEBUG [344063c6] Command: [ -d $HOME/.rbenv/versions/2.5.0 ]
+ DEBUG [344063c6] Finished in 0.108 seconds with exit status 0 (successful).
+ DEBUG [87104596] Running [ !-d /var/www/awesome-events/shared/config ] as ops@vagrant.local
+ DEBUG [87104596] Command: [ !-d /var/www/awesome-events/shared/config ]
+ DEBUG [87104596] 	bash: line 0: [: !-d: unary operator expected
+ DEBUG [87104596] Finished in 0.006 seconds with exit status 2 (failed).
+ DEBUG Uploading config/secrets.yml 0.0%
