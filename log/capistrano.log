@@ -15255,3 +15255,25 @@ to install.
  DEBUG [87104596] 	bash: line 0: [: !-d: unary operator expected
  DEBUG [87104596] Finished in 0.006 seconds with exit status 2 (failed).
  DEBUG Uploading config/secrets.yml 0.0%
+  INFO ---------------------------------------------------------------------------
+  INFO START 2018-07-19 21:39:07 +0900 cap staging deploy
+  INFO ---------------------------------------------------------------------------
+ DEBUG [e5bf6f59] Running [ -d $HOME/.rbenv/versions/2.5.0 ] as ops@vagrant.local
+ DEBUG [e5bf6f59] Command: [ -d $HOME/.rbenv/versions/2.5.0 ]
+ DEBUG [e5bf6f59] Finished in 0.106 seconds with exit status 0 (successful).
+ DEBUG [cf5a8162] Running [ !-d /var/www/awesome-events/shared/config ] as ops@vagrant.local
+ DEBUG [cf5a8162] Command: [ !-d /var/www/awesome-events/shared/config ]
+ DEBUG [cf5a8162] 	bash: line 0: [: !-d: unary operator expected
+ DEBUG [cf5a8162] Finished in 0.006 seconds with exit status 2 (failed).
+ DEBUG Uploading config/secrets.yml 0.0%
+  INFO ---------------------------------------------------------------------------
+  INFO START 2018-07-19 21:48:14 +0900 cap staging deploy
+  INFO ---------------------------------------------------------------------------
+ DEBUG [2f8a4e22] Running [ -d $HOME/.rbenv/versions/2.5.0 ] as ops@vagrant.local
+ DEBUG [2f8a4e22] Command: [ -d $HOME/.rbenv/versions/2.5.0 ]
+ DEBUG [2f8a4e22] Finished in 0.331 seconds with exit status 0 (successful).
+ DEBUG [748a9621] Running [ !-d /var/www/awesome-events/shared/config ] as ops@vagrant.local
+ DEBUG [748a9621] Command: [ !-d /var/www/awesome-events/shared/config ]
+ DEBUG [748a9621] 	bash: line 0: [: !-d: unary operator expected
+ DEBUG [748a9621] Finished in 0.006 seconds with exit status 2 (failed).
+ DEBUG Uploading config/secrets.yml 0.0%
